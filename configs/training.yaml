@@ -1,0 +1,21 @@
+model: yolov8n-cls.pt
+data: data/processed
+epochs: 100
+imgsz: 224
+batch: 8
+optimizer: AdamW
+lr0: 0.0003
+lrf: 0.01
+weight_decay: 0.001
+patience: 20
+cos_lr: true
+seed: 42
+deterministic: true
+workers: 0
+amp: true
+device: cpu
+project: outputs/training
+name: gesture
+save: true
+plots: true
+# Custom classification transforms preserve the full hand; see training/transforms.py.

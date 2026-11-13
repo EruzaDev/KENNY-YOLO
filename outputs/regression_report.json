@@ -1,0 +1,33 @@
+{
+  "reproduced_before_fix": {
+    "blank_white": {
+      "thumbs_up": 0.9006896018981934,
+      "accepted": true
+    },
+    "blank_gray": {
+      "thumbs_up": 0.8809565901756287,
+      "accepted": true
+    }
+  },
+  "diagnostic_images_used_for_training": false,
+  "changes": [
+    "Browser independent MediaPipe hand presence check, then crop and YOLO classification",
+    "No-hand control frames reset server stabilization",
+    "Reject uniform images in backend",
+    "Require full smoothing window and discard stale camera callbacks"
+  ],
+  "verification": {
+    "python_passed": 14,
+    "python_skipped": 6,
+    "browser_logic_passed": 5,
+    "physical_webcam_verified": false,
+    "external_landmarker_executed_in_sandbox": false
+  },
+  "limitations": [
+    "Raw upload API is not hand-gated; browser is.",
+    "Hand-detector assets require browser network access.",
+    "Raw classifier can still mislabel unrelated hand poses.",
+    "New pipeline has no measured real-webcam accuracy."
+  ],
+  "trained_checkpoint_changed": false
+}

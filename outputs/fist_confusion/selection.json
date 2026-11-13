@@ -1,0 +1,16 @@
+{
+  "selection_split": "val",
+  "test_used": false,
+  "candidates": [
+    {
+      "report": "outputs/fist_confusion/candidate_val.json",
+      "qualifies": false,
+      "reasons": [
+        "reduced_resolution: open_palm recall decreased",
+        "No measured reduction in fist/thumb cross-confusions; collect real failure examples."
+      ]
+    }
+  ],
+  "selected_report": null,
+  "promoted": false
+}

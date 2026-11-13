@@ -1,0 +1,839 @@
+{
+  "checkpoint": "models/fist_thumb_crops/best.pt",
+  "checkpoint_sha256": "806664df560ff7211acbb38d96dc3382b983a520f2f1388de138c8b20fd2b563",
+  "manifest_sha256": "4f49a1dd4b324f1ecfb48d48cf461259a13d6a181049800610ef15bc1c59758b",
+  "split": "val",
+  "test_used": false,
+  "confidence": 0.8,
+  "original_image_count": 13,
+  "reduced_resolution_distance_proxy": true,
+  "hand_crop_diagnostics": true,
+  "capture_group_count": 5,
+  "classes": [
+    "closed_fist",
+    "open_palm",
+    "thumbs_up"
+  ],
+  "unsupported_classes": [],
+  "overall": {
+    "count": 176,
+    "group_count": 5,
+    "accuracy": 0.9886363636363636,
+    "per_class": {
+      "closed_fist": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 20
+      },
+      "open_palm": {
+        "precision": 1.0,
+        "recall": 0.9743589743589743,
+        "f1-score": 0.9870129870129869,
+        "support": 78
+      },
+      "thumbs_up": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 78
+      }
+    },
+    "classification_ap": {
+      "per_class": {
+        "closed_fist": 1.0,
+        "open_palm": 1.0,
+        "thumbs_up": 1.0
+      },
+      "mean_average_precision": 1.0,
+      "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+    },
+    "group_nll": 0.011742701212782519
+  },
+  "conditions": {
+    "background_blue": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.005001120803861806
+    },
+    "background_clutter": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.004709554690470441
+    },
+    "background_clutter_dim": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.0050355768809417865
+    },
+    "background_dark": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.0005842118985509527
+    },
+    "bright": {
+      "count": 13,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 6
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 6
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.003057052706478999
+    },
+    "clean": {
+      "count": 13,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 6
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 6
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.0041373340180544185
+    },
+    "dim": {
+      "count": 13,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 6
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 6
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.0017994027294604513
+    },
+    "hand_crop_background_blue": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.00012662019845652064
+    },
+    "hand_crop_background_clutter": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.0005811538346263357
+    },
+    "hand_crop_background_clutter_dim": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.0013774259837884327
+    },
+    "hand_crop_background_dark": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.0001875658137526533
+    },
+    "hand_crop_bright": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.0004671760289148132
+    },
+    "hand_crop_clean": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.0004583324806154943
+    },
+    "hand_crop_dim": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.0012861131418480483
+    },
+    "hand_crop_reduced_resolution": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.011879684780093925
+    },
+    "hand_crop_rotate_left": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.010689719632955567
+    },
+    "hand_crop_rotate_right": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.015931365167450355
+    },
+    "reduced_resolution": {
+      "count": 13,
+      "group_count": 5,
+      "accuracy": 0.9230769230769231,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 0.8333333333333334,
+          "f1-score": 0.9090909090909091,
+          "support": 6
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 6
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.03625150325592568
+    },
+    "rotate_left": {
+      "count": 13,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 6
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 6
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.014185266846002012
+    },
+    "rotate_right": {
+      "count": 13,
+      "group_count": 5,
+      "accuracy": 0.9230769230769231,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 0.8333333333333334,
+          "f1-score": 0.9090909090909091,
+          "support": 6
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 6
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.06314739352278201
+    }
+  },
+  "clean_views": {
+    "original": {
+      "count": 6,
+      "group_count": 4,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": null,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.0003430537390644811
+    },
+    "isolated": {
+      "count": 7,
+      "group_count": 5,
+      "accuracy": 1.0,
+      "per_class": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        }
+      },
+      "classification_ap": {
+        "per_class": {
+          "closed_fist": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "group_nll": 0.007999819732862085
+    }
+  },
+  "stability": {
+    "sequence_count": 6,
+    "mean_raw_label_changes": 0.0,
+    "stable_correct_after_warmup": 1.0
+  },
+  "limitations": [
+    "Lighting/orientation/background changes are synthetic diagnostic variants of val data.",
+    "Variants are correlated, not additional independent test examples.",
+    "No natural cluttered-background or new-person camera test set exists.",
+    "No negative-class false-positive rate or physical-video stability is established.",
+    "Latency recorded during local CPU activity is not a controlled device benchmark."
+  ]
+}

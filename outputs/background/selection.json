@@ -1,0 +1,32 @@
+{
+  "selection_split": "val",
+  "test_used": false,
+  "confidence": 0.8,
+  "baseline_sha256": "4b38fbeb97cf6bb3c8d3a86ed2b26d4ec02756481749f5ef2489d443cc7ec16b",
+  "candidates": [
+    {
+      "report": "outputs/background/candidate_a.json",
+      "qualifies": true,
+      "reasons": []
+    },
+    {
+      "report": "outputs/background/candidate_b.json",
+      "qualifies": false,
+      "reasons": [
+        "background_clutter: open_palm precision decreased",
+        "background_clutter: open_palm recall decreased",
+        "background_clutter_dim: open_palm recall decreased",
+        "clean: open_palm recall decreased",
+        "dim: open_palm recall decreased",
+        "rotate_left: open_palm recall decreased",
+        "rotate_left: thumbs_up recall decreased",
+        "Clean isolated accuracy decreased",
+        "No measured open-palm background recall improvement"
+      ]
+    }
+  ],
+  "selected_report": "outputs/background/candidate_a.json",
+  "selected_sha256": "5ad30242f0b45eb53037e5188ca059b0f04ea00ea262da6efe0c9e84f52a3f0a",
+  "promoted": true,
+  "rule": "No per-condition precision/recall regression in either class; preserve clean views and sequence stability; improve Open Palm background recall."
+}

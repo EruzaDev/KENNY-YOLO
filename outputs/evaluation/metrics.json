@@ -1,0 +1,97 @@
+{
+  "task": "classify",
+  "split": "test",
+  "checkpoint_sha256": "241be7c04c97dabdd6c75e23030e26a72fcf6a101e463c276a38624e3fe2478c",
+  "confidence": 0.8,
+  "count": 5,
+  "accuracy": 1.0,
+  "coverage": 1.0,
+  "classification_report": {
+    "open_palm": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 2
+    },
+    "thumbs_up": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 3
+    },
+    "unknown": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.6666666666666666,
+      "support": 5
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 5
+    }
+  },
+  "raw_top1_accuracy": 1.0,
+  "target_macro": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0
+  },
+  "confusion_matrix": [
+    [
+      2,
+      0,
+      0
+    ],
+    [
+      0,
+      3,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ]
+  ],
+  "labels": [
+    "open_palm",
+    "thumbs_up",
+    "unknown"
+  ],
+  "latency_ms": {
+    "mean": 19.351735399982317,
+    "p95": 20.33906159997514
+  },
+  "limitations": [
+    "Tiny grouped test sample; no negative gestures or empty scenes.",
+    "Identity/session independence is unverified.",
+    "Unknown represents abstention, not a trained negative class."
+  ],
+  "error_analysis": {
+    "open_palm": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "thumbs_up": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "unknown": {
+      "false_negatives": 0,
+      "false_positives": 0
+    }
+  },
+  "overfitting_review": {
+    "last_10_epochs_diverge": false,
+    "interpretation": "Review curves and validation errors; this heuristic cannot establish absence of overfitting."
+  }
+}

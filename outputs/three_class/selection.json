@@ -1,0 +1,48 @@
+{
+  "selection_split": "val",
+  "test_used": false,
+  "candidates": [
+    {
+      "report": "outputs/three_class/candidate_a_validation.json",
+      "qualifies": false,
+      "reasons": [
+        "reduced_resolution: open_palm recall decreased"
+      ]
+    },
+    {
+      "report": "outputs/three_class/candidate_b_validation.json",
+      "qualifies": false,
+      "reasons": [
+        "background_blue: open_palm recall decreased",
+        "background_clutter: open_palm precision decreased",
+        "background_clutter: open_palm recall decreased",
+        "background_clutter_dim: open_palm precision decreased",
+        "background_clutter_dim: open_palm recall decreased",
+        "bright: open_palm recall decreased",
+        "clean: open_palm recall decreased",
+        "dim: open_palm recall decreased",
+        "reduced_resolution: open_palm recall decreased",
+        "rotate_left: open_palm recall decreased",
+        "rotate_left: thumbs_up recall decreased",
+        "rotate_right: open_palm recall decreased",
+        "Closed Fist stress recall is below .8."
+      ]
+    },
+    {
+      "report": "outputs/three_class/candidate_resolution_validation.json",
+      "qualifies": false,
+      "reasons": [
+        "reduced_resolution: open_palm recall decreased"
+      ]
+    },
+    {
+      "report": "outputs/three_class/candidate_stable_validation.json",
+      "qualifies": true,
+      "reasons": []
+    }
+  ],
+  "selected_report": "outputs/three_class/candidate_stable_validation.json",
+  "selected_sha256": "cd90f0b11011ab3efc0198a9353c906fb0eb1aed86095cc8730e78ea59a803e4",
+  "promoted": true,
+  "rule": "No per-condition legacy precision/recall regression; clean views and stability preserved; Closed Fist clean recall 1 and stress recall at least .8."
+}

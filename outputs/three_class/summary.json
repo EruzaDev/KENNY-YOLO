@@ -1,0 +1,23 @@
+{
+  "training_completed": true,
+  "classes": [
+    "closed_fist",
+    "open_palm",
+    "thumbs_up"
+  ],
+  "robot_controls_enabled": false,
+  "checkpoint_sha256": "cd90f0b11011ab3efc0198a9353c906fb0eb1aed86095cc8730e78ea59a803e4",
+  "test_images": 11,
+  "test_capture_groups": 6,
+  "closed_fist_test_captures": 1,
+  "test_accuracy": 1.0,
+  "classification_mean_ap": 1.0,
+  "detection_map": null,
+  "reserved_synthetic_accuracy_before": 0.8666666666666667,
+  "reserved_synthetic_accuracy_after": 0.9888888888888889,
+  "python_tests_passed": 31,
+  "python_tests_skipped": 6,
+  "browser_logic_tests_passed": 5,
+  "physical_webcam_verified": false,
+  "natural_cluttered_scene_accuracy_verified": false
+}

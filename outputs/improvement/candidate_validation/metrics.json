@@ -1,0 +1,97 @@
+{
+  "task": "classify",
+  "split": "val",
+  "checkpoint_sha256": "4b38fbeb97cf6bb3c8d3a86ed2b26d4ec02756481749f5ef2489d443cc7ec16b",
+  "confidence": 0.8,
+  "count": 12,
+  "accuracy": 1.0,
+  "coverage": 1.0,
+  "classification_report": {
+    "open_palm": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 6
+    },
+    "thumbs_up": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 6
+    },
+    "unknown": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.6666666666666666,
+      "support": 12
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 12
+    }
+  },
+  "raw_top1_accuracy": 1.0,
+  "target_macro": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0
+  },
+  "confusion_matrix": [
+    [
+      6,
+      0,
+      0
+    ],
+    [
+      0,
+      6,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ]
+  ],
+  "labels": [
+    "open_palm",
+    "thumbs_up",
+    "unknown"
+  ],
+  "latency_ms": {
+    "mean": 103.37219616659847,
+    "p95": 151.41007719987556
+  },
+  "limitations": [
+    "Tiny grouped test sample; no negative gestures or empty scenes.",
+    "Identity/session independence is unverified.",
+    "Unknown represents abstention, not a trained negative class."
+  ],
+  "error_analysis": {
+    "open_palm": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "thumbs_up": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "unknown": {
+      "false_negatives": 0,
+      "false_positives": 0
+    }
+  },
+  "overfitting_review": {
+    "last_10_epochs_diverge": false,
+    "interpretation": "Review curves and validation errors; this heuristic cannot establish absence of overfitting."
+  }
+}

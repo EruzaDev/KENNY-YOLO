@@ -1,0 +1,81 @@
+{
+  "kind": "synthetic sequence from one validation Closed Fist capture; not physical webcam video",
+  "source": "data/three_class/val/closed_fist/0925ff0b074dd99e787a0266435ed0d1f19780b31ac532b310312887c17d08c1.png",
+  "raw": [
+    [
+      {
+        "class_name": "closed_fist",
+        "display_name": "Closed Fist \u270a",
+        "function": "RETURN TO BASE",
+        "confidence": 0.9999791383743286,
+        "bbox": null
+      }
+    ],
+    [
+      {
+        "class_name": "closed_fist",
+        "display_name": "Closed Fist \u270a",
+        "function": "RETURN TO BASE",
+        "confidence": 0.9999713897705078,
+        "bbox": null
+      }
+    ],
+    [
+      {
+        "class_name": "closed_fist",
+        "display_name": "Closed Fist \u270a",
+        "function": "RETURN TO BASE",
+        "confidence": 0.9999920129776001,
+        "bbox": null
+      }
+    ],
+    [
+      {
+        "class_name": "closed_fist",
+        "display_name": "Closed Fist \u270a",
+        "function": "RETURN TO BASE",
+        "confidence": 0.9999654293060303,
+        "bbox": null
+      }
+    ],
+    [
+      {
+        "class_name": "closed_fist",
+        "display_name": "Closed Fist \u270a",
+        "function": "RETURN TO BASE",
+        "confidence": 0.9999761581420898,
+        "bbox": null
+      }
+    ],
+    [
+      {
+        "class_name": "closed_fist",
+        "display_name": "Closed Fist \u270a",
+        "function": "RETURN TO BASE",
+        "confidence": 0.9999616146087646,
+        "bbox": null
+      }
+    ],
+    [
+      {
+        "class_name": "closed_fist",
+        "display_name": "Closed Fist \u270a",
+        "function": "RETURN TO BASE",
+        "confidence": 0.9999920129776001,
+        "bbox": null
+      }
+    ]
+  ],
+  "stabilized": [
+    null,
+    null,
+    "closed_fist",
+    "closed_fist",
+    "closed_fist",
+    "closed_fist",
+    "closed_fist"
+  ],
+  "correct_after_warmup": 5,
+  "frames_after_warmup": 5,
+  "robot_controls_enabled": false
+}

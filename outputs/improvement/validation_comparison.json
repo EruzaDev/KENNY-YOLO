@@ -1,0 +1,400 @@
+{
+  "split": "val",
+  "test_used": false,
+  "baseline": {
+    "checkpoint_sha256": "241be7c04c97dabdd6c75e23030e26a72fcf6a101e463c276a38624e3fe2478c",
+    "image_count": 12,
+    "independent_group_count": 4,
+    "confidence": 0.8,
+    "accuracy": 0.9166666666666666,
+    "per_class": {
+      "open_palm": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1-score": 0.9090909090909091,
+        "support": 6
+      },
+      "thumbs_up": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 6
+      }
+    },
+    "mean_latency_ms": 79.16833333333334,
+    "group_nll": 0.13158206246290427,
+    "all_views_correct_group_rate": 0.75,
+    "views": {
+      "isolated": {
+        "count": 6,
+        "accuracy": 1.0,
+        "nll": 0.03192991433323844
+      },
+      "original": {
+        "count": 6,
+        "accuracy": 0.8333333333333334,
+        "nll": 0.19410192431199247
+      }
+    },
+    "predictions": [
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+        "label": "thumbs_up",
+        "view": "isolated",
+        "group": 24,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.0024954311084002256,
+          "thumbs_up": 0.9975045323371887
+        },
+        "latency_ms": 63.01,
+        "nll": 0.0024985865320112923
+      },
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+        "label": "thumbs_up",
+        "view": "isolated",
+        "group": 24,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.005244321655482054,
+          "thumbs_up": 0.994755744934082
+        },
+        "latency_ms": 43.61,
+        "nll": 0.0052580544376093444
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+        "label": "open_palm",
+        "view": "isolated",
+        "group": 4,
+        "prediction": "open_palm",
+        "scores": {
+          "open_palm": 0.9758157730102539,
+          "thumbs_up": 0.02418421022593975
+        },
+        "latency_ms": 37.08,
+        "nll": 0.02448146754754477
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+        "label": "open_palm",
+        "view": "isolated",
+        "group": 4,
+        "prediction": "open_palm",
+        "scores": {
+          "open_palm": 0.9713582396507263,
+          "thumbs_up": 0.028641728684306145
+        },
+        "latency_ms": 37.38,
+        "nll": 0.02905993985383127
+      },
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+        "label": "thumbs_up",
+        "view": "isolated",
+        "group": 26,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.025501348078250885,
+          "thumbs_up": 0.9744986295700073
+        },
+        "latency_ms": 46.27,
+        "nll": 0.025832166325908196
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+        "label": "open_palm",
+        "view": "isolated",
+        "group": 0,
+        "prediction": "open_palm",
+        "scores": {
+          "open_palm": 0.9008204936981201,
+          "thumbs_up": 0.09917955100536346
+        },
+        "latency_ms": 38.44,
+        "nll": 0.10444927130252576
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/b73d0148a1ece308b62d9b1732ea608409fe43703ecb6620c8c353a6b62477d5.png",
+        "label": "open_palm",
+        "view": "original",
+        "group": 0,
+        "prediction": "unknown",
+        "scores": {
+          "open_palm": 0.6498888731002808,
+          "thumbs_up": 0.3501111567020416
+        },
+        "latency_ms": 102.2,
+        "nll": 0.43095389516965016
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/afc16bce8f2841b96f9b31c5b70e5b24b15237dad860894c8d7262bdbc3ee59e.png",
+        "label": "open_palm",
+        "view": "original",
+        "group": 4,
+        "prediction": "open_palm",
+        "scores": {
+          "open_palm": 0.9491217136383057,
+          "thumbs_up": 0.05087832361459732
+        },
+        "latency_ms": 81.68,
+        "nll": 0.0522182339719937
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/3bc23f6d0a2dfd78cb9c4ffff469c5c1821a5dc423c2a0b46e45d0894e4e7a38.png",
+        "label": "open_palm",
+        "view": "original",
+        "group": 4,
+        "prediction": "open_palm",
+        "scores": {
+          "open_palm": 0.8582795262336731,
+          "thumbs_up": 0.1417204737663269
+        },
+        "latency_ms": 89.93,
+        "nll": 0.152825444400477
+      },
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/041c4d7e77ae0af9b050a9a77ba533d5c51fd374b6f762d447e266a6a0037e64.png",
+        "label": "thumbs_up",
+        "view": "original",
+        "group": 24,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.1674669086933136,
+          "thumbs_up": 0.8325331211090088
+        },
+        "latency_ms": 138.83,
+        "nll": 0.18328227280301843
+      },
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/2ec800973c7a9d7ced21fba5ed45fc95b5f5bdea2ace3e7caeaadc5a0808f7c5.png",
+        "label": "thumbs_up",
+        "view": "original",
+        "group": 24,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.14567631483078003,
+          "thumbs_up": 0.8543237447738647
+        },
+        "latency_ms": 87.67,
+        "nll": 0.15744506478981665
+      },
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/51c3bdfc50259a8b78529256c577441b1a42a68ed488b35c022f8eea2ec55b8b.png",
+        "label": "thumbs_up",
+        "view": "original",
+        "group": 26,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.17129142582416534,
+          "thumbs_up": 0.8287086486816406
+        },
+        "latency_ms": 183.92,
+        "nll": 0.18788663473699885
+      }
+    ]
+  },
+  "candidate": {
+    "checkpoint_sha256": "4b38fbeb97cf6bb3c8d3a86ed2b26d4ec02756481749f5ef2489d443cc7ec16b",
+    "image_count": 12,
+    "independent_group_count": 4,
+    "confidence": 0.8,
+    "accuracy": 1.0,
+    "per_class": {
+      "open_palm": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 6
+      },
+      "thumbs_up": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 6
+      }
+    },
+    "mean_latency_ms": 82.82583333333334,
+    "group_nll": 0.02720180112263742,
+    "all_views_correct_group_rate": 1.0,
+    "views": {
+      "isolated": {
+        "count": 6,
+        "accuracy": 1.0,
+        "nll": 0.027294815202350543
+      },
+      "original": {
+        "count": 6,
+        "accuracy": 1.0,
+        "nll": 0.017785365794293375
+      }
+    },
+    "predictions": [
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+        "label": "thumbs_up",
+        "view": "isolated",
+        "group": 24,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.010106302797794342,
+          "thumbs_up": 0.9898937344551086
+        },
+        "latency_ms": 46.69,
+        "nll": 0.01015768054897081
+      },
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+        "label": "thumbs_up",
+        "view": "isolated",
+        "group": 24,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.00975140742957592,
+          "thumbs_up": 0.9902486205101013
+        },
+        "latency_ms": 49.23,
+        "nll": 0.009799235553435487
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+        "label": "open_palm",
+        "view": "isolated",
+        "group": 4,
+        "prediction": "open_palm",
+        "scores": {
+          "open_palm": 0.9821054935455322,
+          "thumbs_up": 0.0178944431245327
+        },
+        "latency_ms": 44.55,
+        "nll": 0.018056549161787235
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+        "label": "open_palm",
+        "view": "isolated",
+        "group": 4,
+        "prediction": "open_palm",
+        "scores": {
+          "open_palm": 0.9814426302909851,
+          "thumbs_up": 0.018557365983724594
+        },
+        "latency_ms": 52.76,
+        "nll": 0.018731718027455425
+      },
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+        "label": "thumbs_up",
+        "view": "isolated",
+        "group": 26,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.0182954054325819,
+          "thumbs_up": 0.981704592704773
+        },
+        "latency_ms": 51.05,
+        "nll": 0.018464837976612428
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+        "label": "open_palm",
+        "view": "isolated",
+        "group": 0,
+        "prediction": "open_palm",
+        "scores": {
+          "open_palm": 0.915249228477478,
+          "thumbs_up": 0.0847507119178772
+        },
+        "latency_ms": 46.76,
+        "nll": 0.08855886994584189
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/b73d0148a1ece308b62d9b1732ea608409fe43703ecb6620c8c353a6b62477d5.png",
+        "label": "open_palm",
+        "view": "original",
+        "group": 0,
+        "prediction": "open_palm",
+        "scores": {
+          "open_palm": 0.9737217426300049,
+          "thumbs_up": 0.026278240606188774
+        },
+        "latency_ms": 156.03,
+        "nll": 0.026629701340188102
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/afc16bce8f2841b96f9b31c5b70e5b24b15237dad860894c8d7262bdbc3ee59e.png",
+        "label": "open_palm",
+        "view": "original",
+        "group": 4,
+        "prediction": "open_palm",
+        "scores": {
+          "open_palm": 0.9844380021095276,
+          "thumbs_up": 0.015561995096504688
+        },
+        "latency_ms": 124.7,
+        "nll": 0.015684356873176784
+      },
+      {
+        "path": "data/processed_with_originals/val/open_palm/3bc23f6d0a2dfd78cb9c4ffff469c5c1821a5dc423c2a0b46e45d0894e4e7a38.png",
+        "label": "open_palm",
+        "view": "original",
+        "group": 4,
+        "prediction": "open_palm",
+        "scores": {
+          "open_palm": 0.9931014776229858,
+          "thumbs_up": 0.006898504216223955
+        },
+        "latency_ms": 133.54,
+        "nll": 0.00692242718450823
+      },
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/041c4d7e77ae0af9b050a9a77ba533d5c51fd374b6f762d447e266a6a0037e64.png",
+        "label": "thumbs_up",
+        "view": "original",
+        "group": 24,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.012341608293354511,
+          "thumbs_up": 0.9876583218574524
+        },
+        "latency_ms": 95.49,
+        "nll": 0.012418469126091401
+      },
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/2ec800973c7a9d7ced21fba5ed45fc95b5f5bdea2ace3e7caeaadc5a0808f7c5.png",
+        "label": "thumbs_up",
+        "view": "original",
+        "group": 24,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.013865850865840912,
+          "thumbs_up": 0.9861341118812561
+        },
+        "latency_ms": 96.48,
+        "nll": 0.013962917522102974
+      },
+      {
+        "path": "data/processed_with_originals/val/thumbs_up/51c3bdfc50259a8b78529256c577441b1a42a68ed488b35c022f8eea2ec55b8b.png",
+        "label": "thumbs_up",
+        "view": "original",
+        "group": 26,
+        "prediction": "thumbs_up",
+        "scores": {
+          "open_palm": 0.030615895986557007,
+          "thumbs_up": 0.9693841338157654
+        },
+        "latency_ms": 96.63,
+        "nll": 0.03109432271969275
+      }
+    ]
+  },
+  "selection_rule": "No reduction in class precision/recall, view accuracy or group correctness; lower group NLL.",
+  "candidate_qualifies": true,
+  "promoted": true,
+  "limitations": [
+    "Only 4 validation groups; this is weak evidence of real-world accuracy.",
+    "No measured negatives or new-camera test set.",
+    "Positive-only confidence improvement does not establish calibration on non-target inputs."
+  ]
+}

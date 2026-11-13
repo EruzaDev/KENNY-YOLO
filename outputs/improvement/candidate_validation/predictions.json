@@ -1,0 +1,122 @@
+[
+  {
+    "path": "data/processed_with_originals/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.010106302797794342,
+      "thumbs_up": 0.9898937344551086
+    },
+    "latency_ms": 49.949900999763486
+  },
+  {
+    "path": "data/processed_with_originals/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.00975140742957592,
+      "thumbs_up": 0.9902486205101013
+    },
+    "latency_ms": 49.37215299969466
+  },
+  {
+    "path": "data/processed_with_originals/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "open_palm": 0.9821054935455322,
+      "thumbs_up": 0.0178944431245327
+    },
+    "latency_ms": 74.88357400006862
+  },
+  {
+    "path": "data/processed_with_originals/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "open_palm": 0.9814426302909851,
+      "thumbs_up": 0.018557365983724594
+    },
+    "latency_ms": 54.85873099996752
+  },
+  {
+    "path": "data/processed_with_originals/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.0182954054325819,
+      "thumbs_up": 0.981704592704773
+    },
+    "latency_ms": 74.56014299987146
+  },
+  {
+    "path": "data/processed_with_originals/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "open_palm": 0.915249228477478,
+      "thumbs_up": 0.0847507119178772
+    },
+    "latency_ms": 63.15820800000438
+  },
+  {
+    "path": "data/processed_with_originals/val/open_palm/b73d0148a1ece308b62d9b1732ea608409fe43703ecb6620c8c353a6b62477d5.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "open_palm": 0.9737217426300049,
+      "thumbs_up": 0.026278240606188774
+    },
+    "latency_ms": 137.33249400002023
+  },
+  {
+    "path": "data/processed_with_originals/val/open_palm/afc16bce8f2841b96f9b31c5b70e5b24b15237dad860894c8d7262bdbc3ee59e.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "open_palm": 0.9844380021095276,
+      "thumbs_up": 0.015561995096504688
+    },
+    "latency_ms": 145.33467499995822
+  },
+  {
+    "path": "data/processed_with_originals/val/open_palm/3bc23f6d0a2dfd78cb9c4ffff469c5c1821a5dc423c2a0b46e45d0894e4e7a38.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "open_palm": 0.9931014776229858,
+      "thumbs_up": 0.006898504216223955
+    },
+    "latency_ms": 141.46699399998397
+  },
+  {
+    "path": "data/processed_with_originals/val/thumbs_up/041c4d7e77ae0af9b050a9a77ba533d5c51fd374b6f762d447e266a6a0037e64.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.012341608293354511,
+      "thumbs_up": 0.9876583218574524
+    },
+    "latency_ms": 145.61227700005475
+  },
+  {
+    "path": "data/processed_with_originals/val/thumbs_up/2ec800973c7a9d7ced21fba5ed45fc95b5f5bdea2ace3e7caeaadc5a0808f7c5.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.013865850865840912,
+      "thumbs_up": 0.9861341118812561
+    },
+    "latency_ms": 146.38335399968128
+  },
+  {
+    "path": "data/processed_with_originals/val/thumbs_up/51c3bdfc50259a8b78529256c577441b1a42a68ed488b35c022f8eea2ec55b8b.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.030615895986557007,
+      "thumbs_up": 0.9693841338157654
+    },
+    "latency_ms": 157.55385000011302
+  }
+]

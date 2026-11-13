@@ -1,0 +1,19 @@
+{
+  "input_size": [
+    640,
+    640
+  ],
+  "device": "cpu",
+  "torch_threads": 2,
+  "scope": "Warmed in-process classification, excluding browser hand detection, JPEG transport and network.",
+  "previous": {
+    "mean_ms": 40.68795820003288,
+    "p95_ms": 43.64793930017186,
+    "iterations": 20
+  },
+  "selected": {
+    "mean_ms": 39.94671350005774,
+    "p95_ms": 42.63872270043976,
+    "iterations": 20
+  }
+}

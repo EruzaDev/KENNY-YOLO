@@ -1,0 +1,130 @@
+{
+  "task": "classify",
+  "split": "test",
+  "checkpoint_sha256": "cd90f0b11011ab3efc0198a9353c906fb0eb1aed86095cc8730e78ea59a803e4",
+  "capture_group_count": 6,
+  "source_capture_count": 6,
+  "confidence": 0.8,
+  "count": 11,
+  "accuracy": 1.0,
+  "coverage": 1.0,
+  "classification_report": {
+    "closed_fist": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1
+    },
+    "open_palm": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4
+    },
+    "thumbs_up": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 6
+    },
+    "unknown": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1-score": 0.75,
+      "support": 11
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 11
+    }
+  },
+  "raw_top1_accuracy": 1.0,
+  "target_macro": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0
+  },
+  "classification_average_precision": {
+    "per_class": {
+      "closed_fist": 1.0,
+      "open_palm": 1.0,
+      "thumbs_up": 1.0
+    },
+    "mean_average_precision": 1.0,
+    "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+  },
+  "detection_map": null,
+  "confusion_matrix": [
+    [
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      6,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "labels": [
+    "closed_fist",
+    "open_palm",
+    "thumbs_up",
+    "unknown"
+  ],
+  "latency_ms": {
+    "mean": 462.339213545585,
+    "p95": 729.3473634999827
+  },
+  "limitations": [
+    "Tiny grouped test sample; no negative gestures or empty scenes.",
+    "Identity/session independence is unverified.",
+    "Unknown represents abstention, not a trained negative class."
+  ],
+  "error_analysis": {
+    "closed_fist": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "open_palm": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "thumbs_up": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "unknown": {
+      "false_negatives": 0,
+      "false_positives": 0
+    }
+  },
+  "overfitting_review": {
+    "last_10_epochs_diverge": false,
+    "interpretation": "Review curves and validation errors; this heuristic cannot establish absence of overfitting."
+  },
+  "latency_note": "Recorded during parallel evaluation; see outputs/three_class/latency.json for isolated warmed model timing."
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "path": "data/processed_with_originals/test/thumbs_up/72a6798033b709547880d2216b065dd875c83ecf40dd7e56f5646bc422c5f813.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.005459577310830355,
+      "thumbs_up": 0.9945403933525085
+    },
+    "latency_ms": 655.1425239999844
+  },
+  {
+    "path": "data/processed_with_originals/test/open_palm/b92b6d9e56bb744f0b027f13eb4aa2e68589c6535b7f24a446e481220fee7b67.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "open_palm": 0.9989959597587585,
+      "thumbs_up": 0.001004085293971002
+    },
+    "latency_ms": 269.7920000000522
+  },
+  {
+    "path": "data/processed_with_originals/test/thumbs_up/d3280b51371bd24461c733d01b0fb2bef861899aaa346748eaadfbd68518ee31.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.016029387712478638,
+      "thumbs_up": 0.983970582485199
+    },
+    "latency_ms": 291.60621099981654
+  },
+  {
+    "path": "data/processed_with_originals/test/open_palm/edc9f5323f1a47cad392b3c379e5d13f9e546b45e105558556bb7031dcd0dff6.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "open_palm": 0.9980975985527039,
+      "thumbs_up": 0.0019023589557036757
+    },
+    "latency_ms": 481.15683500009254
+  },
+  {
+    "path": "data/processed_with_originals/test/thumbs_up/693a202649072eccf5377c06f3775c6600bb3629cb22da5ce008c2b48912ad5b.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.007426541298627853,
+      "thumbs_up": 0.9925734996795654
+    },
+    "latency_ms": 431.5928580003856
+  },
+  {
+    "path": "data/processed_with_originals/test/open_palm/9cc798e27555331a63bb6d854876bffa2490d23e26a6207d789cc88783922a29.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "open_palm": 0.9994468092918396,
+      "thumbs_up": 0.0005531834322027862
+    },
+    "latency_ms": 927.2107259998847
+  },
+  {
+    "path": "data/processed_with_originals/test/open_palm/1679e7c458fefc4bf302e5f637bb67aec8da0bda01a82c3cf35af4c976563471.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "open_palm": 0.9987837672233582,
+      "thumbs_up": 0.0012163011124357581
+    },
+    "latency_ms": 560.580600999856
+  },
+  {
+    "path": "data/processed_with_originals/test/thumbs_up/a5452e9a5ce40159c216f833606732b7cf758ba54c2e792a4cfa1416cb2aa6af.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.00315533927641809,
+      "thumbs_up": 0.9968446493148804
+    },
+    "latency_ms": 755.4017879997446
+  },
+  {
+    "path": "data/processed_with_originals/test/thumbs_up/63b242793d8df88257f9478457c48e9e8aff16448da8cca5348c4977aa5abd93.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.02159244380891323,
+      "thumbs_up": 0.9784075617790222
+    },
+    "latency_ms": 686.4958510000179
+  },
+  {
+    "path": "data/processed_with_originals/test/thumbs_up/b62090ed83c12f6aab20a56f24b420481c9272e70b1c6440765248caed3ac177.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "open_palm": 0.0014860703377053142,
+      "thumbs_up": 0.9985138773918152
+    },
+    "latency_ms": 424.6522080002251
+  }
+]

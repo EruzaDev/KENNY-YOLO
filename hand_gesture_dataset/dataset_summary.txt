@@ -1,0 +1,69 @@
+======================================================================
+HAND GESTURE DATASET SUMMARY
+======================================================================
+Generated On        : 2026-11-13 20:10:23
+Output Directory    : c:\Users\User\Downloads\hand_gesture_dataset\hand_gesture_dataset
+
+IMAGE SPECIFICATIONS
+----------------------------------------------------------------------
+Format              : PNG
+Color Mode          : RGB
+Resolution          : 640 x 640 pixels
+Background Color    : Plain White (#FFFFFF / RGB 255, 255, 255)
+Segmentation Model  : rembg with U^2-Net (u2net) via ONNX Runtime
+
+CLASS COUNTS & FILENAMES
+----------------------------------------------------------------------
+1. Thumbs-Up Class  : 250 images (thumbs_up/thumbsup_1.png ... thumbsup_250.png)
+   Master Images (18):
+  - thumbsup_master_1.png   : 14 copies (from 'thumbs_up.jpg')
+  - thumbsup_master_2.png   : 14 copies (from 'thumbs_up (1).jpg')
+  - thumbsup_master_3.png   : 14 copies (from 'Thumbs_Up (2).jpg')
+  - thumbsup_master_4.png   : 14 copies (from 'Thumbs_Up (3).jpg')
+  - thumbsup_master_5.png   : 14 copies (from 'Thumbs_Up (4).jpg')
+  - thumbsup_master_6.png   : 14 copies (from 'Thumbs_Up (5).jpg')
+  - thumbsup_master_7.png   : 14 copies (from 'Thumbs_Up (6).jpg')
+  - thumbsup_master_8.png   : 14 copies (from 'Thumbs_Up (7).jpg')
+  - thumbsup_master_9.png   : 14 copies (from 'thumbs_up (8).jpg')
+  - thumbsup_master_10.png  : 14 copies (from 'thumbs_up (9).jpg')
+  - thumbsup_master_11.png  : 14 copies (from 'thumbs_up (10).jpg')
+  - thumbsup_master_12.png  : 14 copies (from 'thumbs_up (11).jpg')
+  - thumbsup_master_13.png  : 14 copies (from 'thumbs_up (300).jpg')
+  - thumbsup_master_14.png  : 14 copies (from 'thumbs_up (301).jpg')
+  - thumbsup_master_15.png  : 14 copies (from 'thumbs_up (302).jpg')
+  - thumbsup_master_16.png  : 14 copies (from 'thumbs_up (303).jpg')
+  - thumbsup_master_17.png  : 13 copies (from 'thumbs_up (304).jpg')
+  - thumbsup_master_18.png  : 13 copies (from 'thumbs_up (305).jpg')
+
+2. Open-Palm Class  : 250 images (open_palm/openpalm_1.png ... openpalm_250.png)
+   Master Images (17):
+  - openpalm_master_1.png   : 15 copies (from 'open_palm.jpg')
+  - openpalm_master_2.png   : 15 copies (from 'open_palm (1).jpg')
+  - openpalm_master_3.png   : 15 copies (from 'Open_Palm (2).jpg')
+  - openpalm_master_4.png   : 15 copies (from 'Open_Palm (3).jpg')
+  - openpalm_master_5.png   : 15 copies (from 'Open_Palm (4).jpg')
+  - openpalm_master_6.png   : 15 copies (from 'open_palm (5).jpg')
+  - openpalm_master_7.png   : 15 copies (from 'open_palm (6).jpg')
+  - openpalm_master_8.png   : 15 copies (from 'open_palm (7).jpg')
+  - openpalm_master_9.png   : 15 copies (from 'open_palm (8).jpg')
+  - openpalm_master_10.png  : 15 copies (from 'open_palm (9).jpg')
+  - openpalm_master_11.png  : 15 copies (from 'open_palm (10).jpg')
+  - openpalm_master_12.png  : 15 copies (from 'open_palm (11).jpg')
+  - openpalm_master_13.png  : 14 copies (from 'open_palm (12).jpg')
+  - openpalm_master_14.png  : 14 copies (from 'open_palm (300).jpg')
+  - openpalm_master_15.png  : 14 copies (from 'open_palm (301).jpg')
+  - openpalm_master_16.png  : 14 copies (from 'open_palm (302).jpg')
+  - openpalm_master_17.png  : 14 copies (from 'open_palm (303).jpg')
+
+Total Class Images  : 500 PNG images
+
+IMPORTANT DATASET LIMITATIONS
+----------------------------------------------------------------------
+All 250 images in each gesture class are exact duplicates cycled across
+their respective processed master images (18 Thumbs-Up masters and
+17 Open-Palm masters). No random rotations, flips, color jitter, or
+synthetic augmentations were applied. While multiple master images add
+several distinct poses compared to a single photo, repeating them to
+reach 500 total files primarily serves to organize and standardize
+the dataset structure.
+======================================================================

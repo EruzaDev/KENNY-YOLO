@@ -1,0 +1,14 @@
+.venv/
+.venv-*/
+.runtime/
+__pycache__/
+*.pyc
+.pytest_cache/
+models/*.pt
+models/*.onnx
+models/**/*.pt
+data/processed/
+data/processed_with_originals/
+data/three_class/
+outputs/training/
+.env

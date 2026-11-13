@@ -1,0 +1,353 @@
+[
+  {
+    "path": "data/three_class/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+    "label": "thumbs_up",
+    "split": "val",
+    "box": null,
+    "original": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "thumbs_up",
+          "display_name": "Thumbs Up \ud83d\udc4d",
+          "function": "DONE / RESUME",
+          "confidence": 0.9999488592147827,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 4.93490879307501e-05,
+        "open_palm": 1.8059978401652188e-06,
+        "thumbs_up": 0.9999488592147827
+      },
+      "message": "thumbs_up",
+      "width": 640,
+      "height": 640,
+      "latency_ms": 173.39
+    },
+    "cropped": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "thumbs_up",
+          "display_name": "Thumbs Up \ud83d\udc4d",
+          "function": "DONE / RESUME",
+          "confidence": 0.9999488592147827,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 4.93490879307501e-05,
+        "open_palm": 1.8059978401652188e-06,
+        "thumbs_up": 0.9999488592147827
+      },
+      "message": "thumbs_up",
+      "width": 640,
+      "height": 640,
+      "latency_ms": 45.19
+    }
+  },
+  {
+    "path": "data/three_class/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+    "label": "thumbs_up",
+    "split": "val",
+    "box": null,
+    "original": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "thumbs_up",
+          "display_name": "Thumbs Up \ud83d\udc4d",
+          "function": "DONE / RESUME",
+          "confidence": 0.9999408721923828,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 5.723172944271937e-05,
+        "open_palm": 1.9097628864983562e-06,
+        "thumbs_up": 0.9999408721923828
+      },
+      "message": "thumbs_up",
+      "width": 640,
+      "height": 640,
+      "latency_ms": 46.27
+    },
+    "cropped": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "thumbs_up",
+          "display_name": "Thumbs Up \ud83d\udc4d",
+          "function": "DONE / RESUME",
+          "confidence": 0.9999408721923828,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 5.723172944271937e-05,
+        "open_palm": 1.9097628864983562e-06,
+        "thumbs_up": 0.9999408721923828
+      },
+      "message": "thumbs_up",
+      "width": 640,
+      "height": 640,
+      "latency_ms": 47.94
+    }
+  },
+  {
+    "path": "data/three_class/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+    "label": "open_palm",
+    "split": "val",
+    "box": null,
+    "original": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "open_palm",
+          "display_name": "Open Palm \u270b",
+          "function": "STOP ROBOT",
+          "confidence": 0.9999208450317383,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 7.91648417362012e-05,
+        "open_palm": 0.9999208450317383,
+        "thumbs_up": 2.1440815345386e-08
+      },
+      "message": "open_palm",
+      "width": 640,
+      "height": 640,
+      "latency_ms": 45.13
+    },
+    "cropped": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "open_palm",
+          "display_name": "Open Palm \u270b",
+          "function": "STOP ROBOT",
+          "confidence": 0.9999208450317383,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 7.91648417362012e-05,
+        "open_palm": 0.9999208450317383,
+        "thumbs_up": 2.1440815345386e-08
+      },
+      "message": "open_palm",
+      "width": 640,
+      "height": 640,
+      "latency_ms": 44.07
+    }
+  },
+  {
+    "path": "data/three_class/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+    "label": "open_palm",
+    "split": "val",
+    "box": [
+      152,
+      48,
+      439,
+      527
+    ],
+    "original": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "open_palm",
+          "display_name": "Open Palm \u270b",
+          "function": "STOP ROBOT",
+          "confidence": 0.9999685287475586,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 3.142806235700846e-05,
+        "open_palm": 0.9999685287475586,
+        "thumbs_up": 7.63130802994283e-09
+      },
+      "message": "open_palm",
+      "width": 640,
+      "height": 640,
+      "latency_ms": 42.49
+    },
+    "cropped": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "open_palm",
+          "display_name": "Open Palm \u270b",
+          "function": "STOP ROBOT",
+          "confidence": 0.9999984502792358,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 1.5211188610919635e-06,
+        "open_palm": 0.9999984502792358,
+        "thumbs_up": 1.1506231384350585e-10
+      },
+      "message": "open_palm",
+      "width": 287,
+      "height": 479,
+      "latency_ms": 28.16
+    }
+  },
+  {
+    "path": "data/three_class/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+    "label": "thumbs_up",
+    "split": "val",
+    "box": null,
+    "original": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "thumbs_up",
+          "display_name": "Thumbs Up \ud83d\udc4d",
+          "function": "DONE / RESUME",
+          "confidence": 0.999991774559021,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 8.101898856693879e-06,
+        "open_palm": 1.4578063201042823e-07,
+        "thumbs_up": 0.999991774559021
+      },
+      "message": "thumbs_up",
+      "width": 640,
+      "height": 640,
+      "latency_ms": 43.67
+    },
+    "cropped": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "thumbs_up",
+          "display_name": "Thumbs Up \ud83d\udc4d",
+          "function": "DONE / RESUME",
+          "confidence": 0.999991774559021,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 8.101898856693879e-06,
+        "open_palm": 1.4578063201042823e-07,
+        "thumbs_up": 0.999991774559021
+      },
+      "message": "thumbs_up",
+      "width": 640,
+      "height": 640,
+      "latency_ms": 49.27
+    }
+  },
+  {
+    "path": "data/three_class/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+    "label": "open_palm",
+    "split": "val",
+    "box": [
+      206,
+      150,
+      413,
+      492
+    ],
+    "original": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "open_palm",
+          "display_name": "Open Palm \u270b",
+          "function": "STOP ROBOT",
+          "confidence": 0.9893206357955933,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 0.010383600369095802,
+        "open_palm": 0.9893206357955933,
+        "thumbs_up": 0.00029578330577351153
+      },
+      "message": "open_palm",
+      "width": 640,
+      "height": 640,
+      "latency_ms": 42.26
+    },
+    "cropped": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "open_palm",
+          "display_name": "Open Palm \u270b",
+          "function": "STOP ROBOT",
+          "confidence": 0.9997279047966003,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 0.00022133864695206285,
+        "open_palm": 0.9997279047966003,
+        "thumbs_up": 5.0813352572731674e-05
+      },
+      "message": "open_palm",
+      "width": 207,
+      "height": 342,
+      "latency_ms": 22.41
+    }
+  },
+  {
+    "path": "data/three_class/val/closed_fist/0925ff0b074dd99e787a0266435ed0d1f19780b31ac532b310312887c17d08c1.png",
+    "label": "closed_fist",
+    "split": "val",
+    "box": [
+      143,
+      177,
+      399,
+      485
+    ],
+    "original": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "closed_fist",
+          "display_name": "Closed Fist \u270a",
+          "function": "RETURN TO BASE",
+          "confidence": 0.9999920129776001,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 0.9999920129776001,
+        "open_palm": 1.6562628388783196e-06,
+        "thumbs_up": 6.265118827286642e-06
+      },
+      "message": "closed_fist",
+      "width": 640,
+      "height": 640,
+      "latency_ms": 43.53
+    },
+    "cropped": {
+      "task": "classify",
+      "predictions": [
+        {
+          "class_name": "closed_fist",
+          "display_name": "Closed Fist \u270a",
+          "function": "RETURN TO BASE",
+          "confidence": 0.9946328401565552,
+          "bbox": null
+        }
+      ],
+      "scores": {
+        "closed_fist": 0.9946328401565552,
+        "open_palm": 0.0003161937347613275,
+        "thumbs_up": 0.005050920881330967
+      },
+      "message": "closed_fist",
+      "width": 256,
+      "height": 308,
+      "latency_ms": 27.28
+    }
+  }
+]

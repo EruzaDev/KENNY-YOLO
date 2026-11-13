@@ -1,0 +1,27 @@
+# One validation-selected candidate; the original five test captures are not retuned.
+model: models/yolov8n-cls.pt
+data: data/processed_with_originals
+epochs: 100
+imgsz: 320
+batch: 8
+optimizer: AdamW
+lr0: 0.0002
+lrf: 0.01
+weight_decay: 0.001
+patience: 20
+cos_lr: true
+seed: 42
+deterministic: true
+workers: 0
+amp: true
+device: cpu
+freeze: 5
+dropout: 0.15
+mosaic: 0.0
+mixup: 0.0
+erasing: 0.0
+auto_augment: null
+project: outputs/training
+name: gesture_originals
+save: true
+plots: true
