@@ -20,17 +20,18 @@ def main():
     import torch
     import ultralytics
     from ultralytics import YOLO
-    from training.transforms import GestureTrainer, BackgroundGestureTrainer, BalancedBackgroundGestureTrainer, ResolutionBalancedTrainer, StableBackbonePalmTrainer, FistThumbTrainer
+    from training.transforms import GestureTrainer, BackgroundGestureTrainer, BalancedBackgroundGestureTrainer, ResolutionBalancedTrainer, StableBackbonePalmTrainer, FistThumbTrainer, PhotoBackgroundTrainer
 
     config = yaml.safe_load(args.config.read_text())
     profile = config.pop('augmentation_profile', 'standard')
-    if profile not in {'standard', 'background', 'background_balanced', 'background_balanced_resolution', 'background_balanced_stable_backbone', 'background_balanced_fist_thumb'}:
+    if profile not in {'standard', 'background', 'background_balanced', 'background_balanced_resolution', 'background_balanced_stable_backbone', 'background_balanced_fist_thumb', 'background_balanced_photos'}:
         raise ValueError('Unknown augmentation profile.')
     trainer = {'standard':GestureTrainer, 'background':BackgroundGestureTrainer,
                'background_balanced':BalancedBackgroundGestureTrainer,
                'background_balanced_resolution':ResolutionBalancedTrainer,
                'background_balanced_stable_backbone':StableBackbonePalmTrainer,
-               'background_balanced_fist_thumb':FistThumbTrainer}[profile]
+                'background_balanced_fist_thumb':FistThumbTrainer,
+                'background_balanced_photos':PhotoBackgroundTrainer}[profile]
     # Resolve against this checkout, independently of pretrained checkpoint settings.
     config['project'] = str(Path(config['project']).resolve())
     config['data'] = str(Path(config['data']).resolve())

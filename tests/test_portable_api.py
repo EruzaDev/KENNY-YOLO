@@ -13,10 +13,11 @@ AVAILABLE = all(importlib.util.find_spec(name) is not None for name in ['starlet
 class PortableApiTests(unittest.IsolatedAsyncioTestCase):
     @classmethod
     def setUpClass(cls):
-        if not Path('models/best.pt').is_file():
+        from app.core.config import MODEL_PATH
+        if not MODEL_PATH.is_file():
             raise unittest.SkipTest('Trained checkpoint unavailable')
         from app.services.detector import Detector
-        cls.detector = Detector(Path('models/best.pt'))
+        cls.detector = Detector(MODEL_PATH)
         cls.detector.load()
         cls.image = next(Path('data/processed/val/open_palm').glob('*.png')).read_bytes()
 
@@ -62,6 +63,18 @@ class PortableApiTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result['task'], 'classify')
         self.assertEqual(result['predictions'][0]['class_name'], 'open_palm')
         self.assertIsNone(result['predictions'][0]['bbox'])
+
+    async def test_checkpoint_linked_results_and_allowlisted_images(self):
+        response = await self.client.get('/api/results')
+        self.assertEqual(response.status_code, 200)
+        result = response.json()
+        self.assertTrue(result['available'])
+        self.assertEqual(result['checkpoint_sha256'], self.detector.metadata['checkpoint_sha256'])
+        for url in result['assets'].values():
+            image = await self.client.get(url)
+            self.assertEqual(image.status_code, 200)
+            self.assertTrue(image.headers['content-type'].startswith('image/'))
+        self.assertEqual((await self.client.get('/api/results/assets/raw-webcam')).status_code, 404)
 
     async def test_three_gestures_and_display_functions(self):
         from app.core.gestures import GESTURE_FUNCTIONS, CLASSES

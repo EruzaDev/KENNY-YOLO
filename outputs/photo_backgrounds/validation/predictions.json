@@ -1,0 +1,145 @@
+[
+  {
+    "path": "data\\photo_backgrounds\\val\\thumbs_up\\62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 3.0353583497344516e-05,
+      "open_palm": 3.6900219129165635e-05,
+      "thumbs_up": 0.9999327659606934
+    },
+    "latency_ms": 108.64520003087819
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\thumbs_up\\446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 3.416224353713915e-05,
+      "open_palm": 5.736204911954701e-05,
+      "thumbs_up": 0.999908447265625
+    },
+    "latency_ms": 62.665299978107214
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\open_palm\\9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "closed_fist": 0.0010258684633299708,
+      "open_palm": 0.9980547428131104,
+      "thumbs_up": 0.0009194036829285324
+    },
+    "latency_ms": 58.040999923832715
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\open_palm\\af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "closed_fist": 0.0007468927651643753,
+      "open_palm": 0.9972817897796631,
+      "thumbs_up": 0.0019713297951966524
+    },
+    "latency_ms": 86.96969994343817
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\thumbs_up\\7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 1.3488440345099661e-05,
+      "open_palm": 3.524948988342658e-05,
+      "thumbs_up": 0.9999512434005737
+    },
+    "latency_ms": 80.99779998883605
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\open_palm\\ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "closed_fist": 0.0024931482039391994,
+      "open_palm": 0.9911807179450989,
+      "thumbs_up": 0.006326120346784592
+    },
+    "latency_ms": 83.11010000761598
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\open_palm\\b73d0148a1ece308b62d9b1732ea608409fe43703ecb6620c8c353a6b62477d5.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "closed_fist": 0.00036430396721698344,
+      "open_palm": 0.9984814524650574,
+      "thumbs_up": 0.001154199126176536
+    },
+    "latency_ms": 149.1009999299422
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\open_palm\\afc16bce8f2841b96f9b31c5b70e5b24b15237dad860894c8d7262bdbc3ee59e.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "closed_fist": 0.000883768661879003,
+      "open_palm": 0.9954120516777039,
+      "thumbs_up": 0.003704219590872526
+    },
+    "latency_ms": 161.46690002642572
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\open_palm\\3bc23f6d0a2dfd78cb9c4ffff469c5c1821a5dc423c2a0b46e45d0894e4e7a38.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "closed_fist": 0.0014592271763831377,
+      "open_palm": 0.9962882995605469,
+      "thumbs_up": 0.0022525640670210123
+    },
+    "latency_ms": 163.04480005055666
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\thumbs_up\\041c4d7e77ae0af9b050a9a77ba533d5c51fd374b6f762d447e266a6a0037e64.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 4.351192274043569e-06,
+      "open_palm": 6.4326636675104965e-06,
+      "thumbs_up": 0.9999892711639404
+    },
+    "latency_ms": 140.49640006851405
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\thumbs_up\\2ec800973c7a9d7ced21fba5ed45fc95b5f5bdea2ace3e7caeaadc5a0808f7c5.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 5.3785988711752e-06,
+      "open_palm": 9.157004569715355e-06,
+      "thumbs_up": 0.9999854564666748
+    },
+    "latency_ms": 151.59749996382743
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\thumbs_up\\51c3bdfc50259a8b78529256c577441b1a42a68ed488b35c022f8eea2ec55b8b.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 1.184292159450706e-06,
+      "open_palm": 3.7020834042778006e-06,
+      "thumbs_up": 0.9999951124191284
+    },
+    "latency_ms": 162.13049995712936
+  },
+  {
+    "path": "data\\photo_backgrounds\\val\\closed_fist\\0925ff0b074dd99e787a0266435ed0d1f19780b31ac532b310312887c17d08c1.png",
+    "actual": "closed_fist",
+    "predicted": "closed_fist",
+    "scores": {
+      "closed_fist": 0.9985890984535217,
+      "open_palm": 0.001297157839871943,
+      "thumbs_up": 0.00011366490798536688
+    },
+    "latency_ms": 54.94519998319447
+  }
+]

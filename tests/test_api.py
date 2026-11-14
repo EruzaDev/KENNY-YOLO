@@ -61,12 +61,17 @@ class ApiTests(unittest.TestCase):
     def test_actual_model_upload(self):
         from pathlib import Path
         from app.services.detector import Detector
-        if not Path('models/best.pt').exists():
+        from app.core.config import MODEL_PATH
+        if not MODEL_PATH.exists():
             self.skipTest('Actual trained checkpoint unavailable')
-        detector = Detector(Path('models/best.pt')); detector.load()
+        detector = Detector(MODEL_PATH); detector.load()
         from app.main import app
         app.state.detector = detector
         path = next(Path('data/processed/val').rglob('*.png'))
         response = self.client.post('/api/predict', files={'file': (path.name, path.read_bytes(), 'image/png')})
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()['task'], 'classify')
+        results = self.client.get('/api/results').json()
+        self.assertTrue(results['available'])
+        self.assertEqual(results['checkpoint_sha256'], detector.metadata['checkpoint_sha256'])
+        self.assertEqual(self.client.get(results['assets']['training-curves']).status_code, 200)

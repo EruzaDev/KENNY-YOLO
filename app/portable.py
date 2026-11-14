@@ -10,6 +10,7 @@ from starlette.routing import Mount, Route, WebSocketRoute
 from starlette.staticfiles import StaticFiles
 
 from app.api import handlers
+from app.services import results
 from app.core.config import ROOT, MAX_BYTES
 from app.core.lifecycle import lifespan
 from app.core.logging_config import configure_logging
@@ -27,6 +28,14 @@ async def health(request):
 
 async def model_info(request):
     return JSONResponse(dict(handlers.model_info(request), backend='starlette-local'))
+
+
+async def results_info(request):
+    return JSONResponse(results.results_info(request.app.state.detector))
+
+
+async def results_image(request):
+    return results.results_asset(request.app.state.detector, request.path_params['name'])
 
 
 async def predict(request):
@@ -57,6 +66,8 @@ app = Starlette(
         Route('/', index),
         Route('/api/health', health),
         Route('/api/model', model_info),
+        Route('/api/results', results_info),
+        Route('/api/results/assets/{name}', results_image),
         Route('/api/predict', predict, methods=['POST']),
         WebSocketRoute('/api/webcam', handlers.webcam),
         Mount('/static', StaticFiles(directory=ROOT / 'frontend'), name='static'),

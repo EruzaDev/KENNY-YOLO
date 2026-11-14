@@ -1,0 +1,177 @@
+{
+  "checkpoint_sha256": "48620f85cce159edf5270b6affa499c0af8445852db31c6cf5c373780f3dad6c",
+  "title": "Webcam fist correction",
+  "checkpoint": "models/webcam_fist/best.pt",
+  "training": {
+    "epochs": 13,
+    "source": "Photo-background gesture checkpoint",
+    "image_count": 377,
+    "splits": {
+      "train": {
+        "thumbs_up": 156,
+        "open_palm": 156,
+        "closed_fist": 65
+      },
+      "val": {
+        "thumbs_up": 24,
+        "open_palm": 24,
+        "closed_fist": 7
+      },
+      "test": {
+        "thumbs_up": 6,
+        "open_palm": 4,
+        "closed_fist": 1
+      }
+    },
+    "webcam_frames": 5,
+    "webcam_sessions": 2,
+    "background_photos": 5,
+    "early_stopping": true
+  },
+  "metrics": {
+    "validation": {
+      "accuracy": 0.9818181818181818,
+      "raw_top1_accuracy": 1.0,
+      "count": 55,
+      "confidence": 0.8,
+      "capture_group_count": 5,
+      "source_capture_count": 7,
+      "coverage": 0.9818181818181818,
+      "target_macro": {
+        "precision": 1.0,
+        "recall": 0.9861111111111112,
+        "f1-score": 0.9929078014184397
+      },
+      "classification_report": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 7
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 0.9583333333333334,
+          "f1-score": 0.9787234042553191,
+          "support": 24
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 24
+        },
+        "unknown": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0
+        },
+        "accuracy": 0.9818181818181818,
+        "macro avg": {
+          "precision": 0.75,
+          "recall": 0.7395833333333334,
+          "f1-score": 0.7446808510638298,
+          "support": 55
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 0.9818181818181818,
+          "f1-score": 0.990715667311412,
+          "support": 55
+        }
+      }
+    },
+    "regression": {
+      "accuracy": 1.0,
+      "raw_top1_accuracy": 1.0,
+      "count": 11,
+      "confidence": 0.8,
+      "capture_group_count": 6,
+      "source_capture_count": 6,
+      "coverage": 1.0,
+      "target_macro": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0
+      },
+      "classification_report": {
+        "closed_fist": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 4
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 6
+        },
+        "unknown": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1-score": 0.75,
+          "support": 11
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 11
+        }
+      }
+    }
+  },
+  "original_validation": {
+    "correct": 13,
+    "count": 13
+  },
+  "training_fit": {
+    "count": 5,
+    "accepted_correct": 5,
+    "kind": "Training-frame fit diagnostic, NOT held-out accuracy"
+  },
+  "overfitting_review": {
+    "last_10_epochs_diverge": true,
+    "interpretation": "Review curves and validation errors; this heuristic cannot establish absence of overfitting."
+  },
+  "assets": {
+    "training-curves": {
+      "path": "outputs/webcam_fist/validation/training_curves.png",
+      "sha256": "bfd6767fc11027035b4bf949e71baf9399fed889c724d8ff78daa677dad7273e"
+    },
+    "validation-confusion": {
+      "path": "outputs/webcam_fist/validation/confusion_matrix.png",
+      "sha256": "f57e9ab4e2579c994b187288912c40fcad0674e8ad120fc5bc32b943fade24ad"
+    },
+    "regression-confusion": {
+      "path": "outputs/webcam_fist/regression_test/confusion_matrix.png",
+      "sha256": "e2cd2f1bc548f3e17f59b9f36702e6a21557ea386a0fe529d0951774f62801da"
+    },
+    "training-crops": {
+      "path": "outputs/webcam_fist/crop_preview.jpg",
+      "sha256": "44c07e53fccfd4d81acdbf8902b7934e247ab01cf8b31bc2c5ac8bbd2e354932"
+    }
+  },
+  "limitations": [
+    "Uploaded webcam crops were used for training. Their 5/5 result is training fit, not held-out accuracy.",
+    "Expanded validation contains correlated synthetic crops. One Open Palm view abstained below 80% confidence.",
+    "The 11 test files are a previously inspected regression set, not a fresh independent test.",
+    "Training/validation loss divergence was flagged. Fresh camera frames of all three gestures are required.",
+    "No Astra capture, new-person, empty-scene or physical-camera accuracy has been established."
+  ]
+}

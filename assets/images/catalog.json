@@ -1,0 +1,88 @@
+{
+  "images": [
+    {
+      "original_path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654902439__hand.jpg",
+      "path": "assets/images/webcam/closed_fist/3c35af08-0a19-4eac-9c85-d687f6515b3c/hand/closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654902439__hand.jpg",
+      "role": "webcam_hand",
+      "sha256": "9ebccaeb8ba023346e9e4b9993469856d78dc2029d36bc8355b8fb192a3aca71",
+      "label": "closed_fist",
+      "session": "3c35af08-0a19-4eac-9c85-d687f6515b3c",
+      "usage": "training example"
+    },
+    {
+      "original_path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654908906__hand.jpg",
+      "path": "assets/images/webcam/closed_fist/3c35af08-0a19-4eac-9c85-d687f6515b3c/hand/closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654908906__hand.jpg",
+      "role": "webcam_hand",
+      "sha256": "c1e2d328f4f7a0b892bf506bec537c4a275332889996027d6ead1c714a44dc0b",
+      "label": "closed_fist",
+      "session": "3c35af08-0a19-4eac-9c85-d687f6515b3c",
+      "usage": "training example"
+    },
+    {
+      "original_path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654913843__hand.jpg",
+      "path": "assets/images/webcam/closed_fist/3c35af08-0a19-4eac-9c85-d687f6515b3c/hand/closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654913843__hand.jpg",
+      "role": "webcam_hand",
+      "sha256": "19f0ffac059974177df10a5291f3cf7cdbd1ee593c54d91581fb856a69fef6d3",
+      "label": "closed_fist",
+      "session": "3c35af08-0a19-4eac-9c85-d687f6515b3c",
+      "usage": "training example"
+    },
+    {
+      "original_path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654917454__full.jpg",
+      "path": "assets/images/webcam/closed_fist/3c35af08-0a19-4eac-9c85-d687f6515b3c/full/closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654917454__full.jpg",
+      "role": "webcam_full",
+      "sha256": "f7c7cc7383113d04a536ba3a58faa6de9fd12ff911987b8db5d54b5a6f200ddb",
+      "label": "closed_fist",
+      "session": "3c35af08-0a19-4eac-9c85-d687f6515b3c",
+      "usage": "diagnostic full frame; not used for training"
+    },
+    {
+      "original_path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654924051__hand.jpg",
+      "path": "assets/images/webcam/closed_fist/3c35af08-0a19-4eac-9c85-d687f6515b3c/hand/closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654924051__hand.jpg",
+      "role": "webcam_hand",
+      "sha256": "9cd1254503842efcab9b1a045ef01470b25787b3e258da8025313c520597b9b6",
+      "label": "closed_fist",
+      "session": "3c35af08-0a19-4eac-9c85-d687f6515b3c",
+      "usage": "training example"
+    },
+    {
+      "original_path": "closed_fist__session_cc464b56-b9ad-4a84-a5d4-42ff612dce44__1794654850884__hand.jpg",
+      "path": "assets/images/webcam/closed_fist/cc464b56-b9ad-4a84-a5d4-42ff612dce44/hand/closed_fist__session_cc464b56-b9ad-4a84-a5d4-42ff612dce44__1794654850884__hand.jpg",
+      "role": "webcam_hand",
+      "sha256": "8f85e7e909bf54b4fe8d34abf67b18585dc98b295537c3aa0fd29b9eafde3a46",
+      "label": "closed_fist",
+      "session": "cc464b56-b9ad-4a84-a5d4-42ff612dce44",
+      "usage": "training example"
+    },
+    {
+      "original_path": "IMG_20261114_183553_437.jpg",
+      "path": "assets/images/backgrounds/IMG_20261114_183553_437.jpg",
+      "role": "background",
+      "sha256": "321a634dc51ab4051b4f3a84ec318dc736be9dc02932cbfc85ebc820cd1b4a6e"
+    },
+    {
+      "original_path": "IMG_20261114_183600_102.jpg",
+      "path": "assets/images/backgrounds/IMG_20261114_183600_102.jpg",
+      "role": "background",
+      "sha256": "9d8bad157ee22b65853307046a1e097fe8cda1c04658fd8cb910e38e2dcc2c51"
+    },
+    {
+      "original_path": "IMG_20261114_183607_053.jpg",
+      "path": "assets/images/backgrounds/IMG_20261114_183607_053.jpg",
+      "role": "background",
+      "sha256": "824fca87fb8f9dc1a489ce2043d4c4fc5ea12e36481d1bed5044ecae4ef31d30"
+    },
+    {
+      "original_path": "IMG_20261114_183611_438.jpg",
+      "path": "assets/images/backgrounds/IMG_20261114_183611_438.jpg",
+      "role": "background",
+      "sha256": "bbed811ff579f40e3bc13d89063d39264875de0efb619351bfd24807da26f33c"
+    },
+    {
+      "original_path": "IMG_20261114_183617_645.jpg",
+      "path": "assets/images/backgrounds/IMG_20261114_183617_645.jpg",
+      "role": "background",
+      "sha256": "2a3f4e2de52cd2f4f4167577c210b7cde8725359a40e453cdc4aad8da7b6f6cc"
+    }
+  ]
+}

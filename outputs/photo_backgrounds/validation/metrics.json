@@ -1,0 +1,129 @@
+{
+  "task": "classify",
+  "split": "val",
+  "checkpoint_sha256": "bf1534ee8b2e48ddd03b1c9f005ebabe0e00f7f78640595fd903023e7d1ea3a4",
+  "capture_group_count": 5,
+  "source_capture_count": 7,
+  "confidence": 0.8,
+  "count": 13,
+  "accuracy": 1.0,
+  "coverage": 1.0,
+  "classification_report": {
+    "closed_fist": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1
+    },
+    "open_palm": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 6
+    },
+    "thumbs_up": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 6
+    },
+    "unknown": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1-score": 0.75,
+      "support": 13
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 13
+    }
+  },
+  "raw_top1_accuracy": 1.0,
+  "target_macro": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0
+  },
+  "classification_average_precision": {
+    "per_class": {
+      "closed_fist": 1.0,
+      "open_palm": 1.0,
+      "thumbs_up": 1.0
+    },
+    "mean_average_precision": 1.0,
+    "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+  },
+  "detection_map": null,
+  "confusion_matrix": [
+    [
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      6,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      6,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "labels": [
+    "closed_fist",
+    "open_palm",
+    "thumbs_up",
+    "unknown"
+  ],
+  "latency_ms": {
+    "mean": 112.5547230655614,
+    "p95": 162.49621999450028
+  },
+  "limitations": [
+    "Tiny grouped test sample; no negative gestures or empty scenes.",
+    "Identity/session independence is unverified.",
+    "Unknown represents abstention, not a trained negative class."
+  ],
+  "error_analysis": {
+    "closed_fist": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "open_palm": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "thumbs_up": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "unknown": {
+      "false_negatives": 0,
+      "false_positives": 0
+    }
+  },
+  "overfitting_review": {
+    "last_10_epochs_diverge": false,
+    "interpretation": "Review curves and validation errors; this heuristic cannot establish absence of overfitting."
+  }
+}

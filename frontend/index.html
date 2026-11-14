@@ -1,13 +1,115 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Kenny · Gesture Lab</title><link rel="stylesheet" href="/static/css/style.css"></head>
-<body><header><a href="/" class="brand"><span class="logo">K</span> KENNY <small>VISION LAB</small></a><span id="connection" class="badge">Checking model…</span></header>
-<main><div class="intro"><p class="eyebrow">HAND GESTURE RECOGNITION</p><h1>A gesture. A connection.</h1><p>Test Open Palm, Thumbs Up, and Closed Fist using your camera or an image.</p></div>
-<div id="notice" role="status" class="notice">Loading model information…</div>
-<div class="workspace"><section class="panel viewer"><nav aria-label="Input source"><button id="camera-tab" class="active">Live camera</button><button id="upload-tab">Upload image</button><span class="badge">YOLOv8 · Hand crops</span></nav>
-<div class="stage" id="stage"><div id="empty"><div class="hand">✋</div><h2>Your next gesture starts here</h2><p>Start your camera, or choose an image to analyze.</p></div><video id="video" playsinline muted hidden></video><img id="preview" alt="Uploaded image" hidden><div id="overlay" hidden></div></div>
-<div class="toolbar"><div id="camera-actions"><button class="primary" id="start">Start camera</button><button id="stop" disabled>Stop</button></div><div id="upload-actions" hidden><label class="primary file-label">Choose image<input id="upload" type="file" accept="image/jpeg,image/png" hidden></label><button id="reset">Reset</button><small>JPEG or PNG · up to 5 MB</small></div><span id="timing">— ms · — FPS</span></div>
-<div id="example-actions" class="example-capture"><label for="example-label">Correct gesture <select id="example-label"><option value="">Choose the actual gesture</option><option value="closed_fist">Closed Fist</option><option value="thumbs_up">Thumbs Up</option><option value="open_palm">Open Palm</option></select></label><button id="save-example" disabled>Download labeled frame</button><small>Saves the latest classified hand crop, or the current frame if no hand was classified. Select the actual gesture first. No automatic training or upload.</small></div><p id="error" role="alert"></p></section>
-<aside><section class="panel result"><p class="eyebrow">CURRENT PREDICTION</p><h2 id="gesture">No gesture detected</h2><p id="function">Function: —</p><p id="score">Waiting for an image</p><p id="class-scores" class="muted" aria-label="Classifier scores"></p><div class="legend"><span>✋ Open Palm · STOP ROBOT</span><span>👍 Thumbs Up · DONE / RESUME</span><span>✊ Closed Fist · RETURN TO BASE</span></div></section>
-<section class="panel settings"><h2>Inference settings</h2><label for="confidence">Confidence threshold <output id="confidence-value">80%</output></label><input id="confidence" type="range" min="50" max="99" value="80"><label for="smoothing">Stabilization <output id="smoothing-value">3 frames</output></label><input id="smoothing" type="range" min="1" max="12" value="3"><label for="frequency">Camera frequency <output id="frequency-value">5 FPS</output></label><input id="frequency" type="range" min="1" max="10" value="5"><label><input type="checkbox" id="thumb-guard"> Experimental thumb consistency check</label><p class="muted">May reject conflicting fist/thumb predictions; camera validation is pending. Settings apply to the next frame. IoU is unavailable for image classification.</p></section></aside></div>
-<section class="panel model"><div><p class="eyebrow">MODEL DETAILS</p><h2>Know what’s behind the prediction</h2></div><dl><div><dt>Architecture</dt><dd id="architecture">Unavailable</dd></div><div><dt>Checkpoint</dt><dd id="checkpoint">best.pt</dd></div><div><dt>Device</dt><dd id="device">—</dd></div><div><dt>Saved classifier test</dt><dd id="accuracy">Not evaluated</dd></div></dl><p id="model-status" role="status"></p><p>The browser first checks for a hand, then sends one hand crop to the trained YOLO classifier. No hand means no gesture prediction. Show one hand at a time. Functions are display-only; no robot commands are sent. Saved test results cover the trained classifier, not the full browser hand-gated camera pipeline; real-scene accuracy remains unverified.</p></section>
-<footer>KENNY VISION LAB <span>Built for careful, evidence-based experimentation.</span></footer></main><script type="module" src="/static/js/app.js?v=5"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#163d32">
+  <title>Kenny · Gesture Studio</title>
+  <link rel="stylesheet" href="/static/css/style.css?v=9">
+</head>
+<body>
+  <header>
+    <a href="/" class="brand"><span class="logo">k<span>↗</span></span><span>kenny<span class="brand-sub">VISION LAB</span></span></a>
+    <nav class="header-nav" aria-label="Main navigation"><a href="#workspace" class="selected">Gesture studio</a><a href="#results">Results</a><a href="#model-details">Model details</a></nav>
+    <span id="connection" class="badge" role="status">Checking model…</span>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow"><span class="status-dot"></span> YOUR HANDS. A NEW WAY TO CONNECT.</p><h1>Small gestures.<br><span>Clear intentions.</span></h1><p>A little movement, a meaningful signal. Explore hand gesture<br class="desktop-break"> recognition with your camera or a photo.</p></div>
+      <div class="intro-note"><span class="note-icon">↗</span><p>Built to see<br><strong>beyond the background.</strong></p><span class="note-caption">ONE HAND · THREE GESTURES</span></div>
+    </section>
+
+    <div class="section-heading"><h2>Recognition workspace</h2><span>01 / EXPERIMENT</span></div>
+    <div id="notice" role="status" class="notice">Loading model information…</div>
+    <div class="workspace" id="workspace">
+      <section class="panel viewer" aria-label="Camera and image input">
+        <nav class="source-nav" aria-label="Input source">
+          <div class="tabs"><button id="camera-tab" class="active" aria-pressed="true"><span aria-hidden="true">◉</span> Live camera</button><button id="upload-tab" aria-pressed="false"><span aria-hidden="true">▧</span> Upload image</button></div>
+          <span class="source-label"><span class="status-dot"></span> LOCAL INFERENCE</span>
+        </nav>
+        <div id="camera-source" class="camera-source">
+          <label for="camera-select">Camera source</label>
+          <select id="camera-select" aria-describedby="camera-help"><option value="">Default camera</option></select>
+          <button id="refresh-cameras" type="button">Refresh cameras</button>
+          <small id="camera-help">Choose your webcam or Astra RGB camera. Refresh and allow access to reveal device names.</small>
+        </div>
+        <div class="stage" id="stage">
+          <span class="stage-caption">KENNY / VISION INPUT</span>
+          <div id="empty"><div class="hand" aria-hidden="true"><svg viewBox="0 0 96 96" fill="none"><path d="M32 55V30a5 5 0 0 1 10 0v19-30a5 5 0 0 1 10 0v29-25a5 5 0 0 1 10 0v28-18a5 5 0 0 1 10 0v30c0 16-9 25-23 25-8 0-14-4-19-11L18 59a5 5 0 0 1 8-6l10 11" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p class="eyebrow">READY WHEN YOU ARE</p><h2>Give us a little wave.</h2><p>Start your camera or upload an image.<br>Keep one hand fully in view.</p><span class="privacy-note">◎ Your images stay on this local app</span></div>
+          <video id="video" playsinline muted hidden></video>
+          <img id="preview" alt="Uploaded image" hidden>
+          <div id="overlay" hidden></div>
+          <div id="hand-box" class="hand-box" hidden><span id="hand-box-label"></span></div>
+          <span class="stage-corner top-left"></span><span class="stage-corner top-right"></span><span class="stage-corner bottom-left"></span><span class="stage-corner bottom-right"></span>
+        </div>
+        <div class="toolbar">
+          <div id="camera-actions"><button class="primary" id="start" disabled><span aria-hidden="true">◉</span> Start camera</button><button id="stop" disabled>Stop</button></div>
+          <div id="upload-actions" hidden><label class="primary file-label" tabindex="0" role="button">Choose image<input id="upload" type="file" accept="image/jpeg,image/png" hidden></label><button id="reset">Reset</button><small>JPEG / PNG · max 5 MB</small></div>
+          <span id="timing">— ms · — FPS</span>
+        </div>
+        <details class="capture-details"><summary>Collect a labeled example <span>OPTIONAL ↗</span></summary><div id="example-actions" class="example-capture"><label for="example-label">Actual gesture<select id="example-label"><option value="">Choose a gesture</option><option value="closed_fist">Closed Fist</option><option value="thumbs_up">Thumbs Up</option><option value="open_palm">Open Palm</option></select></label><button id="save-example" disabled>Download labeled frame</button><small>Saves the latest classified crop, or the current frame if none was classified. Nothing is uploaded or trained automatically.</small></div></details>
+        <p id="error" role="alert"></p>
+      </section>
+
+      <aside>
+        <section class="panel result" aria-label="Prediction" aria-live="polite">
+          <div class="card-heading"><p class="eyebrow">LIVE PREDICTION</p><span class="live-indicator"></span></div>
+          <div class="prediction-icon" id="prediction-icon" aria-hidden="true">↗</div>
+          <h2 id="gesture">No gesture detected</h2>
+          <p id="score">Waiting for an image</p>
+          <div class="confidence-track" role="presentation"><div id="confidence-bar"></div></div>
+          <p id="function">Function: —</p>
+          <p id="class-scores" class="muted" aria-label="Classifier scores"></p>
+          <div class="prediction-footnote">Display only. No robot commands are sent.</div>
+        </section>
+        <section class="panel settings">
+          <div class="card-heading"><h2>Fine-tune your session</h2><span aria-hidden="true">☷</span></div>
+          <div class="slider-setting"><label for="confidence">Confidence threshold <output id="confidence-value">80%</output></label><input id="confidence" type="range" min="50" max="99" value="80"></div>
+          <div class="slider-setting"><label for="smoothing">Stabilization <output id="smoothing-value">3 frames</output></label><input id="smoothing" type="range" min="1" max="12" value="3"></div>
+          <div class="slider-setting"><label for="frequency">Camera frequency <output id="frequency-value">5 FPS</output></label><input id="frequency" type="range" min="1" max="10" value="5"></div>
+          <details class="advanced-settings"><summary>Advanced settings</summary><label class="check-label"><input type="checkbox" id="thumb-guard"> Experimental thumb consistency check</label><p class="muted">May reject conflicting fist/thumb predictions. Camera validation is pending. Settings apply to the next frame; IoU is not applicable to classification.</p></details>
+        </section>
+      </aside>
+    </div>
+
+    <section class="gesture-guide" aria-label="Supported gestures">
+      <div class="guide-intro"><p class="eyebrow">THE GESTURE LANGUAGE</p><h2>Three gestures.<br>One clear message.</h2></div>
+      <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">✋</span><div><h3>Open Palm</h3><p>STOP ROBOT</p></div><span class="gesture-number">01</span></div>
+      <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">👍</span><div><h3>Thumbs Up</h3><p>DONE / RESUME</p></div><span class="gesture-number">02</span></div>
+      <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">✊</span><div><h3>Closed Fist</h3><p>RETURN TO BASE</p></div><span class="gesture-number">03</span></div>
+    </section>
+
+    <section id="results" class="results-section" aria-label="Current model results">
+      <div class="section-heading"><h2>Results from the current model</h2><span>02 / EVIDENCE</span></div>
+      <p id="results-status" class="muted" role="status">Loading verified model results…</p>
+      <div id="results-content" hidden>
+        <div class="result-metrics">
+          <article class="panel metric-card"><p class="eyebrow">TRAINING COMPLETED</p><strong id="result-epochs">—</strong><p id="result-training-count">—</p></article>
+          <article class="panel metric-card"><p class="eyebrow">EXPANDED VALIDATION</p><strong id="result-validation">—</strong><p>Accepted correctly at 80% confidence</p></article>
+          <article class="panel metric-card"><p class="eyebrow">EXISTING TEST REGRESSION</p><strong id="result-regression">—</strong><p>Previously inspected dataset—not a fresh test</p></article>
+          <article class="panel metric-card"><p class="eyebrow">UPLOADED TRAINING FRAMES</p><strong id="result-training-fit">—</strong><p>Training fit only—not camera accuracy</p></article>
+        </div>
+        <p id="result-summary" class="results-note"></p>
+        <div class="result-tables">
+          <section class="panel result-table"><h3>Dataset distribution</h3><p>Actual files before training-only class balancing.</p><div class="table-scroll"><table><thead><tr><th scope="col">Gesture</th><th scope="col">Train</th><th scope="col">Validation</th><th scope="col">Test</th></tr></thead><tbody id="dataset-results"></tbody></table></div></section>
+          <section class="panel result-table"><h3>Per-gesture regression results</h3><p>Existing test images · threshold 0.80.</p><div class="table-scroll"><table><thead><tr><th scope="col">Gesture</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th><th scope="col">Files</th></tr></thead><tbody id="class-results"></tbody></table></div></section>
+        </div>
+        <div class="result-plots">
+          <figure class="panel"><figcaption>Actual training curves <small>Loss and top-1 accuracy by epoch</small></figcaption><a id="curves-link" target="_blank" rel="noopener"><img id="result-curves" alt="Training and validation loss and classification accuracy curves" loading="lazy"></a></figure>
+          <figure class="panel"><figcaption>Expanded validation confusion matrix <small>Includes abstentions as unknown</small></figcaption><a id="confusion-link" target="_blank" rel="noopener"><img id="result-confusion" alt="Confusion matrix of the current model's expanded validation predictions" loading="lazy"></a></figure>
+        </div>
+        <details class="panel results-examples"><summary>View hand-focused training examples</summary><img id="result-crops" alt="Synthetic hand-focused training crops of all three gestures, on white and photographic backgrounds" loading="lazy"></details>
+        <div class="results-limitations"><h3>What these numbers do—and don’t—mean</h3><ul id="result-limitations"></ul></div>
+      </div>
+    </section>
+    <section class="panel model" id="model-details">
+      <div class="model-intro"><div><p class="eyebrow">03 / UNDER THE HOOD</p><h2>A little transparency<br>behind every prediction.</h2></div><span class="model-mark" aria-hidden="true">◎</span></div>
+      <dl><div><dt>Architecture</dt><dd id="architecture">Loading…</dd></div><div><dt>Checkpoint / fingerprint</dt><dd id="checkpoint">Loading…</dd></div><div><dt>Inference device</dt><dd id="device">—</dd></div><div><dt>Existing test regression</dt><dd id="accuracy">Not evaluated</dd></div></dl>
+      <p id="model-status" role="status"></p>
+      <p class="model-explanation">A browser hand-presence check finds one hand, then the trained YOLO classifier reads its crop. The box comes from the browser hand localizer. Its percentage is model confidence—not accuracy. Saved results are small-dataset classifier checks, not live camera accuracy.</p>
+    </section>
+    <footer><a href="/" class="footer-brand">kenny<span> / VISION LAB</span></a><span>Made for curiosity. Grounded in evidence.</span><span class="footer-local"><span class="status-dot"></span> RUNNING LOCALLY</span></footer>
+  </main>
+  <script type="module" src="/static/js/app.js?v=9"></script>
+</body>
+</html>

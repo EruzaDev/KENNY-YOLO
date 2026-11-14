@@ -118,7 +118,8 @@ test('saved camera example matches the classified request and clears on stop',as
     let shown;
     const camera=new Camera({videoWidth:640,videoHeight:480,play:async()=>{}},
       ()=>({confidence:.8,smoothing:3,frequency:5}),result=>{shown=result;},()=>{},()=>{},
-      {load:async()=>{},crop:async()=>({image:{toDataURL:()=> 'data:image/jpeg;base64,ZXhhY3Q='}})});
+      {load:async()=>{},crop:async()=>({image:{toDataURL:()=> 'data:image/jpeg;base64,ZXhhY3Q='},
+        box:{x:40,y:50,width:100,height:120}})});
     await camera.start();
     await camera.send();
     const result={predictions:[{class_name:'thumbs_up',confidence:.99}],scores:{thumbs_up:.99},latency_ms:1};
@@ -126,6 +127,10 @@ test('saved camera example matches the classified request and clears on stop',as
     assert.equal(camera.lastFrame.image,camera.socket.messages[0].image);
     assert.equal(camera.lastFrame.image,'ZXhhY3Q=');
     assert.deepEqual(camera.lastFrame.result,shown);
+    assert.deepEqual(shown.hand_box,{x:40,y:50,width:100,height:120});
+    assert.equal(shown.source_width,640);
+    assert.equal(shown.source_height,480);
+    assert.equal(camera.socket.messages[0].hand_box,undefined);
     assert.equal(camera.lastFrame.session,camera.sessionId);
     camera.stop();
     assert.equal(camera.lastFrame,null);

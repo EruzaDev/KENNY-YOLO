@@ -12,3 +12,9 @@ data/processed_with_originals/
 data/three_class/
 outputs/training/
 .env
+data/photo_backgrounds/
+/yolov8n-cls.pt
+data/webcam_fist/
+/Ultralytics/
+!models/photo_backgrounds/best.pt
+!models/webcam_fist/best.pt

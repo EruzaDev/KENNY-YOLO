@@ -1,0 +1,408 @@
+{
+  "checkpoint_sha256": "bf1534ee8b2e48ddd03b1c9f005ebabe0e00f7f78640595fd903023e7d1ea3a4",
+  "split": "test",
+  "confidence": 0.8,
+  "count": 30,
+  "source_images": 6,
+  "capture_groups": 6,
+  "accepted_correct": 30,
+  "raw_top1_correct": 30,
+  "accuracy": 1.0,
+  "limitations": [
+    "Held-out hand captures, but background photos were used for training.",
+    "Synthetic correlated composites, not independent real-camera images.",
+    "No new-background, new-person, negative-scene or physical webcam accuracy established."
+  ],
+  "predictions": [
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\72a6798033b709547880d2216b065dd875c83ecf40dd7e56f5646bc422c5f813.png",
+      "group": 20,
+      "actual": "thumbs_up",
+      "background_index": 0,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 4.202460786473239e-06,
+        "open_palm": 1.2437723853508942e-05,
+        "thumbs_up": 0.9999833106994629
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\72a6798033b709547880d2216b065dd875c83ecf40dd7e56f5646bc422c5f813.png",
+      "group": 20,
+      "actual": "thumbs_up",
+      "background_index": 1,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 4.408057975524571e-06,
+        "open_palm": 1.009604602586478e-05,
+        "thumbs_up": 0.9999854564666748
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\72a6798033b709547880d2216b065dd875c83ecf40dd7e56f5646bc422c5f813.png",
+      "group": 20,
+      "actual": "thumbs_up",
+      "background_index": 2,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 1.0215571819571778e-05,
+        "open_palm": 1.5708314094808884e-05,
+        "thumbs_up": 0.9999741315841675
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\72a6798033b709547880d2216b065dd875c83ecf40dd7e56f5646bc422c5f813.png",
+      "group": 20,
+      "actual": "thumbs_up",
+      "background_index": 3,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 3.6610742881748592e-06,
+        "open_palm": 6.187429335113848e-06,
+        "thumbs_up": 0.9999901056289673
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\72a6798033b709547880d2216b065dd875c83ecf40dd7e56f5646bc422c5f813.png",
+      "group": 20,
+      "actual": "thumbs_up",
+      "background_index": 4,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 1.7723308701533824e-05,
+        "open_palm": 2.4119588488247246e-05,
+        "thumbs_up": 0.9999581575393677
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\open_palm\\b92b6d9e56bb744f0b027f13eb4aa2e68589c6535b7f24a446e481220fee7b67.png",
+      "group": 6,
+      "actual": "open_palm",
+      "background_index": 0,
+      "predicted": "open_palm",
+      "raw_top1": "open_palm",
+      "scores": {
+        "closed_fist": 1.4361353350977879e-05,
+        "open_palm": 0.9999854564666748,
+        "thumbs_up": 2.5179275553455227e-07
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\open_palm\\b92b6d9e56bb744f0b027f13eb4aa2e68589c6535b7f24a446e481220fee7b67.png",
+      "group": 6,
+      "actual": "open_palm",
+      "background_index": 1,
+      "predicted": "open_palm",
+      "raw_top1": "open_palm",
+      "scores": {
+        "closed_fist": 9.025414328789338e-05,
+        "open_palm": 0.9999070167541504,
+        "thumbs_up": 2.7881533242180012e-06
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\open_palm\\b92b6d9e56bb744f0b027f13eb4aa2e68589c6535b7f24a446e481220fee7b67.png",
+      "group": 6,
+      "actual": "open_palm",
+      "background_index": 2,
+      "predicted": "open_palm",
+      "raw_top1": "open_palm",
+      "scores": {
+        "closed_fist": 5.9363093896536157e-05,
+        "open_palm": 0.9999393224716187,
+        "thumbs_up": 1.251691855941317e-06
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\open_palm\\b92b6d9e56bb744f0b027f13eb4aa2e68589c6535b7f24a446e481220fee7b67.png",
+      "group": 6,
+      "actual": "open_palm",
+      "background_index": 3,
+      "predicted": "open_palm",
+      "raw_top1": "open_palm",
+      "scores": {
+        "closed_fist": 8.373283344553784e-05,
+        "open_palm": 0.999913215637207,
+        "thumbs_up": 3.083461024289136e-06
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\open_palm\\b92b6d9e56bb744f0b027f13eb4aa2e68589c6535b7f24a446e481220fee7b67.png",
+      "group": 6,
+      "actual": "open_palm",
+      "background_index": 4,
+      "predicted": "open_palm",
+      "raw_top1": "open_palm",
+      "scores": {
+        "closed_fist": 6.986502557992935e-05,
+        "open_palm": 0.9999289512634277,
+        "thumbs_up": 1.211998437611328e-06
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\d3280b51371bd24461c733d01b0fb2bef861899aaa346748eaadfbd68518ee31.png",
+      "group": 34,
+      "actual": "thumbs_up",
+      "background_index": 0,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 7.47789817978628e-05,
+        "open_palm": 0.0014089697506278753,
+        "thumbs_up": 0.9985162615776062
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\d3280b51371bd24461c733d01b0fb2bef861899aaa346748eaadfbd68518ee31.png",
+      "group": 34,
+      "actual": "thumbs_up",
+      "background_index": 1,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 2.5747865947778337e-05,
+        "open_palm": 0.0004301722510717809,
+        "thumbs_up": 0.999544084072113
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\d3280b51371bd24461c733d01b0fb2bef861899aaa346748eaadfbd68518ee31.png",
+      "group": 34,
+      "actual": "thumbs_up",
+      "background_index": 2,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 4.4545435230247676e-05,
+        "open_palm": 0.00030993434484116733,
+        "thumbs_up": 0.999645471572876
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\d3280b51371bd24461c733d01b0fb2bef861899aaa346748eaadfbd68518ee31.png",
+      "group": 34,
+      "actual": "thumbs_up",
+      "background_index": 3,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 4.341241583460942e-05,
+        "open_palm": 0.0007035100134089589,
+        "thumbs_up": 0.9992530941963196
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\d3280b51371bd24461c733d01b0fb2bef861899aaa346748eaadfbd68518ee31.png",
+      "group": 34,
+      "actual": "thumbs_up",
+      "background_index": 4,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 6.928806669748155e-06,
+        "open_palm": 8.585985051468015e-05,
+        "thumbs_up": 0.9999072551727295
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\open_palm\\edc9f5323f1a47cad392b3c379e5d13f9e546b45e105558556bb7031dcd0dff6.png",
+      "group": 15,
+      "actual": "open_palm",
+      "background_index": 0,
+      "predicted": "open_palm",
+      "raw_top1": "open_palm",
+      "scores": {
+        "closed_fist": 3.7078379477861745e-07,
+        "open_palm": 0.9999990463256836,
+        "thumbs_up": 5.993687750560639e-07
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\open_palm\\edc9f5323f1a47cad392b3c379e5d13f9e546b45e105558556bb7031dcd0dff6.png",
+      "group": 15,
+      "actual": "open_palm",
+      "background_index": 1,
+      "predicted": "open_palm",
+      "raw_top1": "open_palm",
+      "scores": {
+        "closed_fist": 2.203358775432207e-07,
+        "open_palm": 0.999998927116394,
+        "thumbs_up": 8.314548267662758e-07
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\open_palm\\edc9f5323f1a47cad392b3c379e5d13f9e546b45e105558556bb7031dcd0dff6.png",
+      "group": 15,
+      "actual": "open_palm",
+      "background_index": 2,
+      "predicted": "open_palm",
+      "raw_top1": "open_palm",
+      "scores": {
+        "closed_fist": 1.8172228521962097e-07,
+        "open_palm": 0.9999991655349731,
+        "thumbs_up": 6.085097652430704e-07
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\open_palm\\edc9f5323f1a47cad392b3c379e5d13f9e546b45e105558556bb7031dcd0dff6.png",
+      "group": 15,
+      "actual": "open_palm",
+      "background_index": 3,
+      "predicted": "open_palm",
+      "raw_top1": "open_palm",
+      "scores": {
+        "closed_fist": 2.188169219152769e-07,
+        "open_palm": 0.9999991655349731,
+        "thumbs_up": 6.507520424747781e-07
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\open_palm\\edc9f5323f1a47cad392b3c379e5d13f9e546b45e105558556bb7031dcd0dff6.png",
+      "group": 15,
+      "actual": "open_palm",
+      "background_index": 4,
+      "predicted": "open_palm",
+      "raw_top1": "open_palm",
+      "scores": {
+        "closed_fist": 1.7135539565060753e-07,
+        "open_palm": 0.9999988079071045,
+        "thumbs_up": 1.028909196065797e-06
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\693a202649072eccf5377c06f3775c6600bb3629cb22da5ce008c2b48912ad5b.png",
+      "group": 31,
+      "actual": "thumbs_up",
+      "background_index": 0,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 2.877777660614811e-07,
+        "open_palm": 1.7854553107099491e-06,
+        "thumbs_up": 0.9999979734420776
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\693a202649072eccf5377c06f3775c6600bb3629cb22da5ce008c2b48912ad5b.png",
+      "group": 31,
+      "actual": "thumbs_up",
+      "background_index": 1,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 1.4491376987280091e-06,
+        "open_palm": 7.1687009040033445e-06,
+        "thumbs_up": 0.9999914169311523
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\693a202649072eccf5377c06f3775c6600bb3629cb22da5ce008c2b48912ad5b.png",
+      "group": 31,
+      "actual": "thumbs_up",
+      "background_index": 2,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 4.139177463002852e-07,
+        "open_palm": 4.467400685825851e-06,
+        "thumbs_up": 0.9999951124191284
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\693a202649072eccf5377c06f3775c6600bb3629cb22da5ce008c2b48912ad5b.png",
+      "group": 31,
+      "actual": "thumbs_up",
+      "background_index": 3,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 8.372897468689189e-07,
+        "open_palm": 3.2601919883745722e-06,
+        "thumbs_up": 0.9999959468841553
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\thumbs_up\\693a202649072eccf5377c06f3775c6600bb3629cb22da5ce008c2b48912ad5b.png",
+      "group": 31,
+      "actual": "thumbs_up",
+      "background_index": 4,
+      "predicted": "thumbs_up",
+      "raw_top1": "thumbs_up",
+      "scores": {
+        "closed_fist": 5.105928835291706e-07,
+        "open_palm": 1.9251260710007045e-06,
+        "thumbs_up": 0.999997615814209
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\closed_fist\\655c50d14c65a33d7478b8f3df1fa57887f9e0819627f5c2678d6cc299605429.png",
+      "group": 38,
+      "actual": "closed_fist",
+      "background_index": 0,
+      "predicted": "closed_fist",
+      "raw_top1": "closed_fist",
+      "scores": {
+        "closed_fist": 0.9999878406524658,
+        "open_palm": 1.1668312254187185e-05,
+        "thumbs_up": 4.984163410881592e-07
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\closed_fist\\655c50d14c65a33d7478b8f3df1fa57887f9e0819627f5c2678d6cc299605429.png",
+      "group": 38,
+      "actual": "closed_fist",
+      "background_index": 1,
+      "predicted": "closed_fist",
+      "raw_top1": "closed_fist",
+      "scores": {
+        "closed_fist": 0.9999603033065796,
+        "open_palm": 3.8776455767219886e-05,
+        "thumbs_up": 9.549160040478455e-07
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\closed_fist\\655c50d14c65a33d7478b8f3df1fa57887f9e0819627f5c2678d6cc299605429.png",
+      "group": 38,
+      "actual": "closed_fist",
+      "background_index": 2,
+      "predicted": "closed_fist",
+      "raw_top1": "closed_fist",
+      "scores": {
+        "closed_fist": 0.999970555305481,
+        "open_palm": 2.8422775358194485e-05,
+        "thumbs_up": 1.0655395499270526e-06
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\closed_fist\\655c50d14c65a33d7478b8f3df1fa57887f9e0819627f5c2678d6cc299605429.png",
+      "group": 38,
+      "actual": "closed_fist",
+      "background_index": 3,
+      "predicted": "closed_fist",
+      "raw_top1": "closed_fist",
+      "scores": {
+        "closed_fist": 0.9999459981918335,
+        "open_palm": 5.18840788572561e-05,
+        "thumbs_up": 2.195156184825464e-06
+      }
+    },
+    {
+      "source": "data\\photo_backgrounds\\test\\closed_fist\\655c50d14c65a33d7478b8f3df1fa57887f9e0819627f5c2678d6cc299605429.png",
+      "group": 38,
+      "actual": "closed_fist",
+      "background_index": 4,
+      "predicted": "closed_fist",
+      "raw_top1": "closed_fist",
+      "scores": {
+        "closed_fist": 0.9999810457229614,
+        "open_palm": 1.792036164260935e-05,
+        "thumbs_up": 1.0941639629891142e-06
+      }
+    }
+  ]
+}

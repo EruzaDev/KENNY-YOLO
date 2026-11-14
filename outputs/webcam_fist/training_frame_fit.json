@@ -1,0 +1,64 @@
+{
+  "checkpoint_sha256": "48620f85cce159edf5270b6affa499c0af8445852db31c6cf5c373780f3dad6c",
+  "split": "train",
+  "kind": "Training-frame fit diagnostic, NOT held-out accuracy",
+  "confidence": 0.8,
+  "count": 5,
+  "accepted_correct": 5,
+  "predictions": [
+    {
+      "path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654902439__hand.jpg",
+      "actual": "closed_fist",
+      "scores": {
+        "closed_fist": 0.9994624257087708,
+        "open_palm": 0.000444266275735572,
+        "thumbs_up": 9.327480802312493e-05
+      },
+      "predicted": "closed_fist"
+    },
+    {
+      "path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654908906__hand.jpg",
+      "actual": "closed_fist",
+      "scores": {
+        "closed_fist": 0.9940055012702942,
+        "open_palm": 0.004453886300325394,
+        "thumbs_up": 0.0015407075406983495
+      },
+      "predicted": "closed_fist"
+    },
+    {
+      "path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654913843__hand.jpg",
+      "actual": "closed_fist",
+      "scores": {
+        "closed_fist": 0.9993731379508972,
+        "open_palm": 0.0005138291162438691,
+        "thumbs_up": 0.00011305948282824829
+      },
+      "predicted": "closed_fist"
+    },
+    {
+      "path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654924051__hand.jpg",
+      "actual": "closed_fist",
+      "scores": {
+        "closed_fist": 0.9997085928916931,
+        "open_palm": 0.00023549959587398916,
+        "thumbs_up": 5.58396932319738e-05
+      },
+      "predicted": "closed_fist"
+    },
+    {
+      "path": "closed_fist__session_cc464b56-b9ad-4a84-a5d4-42ff612dce44__1794654850884__hand.jpg",
+      "actual": "closed_fist",
+      "scores": {
+        "closed_fist": 0.9983591437339783,
+        "open_palm": 0.0009563146159052849,
+        "thumbs_up": 0.0006845826283097267
+      },
+      "predicted": "closed_fist"
+    }
+  ],
+  "limitations": [
+    "All these frames were used for corrective training.",
+    "Fresh independent camera frames are needed to evaluate live improvement."
+  ]
+}

@@ -1,0 +1,123 @@
+[
+  {
+    "path": "data\\photo_backgrounds\\test\\thumbs_up\\72a6798033b709547880d2216b065dd875c83ecf40dd7e56f5646bc422c5f813.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 2.6190115022473037e-05,
+      "open_palm": 6.395810487447307e-05,
+      "thumbs_up": 0.9999098777770996
+    },
+    "latency_ms": 106.23309994116426
+  },
+  {
+    "path": "data\\photo_backgrounds\\test\\open_palm\\b92b6d9e56bb744f0b027f13eb4aa2e68589c6535b7f24a446e481220fee7b67.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "closed_fist": 2.239677451143507e-05,
+      "open_palm": 0.9999769926071167,
+      "thumbs_up": 6.330510586849414e-07
+    },
+    "latency_ms": 56.972699938341975
+  },
+  {
+    "path": "data\\photo_backgrounds\\test\\thumbs_up\\d3280b51371bd24461c733d01b0fb2bef861899aaa346748eaadfbd68518ee31.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 0.00021306051348801702,
+      "open_palm": 0.003746969858184457,
+      "thumbs_up": 0.9960399866104126
+    },
+    "latency_ms": 51.48320004809648
+  },
+  {
+    "path": "data\\photo_backgrounds\\test\\open_palm\\edc9f5323f1a47cad392b3c379e5d13f9e546b45e105558556bb7031dcd0dff6.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "closed_fist": 4.677383742546226e-07,
+      "open_palm": 0.9999988079071045,
+      "thumbs_up": 7.463127076334786e-07
+    },
+    "latency_ms": 55.118999909609556
+  },
+  {
+    "path": "data\\photo_backgrounds\\test\\thumbs_up\\693a202649072eccf5377c06f3775c6600bb3629cb22da5ce008c2b48912ad5b.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 2.9143336632841965e-06,
+      "open_palm": 1.3986960766487755e-05,
+      "thumbs_up": 0.9999830722808838
+    },
+    "latency_ms": 63.27349995262921
+  },
+  {
+    "path": "data\\photo_backgrounds\\test\\open_palm\\9cc798e27555331a63bb6d854876bffa2490d23e26a6207d789cc88783922a29.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "closed_fist": 3.976500011049211e-06,
+      "open_palm": 0.9999958276748657,
+      "thumbs_up": 2.467745616741013e-07
+    },
+    "latency_ms": 147.60919997934252
+  },
+  {
+    "path": "data\\photo_backgrounds\\test\\open_palm\\1679e7c458fefc4bf302e5f637bb67aec8da0bda01a82c3cf35af4c976563471.png",
+    "actual": "open_palm",
+    "predicted": "open_palm",
+    "scores": {
+      "closed_fist": 1.3307143831298163e-07,
+      "open_palm": 0.9999995231628418,
+      "thumbs_up": 3.56433247361565e-07
+    },
+    "latency_ms": 153.37449999060482
+  },
+  {
+    "path": "data\\photo_backgrounds\\test\\thumbs_up\\a5452e9a5ce40159c216f833606732b7cf758ba54c2e792a4cfa1416cb2aa6af.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 5.506179832082125e-07,
+      "open_palm": 2.9679333692911314e-06,
+      "thumbs_up": 0.9999964237213135
+    },
+    "latency_ms": 130.86499995552003
+  },
+  {
+    "path": "data\\photo_backgrounds\\test\\thumbs_up\\63b242793d8df88257f9478457c48e9e8aff16448da8cca5348c4977aa5abd93.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 4.394881398184225e-05,
+      "open_palm": 0.0008214687113650143,
+      "thumbs_up": 0.9991346001625061
+    },
+    "latency_ms": 144.9486999772489
+  },
+  {
+    "path": "data\\photo_backgrounds\\test\\thumbs_up\\b62090ed83c12f6aab20a56f24b420481c9272e70b1c6440765248caed3ac177.png",
+    "actual": "thumbs_up",
+    "predicted": "thumbs_up",
+    "scores": {
+      "closed_fist": 6.046549856364436e-07,
+      "open_palm": 1.7478394056524849e-06,
+      "thumbs_up": 0.999997615814209
+    },
+    "latency_ms": 138.83160008117557
+  },
+  {
+    "path": "data\\photo_backgrounds\\test\\closed_fist\\655c50d14c65a33d7478b8f3df1fa57887f9e0819627f5c2678d6cc299605429.png",
+    "actual": "closed_fist",
+    "predicted": "closed_fist",
+    "scores": {
+      "closed_fist": 0.9997491240501404,
+      "open_palm": 0.0002416866336716339,
+      "thumbs_up": 9.223211236530915e-06
+    },
+    "latency_ms": 50.42200000025332
+  }
+]

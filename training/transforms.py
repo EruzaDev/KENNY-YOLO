@@ -133,6 +133,18 @@ class BalancedBackgroundGestureTrainer(BackgroundGestureTrainer):
         return BalancedBackgroundGestureDataset(img_path, self.args, augment=mode == 'train', prefix=mode)
 
 
+class PhotoBackgroundDataset(BalancedBackgroundGestureDataset):
+    """Balance saved photo composites without replacing their backgrounds again."""
+    def __init__(self, root, args, augment=False, prefix=''):
+        super().__init__(root, args, augment, prefix)
+        self.torch_transforms = transform(args.imgsz, augment)
+
+
+class PhotoBackgroundTrainer(GestureTrainer):
+    def build_dataset(self, img_path, mode='train', batch=None):
+        return PhotoBackgroundDataset(img_path, self.args, augment=mode == 'train', prefix=mode)
+
+
 class PalmWeightedLoss:
     """Modest Open Palm emphasis after class-balanced sampling, with standard CE metrics."""
     def __init__(self, palm_weight=1.25):

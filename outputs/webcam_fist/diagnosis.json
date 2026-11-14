@@ -1,0 +1,71 @@
+{
+  "checkpoint_sha256": "bf1534ee8b2e48ddd03b1c9f005ebabe0e00f7f78640595fd903023e7d1ea3a4",
+  "rows": [
+    {
+      "path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654902439__hand.jpg",
+      "actual": "closed_fist",
+      "input_kind": "hand_crop",
+      "scores": {
+        "closed_fist": 0.004134290851652622,
+        "open_palm": 0.08747675269842148,
+        "thumbs_up": 0.9083889722824097
+      },
+      "prediction": "thumbs_up"
+    },
+    {
+      "path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654908906__hand.jpg",
+      "actual": "closed_fist",
+      "input_kind": "hand_crop",
+      "scores": {
+        "closed_fist": 0.0005189893417991698,
+        "open_palm": 0.312375545501709,
+        "thumbs_up": 0.6871054768562317
+      },
+      "prediction": "unknown"
+    },
+    {
+      "path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654913843__hand.jpg",
+      "actual": "closed_fist",
+      "input_kind": "hand_crop",
+      "scores": {
+        "closed_fist": 0.002594531746581197,
+        "open_palm": 0.05145811662077904,
+        "thumbs_up": 0.9459473490715027
+      },
+      "prediction": "thumbs_up"
+    },
+    {
+      "path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654917454__full.jpg",
+      "actual": "closed_fist",
+      "input_kind": "full_frame",
+      "scores": {
+        "closed_fist": 0.0005760342464782298,
+        "open_palm": 0.003361481474712491,
+        "thumbs_up": 0.9960624575614929
+      },
+      "prediction": "thumbs_up"
+    },
+    {
+      "path": "closed_fist__session_3c35af08-0a19-4eac-9c85-d687f6515b3c__1794654924051__hand.jpg",
+      "actual": "closed_fist",
+      "input_kind": "hand_crop",
+      "scores": {
+        "closed_fist": 0.0020633945241570473,
+        "open_palm": 0.0184372179210186,
+        "thumbs_up": 0.9794993996620178
+      },
+      "prediction": "thumbs_up"
+    },
+    {
+      "path": "closed_fist__session_cc464b56-b9ad-4a84-a5d4-42ff612dce44__1794654850884__hand.jpg",
+      "actual": "closed_fist",
+      "input_kind": "hand_crop",
+      "scores": {
+        "closed_fist": 0.0004845432995352894,
+        "open_palm": 0.012674710713326931,
+        "thumbs_up": 0.9868407249450684
+      },
+      "prediction": "thumbs_up"
+    }
+  ]
+}

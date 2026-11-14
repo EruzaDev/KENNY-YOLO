@@ -1,19 +1,39 @@
 import {request} from './api.js';
-import {Camera} from './camera.js';
+import {Camera, videoInputs} from './camera.js?v=8';
 import {HandGate, noHandResult} from './hand_gate.js';
+import {projectHandBox} from './hand_overlay.js?v=8';
 const $ = id => document.getElementById(id);
 let ready = false, mode = 'camera', objectURL = null, uploadVersion = 0, pending = null;
-const settings = () => ({confidence: +$('confidence').value / 100, smoothing: +$('smoothing').value, frequency: +$('frequency').value, thumbGuard: $('thumb-guard').checked});
+const settings = () => ({confidence: +$('confidence').value / 100, smoothing: +$('smoothing').value, frequency: +$('frequency').value, thumbGuard: $('thumb-guard').checked, deviceId: $('camera-select').value});
 const error = message => { $('error').textContent = message; };
 const handGate = new HandGate();
 let gestureFunctions = {};
 let gestureLabels = {};
+let loadedCheckpoint = null;
+let handOverlay = null;
+
+function renderHandOverlay() {
+  const element = $('hand-box');
+  const box = handOverlay && projectHandBox(handOverlay.box, handOverlay.width, handOverlay.height,
+    $('stage').clientWidth, $('stage').clientHeight, mode === 'camera');
+  element.hidden = !box;
+  if (!box) return;
+  Object.assign(element.style, {left: `${box.left}px`, top: `${box.top}px`,
+    width: `${box.width}px`, height: `${box.height}px`});
+  $('hand-box-label').textContent = handOverlay.label;
+}
+if (globalThis.ResizeObserver) new ResizeObserver(renderHandOverlay).observe($('stage'));
+else window.addEventListener('resize', renderHandOverlay);
+$('preview').addEventListener('load', renderHandOverlay);
 
 function clearResult() {
   $('gesture').textContent = 'No gesture detected'; $('score').textContent = 'Waiting for an image';
   $('class-scores').textContent = '';
   $('function').textContent = 'Function: —';
+  $('prediction-icon').textContent = '↗';
+  $('confidence-bar').style.width = '0%';
   $('overlay').hidden = true; $('timing').textContent = '— ms · — FPS';
+  handOverlay = null; renderHandOverlay();
 }
 function display(result, fps = null) {
   error('');
@@ -21,9 +41,16 @@ function display(result, fps = null) {
   const prediction = name && result.predictions.find(p => p.class_name === name);
   const label = name ? prediction?.display_name || gestureLabels[name] || name.replaceAll('_', ' ') : 'No gesture detected';
   $('gesture').textContent = label;
+  $('prediction-icon').textContent = ({open_palm: '✋', thumbs_up: '👍', closed_fist: '✊'})[name] || '↗';
+  $('confidence-bar').style.width = prediction ? `${prediction.confidence * 100}%` : '0%';
   const gestureFunction = prediction?.function || gestureFunctions[name];
   $('function').textContent = name && gestureFunction ? `Function: ${gestureFunction} (display only)` : 'Function: —';
   $('score').textContent = prediction ? `${(prediction.confidence * 100).toFixed(1)}% confidence · hand crop` : result.rejection_reason || 'Waiting for a stable prediction above threshold';
+  handOverlay = prediction && result.hand_box ? {
+    box: result.hand_box, width: result.source_width, height: result.source_height,
+    label: `${label} · ${(prediction.confidence * 100).toFixed(1)}% confidence`,
+  } : null;
+  renderHandOverlay();
   $('overlay').hidden = false; $('overlay').textContent = `${label}${name && gestureFunction ? ` · ${gestureFunction}` : ''}${prediction ? ` · ${(prediction.confidence * 100).toFixed(1)}%` : ''}`;
   $('class-scores').textContent = Object.entries(result.scores || {})
     .filter(([,value]) => Number.isFinite(value))
@@ -32,12 +59,16 @@ function display(result, fps = null) {
 }
 const camera = new Camera($('video'), settings, display, error, () => {
   $('start').disabled = !ready; $('stop').disabled = true; $('save-example').disabled = true;
+  $('camera-select').disabled = false;
   $('video').hidden = true; $('empty').hidden = false; clearResult();
 }, handGate);
 function switchMode(next) {
   camera.stop(); pending?.abort(); uploadVersion++; mode = next; error(''); clearResult();
   $('camera-tab').classList.toggle('active', next === 'camera'); $('upload-tab').classList.toggle('active', next === 'upload');
+  $('camera-tab').setAttribute('aria-pressed', String(next === 'camera'));
+  $('upload-tab').setAttribute('aria-pressed', String(next === 'upload'));
   $('camera-actions').hidden = next !== 'camera'; $('upload-actions').hidden = next !== 'upload';
+  $('camera-source').hidden = next !== 'camera';
   $('example-actions').hidden = next !== 'camera';
   $('preview').hidden = next !== 'upload' || !objectURL; $('empty').hidden = !$('preview').hidden;
 }
@@ -48,11 +79,61 @@ $('start').onclick = async () => {
   error('Loading hand detector…'); clearResult();
   const startup = camera.start();
   $('start').disabled = true;
+  $('camera-select').disabled = true;
   $('video').hidden = false; $('empty').hidden = true; $('stop').disabled = false;
   await startup;
+  $('camera-select').disabled = false;
+  await refreshCameras();
   if (camera.stream) { error(''); $('save-example').disabled = false; }
 };
 $('stop').onclick = () => camera.stop();
+async function refreshCameras(requestAccess = false) {
+  const devices = navigator.mediaDevices;
+  if (!devices?.enumerateDevices) {
+    $('camera-help').textContent = 'Camera selection requires localhost or HTTPS and a supported browser.';
+    return;
+  }
+  const button = $('refresh-cameras');
+  button.disabled = true;
+  let permissionStream;
+  try {
+    // Ask only after an explicit click, never on page load. Release this temporary
+    // stream immediately; do not replace or stop an already active camera.
+    if (requestAccess && !camera.stream) {
+      permissionStream = await devices.getUserMedia({video: true, audio: false});
+      permissionStream.getTracks().forEach(track => track.stop());
+    }
+    const cameras = videoInputs(await devices.enumerateDevices());
+    const selected = $('camera-select').value;
+    $('camera-select').replaceChildren(new Option('Default camera', ''));
+    cameras.forEach((device, index) => {
+      $('camera-select').add(new Option(device.label || `Camera ${index + 1} (allow access to see name)`, device.deviceId));
+    });
+    if (selected && !cameras.some(device => device.deviceId === selected)) {
+      const unavailable = new Option('Selected camera disconnected — choose another', selected);
+      unavailable.disabled = true;
+      $('camera-select').add(unavailable);
+      if (camera.stream) { camera.stop(); error('Selected camera disconnected. Choose another camera.'); }
+    }
+    $('camera-select').value = selected;
+    $('camera-help').textContent = cameras.length
+      ? `${cameras.length} camera${cameras.length === 1 ? '' : 's'} available. For Orbbec Astra, choose the RGB/color camera, not depth or IR.`
+      : 'No cameras listed. Connect your camera, click Refresh cameras, and allow camera access.';
+  } catch (e) {
+    $('camera-help').textContent = e.name === 'NotAllowedError'
+      ? 'Allow camera access in your browser, then refresh to reveal camera names.'
+      : `Could not list cameras: ${e.message}`;
+  } finally {
+    permissionStream?.getTracks().forEach(track => track.stop());
+    button.disabled = false;
+  }
+}
+$('refresh-cameras').onclick = () => refreshCameras(true);
+$('camera-select').onchange = () => { if (camera.stream) $('start').onclick(); };
+const cameraDeviceChange = () => refreshCameras();
+navigator.mediaDevices?.addEventListener?.('devicechange', cameraDeviceChange);
+window.addEventListener('pagehide', () => navigator.mediaDevices?.removeEventListener?.('devicechange', cameraDeviceChange));
+refreshCameras();
 async function analyzeUpload() {
   const file = $('upload').files[0]; if (!file || mode !== 'upload') return;
   pending?.abort(); pending = new AbortController(); const version = ++uploadVersion;
@@ -74,12 +155,16 @@ async function analyzeUpload() {
     const form = new FormData(); form.append('file', blob, 'hand.jpg');
     error('Classifying hand…');
     const result = await request(`predict?confidence=${settings().confidence}&pose_hint=${encodeURIComponent(settings().thumbGuard ? hand.thumbEvidence || 'unknown' : 'unknown')}`, {method: 'POST', body: form, signal: pending.signal});
-    if (version === uploadVersion) display(result);
+    if (version === uploadVersion) display({...result, hand_box: hand.box,
+      source_width: bitmap.width, source_height: bitmap.height});
   }
   catch (e) { if (e.name !== 'AbortError' && version === uploadVersion) error(e.message); }
   finally { bitmap?.close(); }
 }
 $('upload').onchange = analyzeUpload;
+$('upload').closest('label').onkeydown = event => {
+  if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); $('upload').click(); }
+};
 $('reset').onclick = () => { pending?.abort(); uploadVersion++; $('upload').value = ''; if (objectURL) URL.revokeObjectURL(objectURL); objectURL = null; $('preview').hidden = true; $('empty').hidden = false; error(''); clearResult(); };
 for (const [id, suffix] of [['confidence','%'], ['smoothing',' frames'], ['frequency',' FPS']]) {
   $(id).oninput = () => { $(`${id}-value`).textContent = $(id).value + suffix; };
@@ -90,6 +175,7 @@ window.addEventListener('pagehide', () => { camera.stop(); pending?.abort(); if 
 document.addEventListener('visibilitychange', () => { if (document.hidden) camera.stop(); });
 try {
   const model = await request('model'); ready = model.ready;
+  loadedCheckpoint = model.checkpoint_sha256;
   gestureFunctions = model.gesture_functions || {};
   gestureLabels = model.gesture_labels || {};
   $('connection').textContent = ready ? '● Model ready' : '○ Model unavailable';
@@ -105,6 +191,56 @@ try {
   if (model.metrics) $('accuracy').textContent = `${(model.metrics.accuracy * 100).toFixed(1)}% · n=${model.metrics.count}`;
 } catch (e) { $('connection').textContent = 'Backend offline'; $('notice').textContent = e.message; }
 $('start').disabled = !ready;
+
+async function loadResults() {
+  try {
+    const results = await request('results');
+    if (!ready || !results.available || results.checkpoint_sha256 !== loadedCheckpoint) {
+      $('results-status').textContent = 'No verified results are available for the loaded model.';
+      return;
+    }
+    const {training, metrics, training_fit: fit} = results;
+    const correct = report => Math.round(report.accuracy * report.count);
+    $('results-status').textContent = `${results.title} · checkpoint ${results.checkpoint_sha256.slice(0, 12)} · confidence threshold 80%`;
+    $('result-epochs').textContent = `${training.epochs} epochs`;
+    $('result-training-count').textContent = `${training.image_count} training files · ${training.background_photos} background photos`;
+    $('result-validation').textContent = `${correct(metrics.validation)} / ${metrics.validation.count}`;
+    $('result-regression').textContent = `${correct(metrics.regression)} / ${metrics.regression.count}`;
+    $('result-training-fit').textContent = `${fit.accepted_correct} / ${fit.count}`;
+    $('result-summary').textContent = `Original validation views: ${results.original_validation.correct}/${results.original_validation.count}. Expanded validation: ${(metrics.validation.accuracy * 100).toFixed(1)}% accepted correctly; ${(metrics.validation.raw_top1_accuracy * 100).toFixed(1)}% raw top-1. Webcam training: ${training.webcam_frames} crops from ${training.webcam_sessions} sessions, kept in training only.`;
+    $('checkpoint').textContent = `${results.checkpoint} · ${results.checkpoint_sha256.slice(0, 12)}`;
+    const addRow = (id, values) => {
+      const row = document.createElement('tr');
+      values.forEach((value, index) => {
+        const cell = document.createElement(index ? 'td' : 'th');
+        if (!index) cell.scope = 'row';
+        cell.textContent = String(value);
+        row.append(cell);
+      });
+      $(id).append(row);
+    };
+    $('dataset-results').replaceChildren(); $('class-results').replaceChildren();
+    for (const label of ['closed_fist', 'open_palm', 'thumbs_up']) {
+      const name = gestureLabels[label] || label.replaceAll('_', ' ');
+      addRow('dataset-results', [name, ...['train', 'val', 'test'].map(split => training.splits[split][label])]);
+      const scores = metrics.regression.classification_report[label];
+      addRow('class-results', [name, ...['precision', 'recall', 'f1-score'].map(key => `${(scores[key] * 100).toFixed(1)}%`), scores.support]);
+    }
+    for (const [image, link, asset] of [
+      ['result-curves', 'curves-link', 'training-curves'],
+      ['result-confusion', 'confusion-link', 'validation-confusion'],
+      ['result-crops', null, 'training-crops'],
+    ]) {
+      $(image).src = `${results.assets[asset]}?checkpoint=${results.checkpoint_sha256.slice(0, 12)}`;
+      if (link) $(link).href = $(image).src;
+    }
+    $('result-limitations').replaceChildren(...results.limitations.map(text => {
+      const item = document.createElement('li'); item.textContent = text; return item;
+    }));
+    $('results-content').hidden = false;
+  } catch (e) { $('results-status').textContent = `Results unavailable: ${e.message}`; }
+}
+loadResults();
 
 $('save-example').onclick = async () => {
   const label = $('example-label').value;

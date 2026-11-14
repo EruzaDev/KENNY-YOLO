@@ -59,9 +59,10 @@ class InferenceTests(unittest.TestCase):
             stabilizer.apply(frame(None), 0)
 
     def test_blank_images_never_receive_a_gesture(self):
-        if not Path('models/best.pt').exists():
+        from app.core.config import MODEL_PATH
+        if not MODEL_PATH.exists():
             self.skipTest('Trained checkpoint unavailable')
-        detector = Detector(Path('models/best.pt'))
+        detector = Detector(MODEL_PATH)
         detector.load()
         for color in ['white', 'black', 'gray', (80, 110, 160)]:
             result = detector.predict(Image.new('RGB', (640, 480), color))
@@ -70,9 +71,10 @@ class InferenceTests(unittest.TestCase):
             self.assertEqual(result['rejection_reason'], 'No visual content')
 
     def test_actual_trained_model(self):
-        if not Path('models/best.pt').exists():
+        from app.core.config import MODEL_PATH
+        if not MODEL_PATH.exists():
             self.skipTest('Training has not completed; real-model integration is unverified.')
-        detector = Detector(Path('models/best.pt'))
+        detector = Detector(MODEL_PATH)
         detector.load()
         image_path = next(Path('data/processed/val').rglob('*.png'))
         with Image.open(image_path) as image:

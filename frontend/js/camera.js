@@ -1,3 +1,12 @@
+export function cameraConstraints(deviceId = '') {
+  return {video: {width: {ideal: 640}, height: {ideal: 480},
+    ...(deviceId ? {deviceId: {exact: deviceId}} : {})}, audio: false};
+}
+
+export function videoInputs(devices) {
+  return devices.filter(device => device.kind === 'videoinput' && device.deviceId);
+}
+
 export class Camera {
   constructor(video, settings, onResult, onError, onStop, handGate) {
     Object.assign(this, {video, settings, onResult, onError, onStop, handGate});
@@ -9,7 +18,7 @@ export class Camera {
     try {
       await this.handGate.load();
       if (generation !== this.generation) return;
-      const stream = await navigator.mediaDevices.getUserMedia({video: {width: 640, height: 480}, audio: false});
+      const stream = await navigator.mediaDevices.getUserMedia(cameraConstraints(this.settings().deviceId));
       if (generation !== this.generation) { stream.getTracks().forEach(t => t.stop()); return; }
       this.stream = stream;
       this.sessionId = globalThis.crypto?.randomUUID?.() || String(Date.now());
@@ -24,7 +33,10 @@ export class Camera {
         if (generation !== this.generation) return;
         clearTimeout(this.timeout);
         try {
-          const result = JSON.parse(event.data);
+          const result = {...JSON.parse(event.data),
+            hand_box: this.pendingFrame?.hand_box || null,
+            source_width: this.pendingFrame?.source_width,
+            source_height: this.pendingFrame?.source_height};
           if (result.error) throw new Error(result.error);
           const now = performance.now();
           this.lastFrame = this.pendingFrame?.image ? {...this.pendingFrame, result} : null;
@@ -46,7 +58,13 @@ export class Camera {
       };
     } catch (error) {
       if (generation !== this.generation) return;
-      this.onError(error.name === 'NotAllowedError' ? 'Camera permission denied. Allow camera access in your browser.' : error.message);
+      const messages = {
+        NotAllowedError: 'Camera permission denied. Allow camera access in your browser.',
+        NotFoundError: 'Selected camera was not found. Reconnect it and refresh the camera list.',
+        OverconstrainedError: 'Selected camera is unavailable or does not provide a supported video stream. Choose its RGB camera and refresh the list.',
+        NotReadableError: 'Camera could not start. Close other camera apps and check the camera driver.',
+      };
+      this.onError(messages[error.name] || error.message);
       this.stop();
     }
   }
@@ -64,7 +82,9 @@ export class Camera {
       const message = frame.image
         ? {image: frame.image.toDataURL('image/jpeg', .9).split(',')[1], confidence, smoothing, pose_hint: thumbGuard ? frame.thumbEvidence || 'unknown' : 'unknown'}
         : {type: 'no_hand', confidence, smoothing, reason: frame.reason};
-      this.pendingFrame = {...message, session: this.sessionId, capturedAt: Date.now()};
+      this.pendingFrame = {...message, session: this.sessionId, capturedAt: Date.now(),
+        hand_box: frame.image ? frame.box : null,
+        source_width: this.video.videoWidth, source_height: this.video.videoHeight};
       this.socket.send(JSON.stringify(message));
       this.timeout = setTimeout(() => { this.onError('Inference timed out. Check the backend.'); this.stop(); }, 30000);
     } catch (error) {
