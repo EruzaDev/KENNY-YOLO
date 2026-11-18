@@ -10,7 +10,7 @@ from training.hand_crop import hand_focused_crop
 class FistConfusionTests(unittest.TestCase):
     def test_contradictions_abstain_without_relabeling_and_clear_history(self):
         stabilizer = Stabilizer()
-        for label, conflict in [('thumbs_up', 'thumb_folded'), ('closed_fist', 'thumb_extended')]:
+        for label, conflict in [('thumbs_up', 'thumb_folded')]:
             frame = dict(predictions=[dict(class_name=label, confidence=.99)], scores={label:.99})
             self.assertEqual(stabilizer.apply(frame, 1)['stable_gesture'], label)
             rejected = check_thumb_evidence(frame, conflict)
@@ -21,6 +21,9 @@ class FistConfusionTests(unittest.TestCase):
             self.assertIs(check_thumb_evidence(frame), frame)
         palm = dict(predictions=[dict(class_name='open_palm')])
         self.assertIs(check_thumb_evidence(palm, 'thumb_folded'), palm)
+        ok = dict(predictions=[dict(class_name='ok')])
+        for hint in ['thumb_folded', 'thumb_extended']:
+            self.assertIs(check_thumb_evidence(ok, hint), ok)
         with self.assertRaises(ValueError):
             check_thumb_evidence(palm, 'invalid')
 

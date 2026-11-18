@@ -94,18 +94,23 @@ class BackgroundGestureTrainer(GestureTrainer):
 
 
 def transfer_class_rows(model, previous, names):
-    """Retain existing class rows by name when the classification head grows."""
+    """Retain rows by label, including replacements with the same class count."""
     old_head, new_head = previous.model[-1].linear, model.model[-1].linear
-    if old_head.out_features == new_head.out_features:
+    if list(previous.names.values()) == list(names.values()):
         return []
     old_names = previous.names
+    old_weight = old_head.weight.detach().clone()
+    old_bias = old_head.bias.detach().clone()
+    # A same-size load otherwise gives a new label the removed label's weights.
+    if old_head.out_features == new_head.out_features:
+        new_head.reset_parameters()
     copied = []
     with torch.no_grad():
         for old_index, label in old_names.items():
             for new_index, new_label in names.items():
                 if label == new_label:
-                    new_head.weight[new_index].copy_(old_head.weight[old_index])
-                    new_head.bias[new_index].copy_(old_head.bias[old_index])
+                    new_head.weight[new_index].copy_(old_weight[old_index])
+                    new_head.bias[new_index].copy_(old_bias[old_index])
                     copied.append(label)
     return copied
 

@@ -1,0 +1,1957 @@
+{
+  "checkpoint_sha256": "437df769f75eb347b1410e2ecf032da4d1680d7ba2907a9d7143fe8595006f52",
+  "checkpoint": "models/ok_gestures/best.pt",
+  "manifest_sha256": "5258e00bea40222ac4be0bad2abb3badf0807e5f34d0984fd2eb2f0da36678e6",
+  "split": "val",
+  "confidence": 0.8,
+  "kind": "Existing capture crops and derived background diagnostics; not live camera accuracy.",
+  "clean": {
+    "count": 128,
+    "accepted_correct": 128,
+    "false_ok": 0,
+    "abstentions": 0,
+    "predictions": {
+      "thumbs_up": 3,
+      "open_palm": 3,
+      "ok": 122
+    },
+    "per_class": {
+      "ok": {
+        "count": 122,
+        "accepted_correct": 122
+      },
+      "open_palm": {
+        "count": 3,
+        "accepted_correct": 3
+      },
+      "thumbs_up": {
+        "count": 3,
+        "accepted_correct": 3
+      }
+    }
+  },
+  "photo_backgrounds": {
+    "count": 30,
+    "accepted_correct": 20,
+    "false_ok": 2,
+    "abstentions": 8,
+    "predictions": {
+      "unknown": 8,
+      "ok": 2,
+      "open_palm": 15,
+      "thumbs_up": 5
+    },
+    "per_class": {
+      "ok": {
+        "count": 0,
+        "accepted_correct": 0
+      },
+      "open_palm": {
+        "count": 15,
+        "accepted_correct": 15
+      },
+      "thumbs_up": {
+        "count": 15,
+        "accepted_correct": 5
+      }
+    }
+  },
+  "predictions": [
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "clean",
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.03975607454776764,
+        "open_palm": 0.010203109122812748,
+        "thumbs_up": 0.950040876865387
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "photo_0",
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.3788304924964905,
+        "open_palm": 0.0018830184126272798,
+        "thumbs_up": 0.6192864775657654
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "photo_1",
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.7710193395614624,
+        "open_palm": 0.0036068398039788008,
+        "thumbs_up": 0.2253737896680832
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "photo_2",
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.47805994749069214,
+        "open_palm": 0.005299410317093134,
+        "thumbs_up": 0.5166406035423279
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "photo_3",
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.6691210269927979,
+        "open_palm": 0.0014741524355486035,
+        "thumbs_up": 0.3294048011302948
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "photo_4",
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.7259933948516846,
+        "open_palm": 0.000796731561422348,
+        "thumbs_up": 0.2732098698616028
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "clean",
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.04849432408809662,
+        "open_palm": 0.008282524533569813,
+        "thumbs_up": 0.9432231783866882
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "photo_0",
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.39901694655418396,
+        "open_palm": 0.0010718071134760976,
+        "thumbs_up": 0.5999112129211426
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "photo_1",
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.7803471684455872,
+        "open_palm": 0.002245189854875207,
+        "thumbs_up": 0.21740767359733582
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "photo_2",
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.7267163395881653,
+        "open_palm": 0.0041829664260149,
+        "thumbs_up": 0.2691006660461426
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "photo_3",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.8534807562828064,
+        "open_palm": 0.0007004216313362122,
+        "thumbs_up": 0.14581890404224396
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.jpg",
+      "group": 1024,
+      "actual": "thumbs_up",
+      "view": "photo_4",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.8844204545021057,
+        "open_palm": 0.0004510395519901067,
+        "thumbs_up": 0.11512850224971771
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "clean",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 7.432484835590003e-06,
+        "open_palm": 0.9999924898147583,
+        "thumbs_up": 1.2695858231381862e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "photo_0",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0025258020032197237,
+        "open_palm": 0.9974714517593384,
+        "thumbs_up": 2.6782377062772866e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "photo_1",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.002946846652776003,
+        "open_palm": 0.9970508813858032,
+        "thumbs_up": 2.2730769160261843e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "photo_2",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0029158643446862698,
+        "open_palm": 0.9970796704292297,
+        "thumbs_up": 4.410440851643216e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "photo_3",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0029206210747361183,
+        "open_palm": 0.9970765113830566,
+        "thumbs_up": 2.8002045837638434e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "photo_4",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.005174041725695133,
+        "open_palm": 0.9948234558105469,
+        "thumbs_up": 2.5115621156146517e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "clean",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 7.313473815884208e-06,
+        "open_palm": 0.9999924898147583,
+        "thumbs_up": 2.8624259584830725e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "photo_0",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0020848982967436314,
+        "open_palm": 0.9979117512702942,
+        "thumbs_up": 3.3743590392987244e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "photo_1",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0018500498263165355,
+        "open_palm": 0.9981484413146973,
+        "thumbs_up": 1.5925664911264903e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "photo_2",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0013811467215418816,
+        "open_palm": 0.9986163377761841,
+        "thumbs_up": 2.4449270767945563e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "photo_3",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0023702397011220455,
+        "open_palm": 0.9976275563240051,
+        "thumbs_up": 2.2918541162653128e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.jpg",
+      "group": 1004,
+      "actual": "open_palm",
+      "view": "photo_4",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.009371344931423664,
+        "open_palm": 0.990626335144043,
+        "thumbs_up": 2.3338257051364053e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.jpg",
+      "group": 1000,
+      "actual": "open_palm",
+      "view": "clean",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 3.191573705407791e-05,
+        "open_palm": 0.9999626874923706,
+        "thumbs_up": 5.37206869921647e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.jpg",
+      "group": 1000,
+      "actual": "open_palm",
+      "view": "photo_0",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.011191146448254585,
+        "open_palm": 0.98868727684021,
+        "thumbs_up": 0.00012161953054601327
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.jpg",
+      "group": 1000,
+      "actual": "open_palm",
+      "view": "photo_1",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.008511277846992016,
+        "open_palm": 0.9914342164993286,
+        "thumbs_up": 5.447240255307406e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.jpg",
+      "group": 1000,
+      "actual": "open_palm",
+      "view": "photo_2",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0060225315392017365,
+        "open_palm": 0.9939301013946533,
+        "thumbs_up": 4.742500459542498e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.jpg",
+      "group": 1000,
+      "actual": "open_palm",
+      "view": "photo_3",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.015570124611258507,
+        "open_palm": 0.984394907951355,
+        "thumbs_up": 3.501268656691536e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.jpg",
+      "group": 1000,
+      "actual": "open_palm",
+      "view": "photo_4",
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.015848085284233093,
+        "open_palm": 0.9841028451919556,
+        "thumbs_up": 4.907843685941771e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.jpg",
+      "group": 1026,
+      "actual": "thumbs_up",
+      "view": "clean",
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.0003931407700292766,
+        "open_palm": 3.154633304802701e-05,
+        "thumbs_up": 0.9995753169059753
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.jpg",
+      "group": 1026,
+      "actual": "thumbs_up",
+      "view": "photo_0",
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.061594896018505096,
+        "open_palm": 7.251687202369794e-05,
+        "thumbs_up": 0.9383326172828674
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.jpg",
+      "group": 1026,
+      "actual": "thumbs_up",
+      "view": "photo_1",
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.09868516772985458,
+        "open_palm": 0.00029304117197170854,
+        "thumbs_up": 0.9010217785835266
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.jpg",
+      "group": 1026,
+      "actual": "thumbs_up",
+      "view": "photo_2",
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.04557672142982483,
+        "open_palm": 0.0002768560079857707,
+        "thumbs_up": 0.9541463851928711
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.jpg",
+      "group": 1026,
+      "actual": "thumbs_up",
+      "view": "photo_3",
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.1732904016971588,
+        "open_palm": 0.00028923407080583274,
+        "thumbs_up": 0.8264203667640686
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.jpg",
+      "group": 1026,
+      "actual": "thumbs_up",
+      "view": "photo_4",
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.12703604996204376,
+        "open_palm": 0.0002273519930895418,
+        "thumbs_up": 0.8727365732192993
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/d7aef3baf93ab562124f3355b482e636de367794fb994e8c5d3f116a5009ed78.jpg",
+      "group": 489,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999951124191284,
+        "open_palm": 4.0183017517847475e-06,
+        "thumbs_up": 8.66820187184203e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/fcc6a0235f8c6a33a22053cf649f2d655e6f22410c2b4788031967c0464c9d20.jpg",
+      "group": 489,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9998849630355835,
+        "open_palm": 9.611764107830822e-05,
+        "thumbs_up": 1.8947492208098993e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/8e81eeaf5936901c386be998c201b1e827cd25761f7468b2d384909373acd069.jpg",
+      "group": 489,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9997499585151672,
+        "open_palm": 0.00024184846552088857,
+        "thumbs_up": 8.240050192398485e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/c65d4f61b90015aa4b7eb086cc2308922d5ebe318b6b0f15aa28ac67120fefb8.jpg",
+      "group": 489,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999568462371826,
+        "open_palm": 1.5931536836433224e-05,
+        "thumbs_up": 2.7157711883774027e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/df1ac887f1feff76824b63c37b5a7b55a3c2fd50c68d90550e97ef3506ba60fd.jpg",
+      "group": 489,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999876022338867,
+        "open_palm": 1.2140899343648925e-05,
+        "thumbs_up": 2.861953305455245e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/1a1caa48e9dd4758913c3d81184d65aa5f0f5f3e75252b5fef70571321573e24.jpg",
+      "group": 489,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9998728036880493,
+        "open_palm": 8.917986997403204e-05,
+        "thumbs_up": 3.807363464147784e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/52e130181a35c37efc0e688c6f3b2408da28c7d18c25e5ed2c838eea3ecf8bfe.jpg",
+      "group": 52,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999934434890747,
+        "open_palm": 6.3476663854089566e-06,
+        "thumbs_up": 2.2811197197825095e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/4998f0b2fa0176e3716fc1daed2114c20d4614c1ed58f2498e94a716906290fc.jpg",
+      "group": 52,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999954700469971,
+        "open_palm": 4.329624516685726e-06,
+        "thumbs_up": 2.4330586256837705e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/343b9ff3df38d02ac829ccdae57e969348fd7d4bddd36c5932ba7d10cff3bbc6.jpg",
+      "group": 52,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999970197677612,
+        "open_palm": 2.3824707113817567e-06,
+        "thumbs_up": 6.528187554977194e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/7e4756041e9b62cc438d0d89ae8748b0fa3e682ffbf67cb1b93efad07cf53f8b.jpg",
+      "group": 52,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999840259552002,
+        "open_palm": 1.262532350665424e-05,
+        "thumbs_up": 3.343410071465769e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/3a2034bef4735f8bba5d1bb5b1000e23b1b2a6ab59d943946083be687434b346.jpg",
+      "group": 667,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999885559082031,
+        "open_palm": 1.0529704013606533e-05,
+        "thumbs_up": 9.025108624882705e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/eb2532c70b765abadc1617f07b21a80334f2d143059b445049547c5e49e921fc.jpg",
+      "group": 34,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999998807907104,
+        "open_palm": 8.536976991990741e-08,
+        "thumbs_up": 1.9397056405523472e-08
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/4fd84ba24d3594792def185cfc7635b0bb5c0920d682190fbc80c80b856fe904.jpg",
+      "group": 34,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999973773956299,
+        "open_palm": 7.77493255554873e-07,
+        "thumbs_up": 1.7438064787711482e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/2eef4ae4cca3dc2e936ac5eae094ce6f7000d8922085ea4cc11a5702ea18de88.jpg",
+      "group": 178,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999960660934448,
+        "open_palm": 2.186876372434199e-06,
+        "thumbs_up": 1.844056441768771e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/22dc277cc63826850a865b8191c2e46ec6dfd558ccd5b12dd27dfb6aca2b00d5.jpg",
+      "group": 178,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999984502792358,
+        "open_palm": 8.967141411631019e-07,
+        "thumbs_up": 5.687562634193455e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/71a589dbdfd814e490416e8886b1d10c4a845e750287f30faef72b64577eb91f.jpg",
+      "group": 785,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999942779541016,
+        "open_palm": 7.679361146983865e-07,
+        "thumbs_up": 5.062870968686184e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/05534c2389e52b4c208d0ae97b8a2d13ea8808ccf181a3240e487dd52add7d39.jpg",
+      "group": 785,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999979734420776,
+        "open_palm": 1.4456920780503424e-06,
+        "thumbs_up": 5.721502134292678e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/ece0908517921f2524b7145c9b5f9ce595bbafd2797569712449df21d9f5b5c1.jpg",
+      "group": 443,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.999992847442627,
+        "open_palm": 6.8749304773518816e-06,
+        "thumbs_up": 2.3283975281174207e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/06081e1d1cc85fadb7744c5d423b0f1c9c8da284d7891b22adf2f71d4c602392.jpg",
+      "group": 443,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999990463256836,
+        "open_palm": 7.518091251768055e-07,
+        "thumbs_up": 2.148053113160131e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/8336dbd2031d0d0b3a2ab3d026e8dcf815a1de46dddd8cfdb35be7af2886da0d.jpg",
+      "group": 313,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999842643737793,
+        "open_palm": 1.4104881302046124e-05,
+        "thumbs_up": 1.727873609524977e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/4898a3d5510d04e6fd87e68f210c657c6f3151a3699acffe3853b123691ed096.jpg",
+      "group": 313,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999529123306274,
+        "open_palm": 4.247534161549993e-05,
+        "thumbs_up": 4.617129434336675e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/d14ecfd7d92008ce4572539bc23b943f588a77abe0eb57de4e5971c66cb5af47.jpg",
+      "group": 350,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999877214431763,
+        "open_palm": 1.0782719982671551e-05,
+        "thumbs_up": 1.5011405594123062e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/5fb6c298d3bbc791f741bb34c828e4512469c695e6589f38ef7323ef6172fc25.jpg",
+      "group": 350,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999830722808838,
+        "open_palm": 6.793505235691555e-06,
+        "thumbs_up": 1.010645428323187e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/9acbcf548006b51770c689b17b30be0650d6f8eedb2e1b26b25bc5776cbba9fc.jpg",
+      "group": 765,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999995231628418,
+        "open_palm": 5.257624025034602e-07,
+        "thumbs_up": 2.8636542026561074e-08
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/84c7305348a1a1a9b9d8a3fe487fade6cb3efcf36eca74821f0e0ea618bde266.jpg",
+      "group": 765,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999998807907104,
+        "open_palm": 1.4292560024387058e-07,
+        "thumbs_up": 2.985174063496743e-08
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/87595806a06731b806afe3f48831c67cae91e411bd4d4a7fa4927b0d7f0531cb.jpg",
+      "group": 332,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999947547912598,
+        "open_palm": 3.838932116195792e-06,
+        "thumbs_up": 1.4361986586663988e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/94d9dab3eed45c63a6cfed5943e04350f2a7b61db9fe8b6b27b8532207cfa3d5.jpg",
+      "group": 798,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999804496765137,
+        "open_palm": 1.7929547539097257e-05,
+        "thumbs_up": 1.6343241213689907e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/d0f50f1ab4313dcf7dcc9ad00dfaa8ca259adfdb9ea65bf23452029584b0fb12.jpg",
+      "group": 924,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999996423721313,
+        "open_palm": 3.8683162983943475e-07,
+        "thumbs_up": 3.35911316540205e-08
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/7024650da5637ed73376ae0b1bc079a19644a90f31f2997e68c82007cb6a3517.jpg",
+      "group": 422,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.999976396560669,
+        "open_palm": 1.3576150195149239e-05,
+        "thumbs_up": 1.006535421765875e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/301205fd4ca4a65991ac7de31577025c281efcf1f1b3793ca59a9149ee36febc.jpg",
+      "group": 794,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999850988388062,
+        "open_palm": 1.467647871322697e-05,
+        "thumbs_up": 2.706322845824616e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/e08273c7432974e762904e75776a58bdf0eb27b0113ea833062b3f679e260752.jpg",
+      "group": 592,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999911785125732,
+        "open_palm": 3.7302540931705153e-06,
+        "thumbs_up": 5.115046405990142e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/0eef598c805660777f6bcfdc45f04040b2760127b97f03b02b09465b2f0aa08b.jpg",
+      "group": 653,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 1.0,
+        "open_palm": 2.9108328192251065e-08,
+        "thumbs_up": 3.0031508391203943e-09
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/ee5c14fac318955eb660fa68bca5e0f3775963e6601a956630825379c33fca98.jpg",
+      "group": 113,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999181032180786,
+        "open_palm": 7.942967931739986e-05,
+        "thumbs_up": 2.48448304773774e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/e4254a60c841cbcbc88a28bb9da59755d3e20fbe4634f36d15e7f08514dbf604.jpg",
+      "group": 45,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999922513961792,
+        "open_palm": 7.0653513830620795e-06,
+        "thumbs_up": 7.501524805775261e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/df456805d61dae10903c7d8386de920a597f1e63bf873ca63fe0a7db63f87e8f.jpg",
+      "group": 311,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999939203262329,
+        "open_palm": 2.1443324840220157e-06,
+        "thumbs_up": 3.904842287738575e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/4ed10c00cb99a453573da601cf914dc2c2e6207a1212738f017426dfb865d561.jpg",
+      "group": 745,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999978542327881,
+        "open_palm": 1.6688378536855453e-06,
+        "thumbs_up": 4.4213390992808854e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/da7d14dcb4edf2aa4608dcddedf445c19ad9aaa9ba7eddbb38ca1afcf3799536.jpg",
+      "group": 247,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999992847442627,
+        "open_palm": 5.837428602717409e-07,
+        "thumbs_up": 1.25889897617526e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/9d2e79f9c89616c1ebf0b33262f81223f809ea3cc3ed52c4e3ea5b485a2cce5b.jpg",
+      "group": 269,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999960660934448,
+        "open_palm": 2.106314013872179e-06,
+        "thumbs_up": 1.8288370711161406e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/c1d85a3ccccfd021c66b2649058fcd106b96592318607461fd977feb9ede0dba.jpg",
+      "group": 362,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999493360519409,
+        "open_palm": 4.238677502144128e-05,
+        "thumbs_up": 8.276097105408553e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/b52064d136cd6e21f33702f4611213aa4a3421ff2468698ed7dda576979d4bcb.jpg",
+      "group": 391,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.999998927116394,
+        "open_palm": 8.556191914976807e-07,
+        "thumbs_up": 2.4118546093632176e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/2315a39734fe9aefa750f232ab3a0945b41ffce28527c497aac49481e2a30c7c.jpg",
+      "group": 764,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 1.0,
+        "open_palm": 5.304380934489927e-08,
+        "thumbs_up": 2.7601084084949434e-08
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/1fbff3d699bc22b8d5efdd9c6741a52100b06170f30dfe4b01abd6752c608d72.jpg",
+      "group": 354,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999977350234985,
+        "open_palm": 8.12131361271895e-07,
+        "thumbs_up": 1.3755895906797377e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/ca947971cfb5b901aad1c8abe982ff519bbe6aead3adeca1b6e90539819c84e5.jpg",
+      "group": 458,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999828338623047,
+        "open_palm": 1.0442590792081319e-05,
+        "thumbs_up": 6.6899533521791454e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/64442e3be9ced7f9c0f2f1a96ec43fdf7580541d35b6de55f6e4ffa0bcde8d8e.jpg",
+      "group": 583,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999977350234985,
+        "open_palm": 1.8193733239968424e-06,
+        "thumbs_up": 4.896692189504392e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/e2f64a7b92379d62e69bd062407f2cd877bbb521170dd8f7c3e730cf71c5a271.jpg",
+      "group": 982,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999970197677612,
+        "open_palm": 2.077151975754532e-06,
+        "thumbs_up": 9.041243060892157e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/8740c7b77a3ab4727474e8a1000c32382737b602b2ee8940ddd3a3f83c888677.jpg",
+      "group": 588,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999949932098389,
+        "open_palm": 2.5588931293896167e-06,
+        "thumbs_up": 2.501361905160593e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/22c0b40ecb35fba1d92af336cd5695571634478054595ce3524fb0d29fb74456.jpg",
+      "group": 518,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999852180480957,
+        "open_palm": 1.0542519703449216e-05,
+        "thumbs_up": 4.2983374441973865e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/017864f985d23ab680a5ef1e4b1b582f42131421dca5edb7eda5bd688391d5a9.jpg",
+      "group": 985,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999816417694092,
+        "open_palm": 1.658150904404465e-05,
+        "thumbs_up": 1.8476561081115506e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/53ee872dd763f9dcf31fd848f1733e80c1bf979023034c8376fe993c732d732d.jpg",
+      "group": 180,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999796152114868,
+        "open_palm": 1.3975285583001096e-05,
+        "thumbs_up": 6.379390470101498e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/2b35ea4c1c552f62f5430908e53e673646cf98670302511c020d3e8845e5caba.jpg",
+      "group": 196,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999659061431885,
+        "open_palm": 2.7488205887493677e-05,
+        "thumbs_up": 6.583806680282578e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/fde8f50e565d802eedf99ed3b036cf64a8ff04f137eb8708ac51f2a0d6f2e4e2.jpg",
+      "group": 702,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999934434890747,
+        "open_palm": 5.017047442379408e-06,
+        "thumbs_up": 1.5998419939933228e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/214e492cc2e6dd67eddf820ec96a21e0d4f6835bfc83437866ff50e5bbfbcadd.jpg",
+      "group": 363,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999966621398926,
+        "open_palm": 2.8939114145032363e-06,
+        "thumbs_up": 4.78323272545822e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/d710677dbe29180a5a694a88821cd4764fbd5ecb14f71e654feb78fc3b747c3f.jpg",
+      "group": 965,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999381303787231,
+        "open_palm": 5.603430963674327e-06,
+        "thumbs_up": 5.627919017570093e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/d5b73c7aff77da946e1c7ab2fafc146525cdebdff6d0f1a974f1538011f9efcc.jpg",
+      "group": 670,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999998807907104,
+        "open_palm": 9.31462764697244e-08,
+        "thumbs_up": 2.471366933320951e-08
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/c7b872e0a4ff9bbf70b36128e92f93457c1299d88bfd40aca5721ff28e07e2ba.jpg",
+      "group": 342,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999914169311523,
+        "open_palm": 2.7538615086086793e-06,
+        "thumbs_up": 5.885340215172619e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/cee45425a666a4a80a74fa615c666e7bb0c53d4c445c6fd8a099d671d5b28746.jpg",
+      "group": 406,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999990463256836,
+        "open_palm": 4.252330256804271e-07,
+        "thumbs_up": 4.2490711393838865e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/089746a83ac03a23c792b18df2c5492cb79fc958501bbdb85e8734010c15061b.jpg",
+      "group": 537,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999721050262451,
+        "open_palm": 2.3552876882604323e-05,
+        "thumbs_up": 4.320803782320581e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/370e2655949c18ab3bed1ba1e958e7a555f29158604891253c090bce13e2598b.jpg",
+      "group": 633,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999239444732666,
+        "open_palm": 6.880501314299181e-05,
+        "thumbs_up": 7.246726454468444e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/acb2d24ecfb1af5c5fe29ce6614c9aca763e8dcf69e90e428bb8614e1cb6108f.jpg",
+      "group": 697,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999892711639404,
+        "open_palm": 7.613173238496529e-06,
+        "thumbs_up": 3.0785356557316845e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/17f3ce61d67f6b394e270cfe31b3de128108f1d834167452a6d473c58b61bdde.jpg",
+      "group": 128,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999645948410034,
+        "open_palm": 3.415797255001962e-05,
+        "thumbs_up": 1.145571900451614e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/1486b5cf5359b173a73d3017ac8d84046c25956860d3c8900c98d954c57b97ab.jpg",
+      "group": 123,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999990463256836,
+        "open_palm": 7.364997713921184e-07,
+        "thumbs_up": 1.8914498411959357e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/766df7456ecb3839b83296391debb93ab573a7737857548e5cb383a4748402d7.jpg",
+      "group": 661,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999849796295166,
+        "open_palm": 1.3960107025923207e-05,
+        "thumbs_up": 1.0934402325801784e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/42803bc3c68362ed527df0aabb537a989c5e8ca5e3cff0cd3889d87e36b5f806.jpg",
+      "group": 417,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999110698699951,
+        "open_palm": 1.8611115592648275e-05,
+        "thumbs_up": 7.02751349308528e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/4ddc7dce909e554e35d51039a3244d32d000ea08ff245b6bcbabb9f4c76e3085.jpg",
+      "group": 299,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999949932098389,
+        "open_palm": 2.8293425202718936e-06,
+        "thumbs_up": 2.0905083601974184e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/21af59f0ecacaa61fb3790fd040d53fdd1da1bc37945ebc3f21b5fc5af137530.jpg",
+      "group": 397,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999774694442749,
+        "open_palm": 8.956095371104311e-06,
+        "thumbs_up": 1.3531570402847137e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/9f106f7a6f74a113d25724abbbfbdcf710ed33174f9be8712392a7d52ce55129.jpg",
+      "group": 746,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.999971866607666,
+        "open_palm": 2.0046656572958454e-05,
+        "thumbs_up": 8.075925507000647e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/390b0280571e5a7a0122fdf467bff2e246f9d3f01c5b0ca9f0e01147d409e09e.jpg",
+      "group": 292,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999700784683228,
+        "open_palm": 2.8655986170633696e-05,
+        "thumbs_up": 1.363791739095177e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/7a80db7c238d607d99e48c8e3d13a7088941046c867e36cdaa0d29fc001b52c7.jpg",
+      "group": 99,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999545812606812,
+        "open_palm": 3.753456985577941e-05,
+        "thumbs_up": 7.849342182453256e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/94d4a75f0ea0f7946c15981787f1fcb708aa60c170bf205a7c2b13929708c36c.jpg",
+      "group": 767,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999972581863403,
+        "open_palm": 2.407102101642522e-06,
+        "thumbs_up": 2.9811391755174554e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/c705b9199fcdc96a745985619503ae5e46ef861be236d25c43109f0a7986c8c6.jpg",
+      "group": 273,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999769926071167,
+        "open_palm": 1.7332933566649444e-05,
+        "thumbs_up": 5.70144402445294e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/504882f2b6048143602330d67839ec02f2af20080e6bc6e475f08e60e2781e4f.jpg",
+      "group": 213,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.999165415763855,
+        "open_palm": 0.000685945909935981,
+        "thumbs_up": 0.00014870590530335903
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/ab2e4488fe6d20c57acf1731ae0fe54f4d34971659f3a2a7a25df4e50f799a5d.jpg",
+      "group": 691,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9998989105224609,
+        "open_palm": 8.239561429945752e-05,
+        "thumbs_up": 1.8735547200776637e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/eb25a623a6890ee1c5b605a1b99df2d830326261a994873d1e77bceda053d0b6.jpg",
+      "group": 370,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999984502792358,
+        "open_palm": 7.738250360489474e-07,
+        "thumbs_up": 8.378789289054112e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/5c5ffe957a61eae163a4d08e6aa6659959d2106097b978e8d741518547439821.jpg",
+      "group": 12,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9994283318519592,
+        "open_palm": 0.0004339712031651288,
+        "thumbs_up": 0.00013768243661615998
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/c6e83d004574426167319a3a954f38affba3c4190c6bd79212ce0343c55cdcce.jpg",
+      "group": 480,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.999976396560669,
+        "open_palm": 1.7148313418147154e-05,
+        "thumbs_up": 6.4337650655943435e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/419a729b5589a73b9fcb8bc483b7e91c47f8141a02fd1471fe929da2d6f857bf.jpg",
+      "group": 20,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999369382858276,
+        "open_palm": 4.587353396345861e-05,
+        "thumbs_up": 1.7159465642180294e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/dd634a4ff746867d7686c2996fcfa78beff85c194e6ad55a156d64af716e1b6d.jpg",
+      "group": 970,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999992847442627,
+        "open_palm": 6.316154781416117e-07,
+        "thumbs_up": 1.2736316534756043e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/6b565824c963e145e5d4f2ba69635a0826c1245734fe9a9bd8b3a68696e7f388.jpg",
+      "group": 76,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999927282333374,
+        "open_palm": 6.658906386292074e-06,
+        "thumbs_up": 5.79868924432958e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/c99cd3acde66a6f0532896e070bbc282f94de40e9fcff6717a1db3932eecafdd.jpg",
+      "group": 728,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999862909317017,
+        "open_palm": 1.2168658031441737e-05,
+        "thumbs_up": 1.5990204929039464e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/bbe333ccd1d4ba7efa3990b30c2fc2feb3f7921433438416c36485651b9d8dc2.jpg",
+      "group": 217,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.999940037727356,
+        "open_palm": 5.732268255087547e-05,
+        "thumbs_up": 2.679123781490489e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/5429175cd14c67a2c0a0bc6a77ab6a64eb28c482925129849fe0bcc779886cf3.jpg",
+      "group": 112,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999996423721313,
+        "open_palm": 2.670412584393489e-07,
+        "thumbs_up": 1.4646809631813085e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/da678795539f54637c738c73092b199d6affeb57185191d5ffa16a52c795e7e1.jpg",
+      "group": 742,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999744892120361,
+        "open_palm": 2.3947301087900996e-05,
+        "thumbs_up": 1.5999169136193814e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/6e5818219a8887e17f784322b9afdf57e2eb17c20023e322d7452024b12db9d2.jpg",
+      "group": 600,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999819993972778,
+        "open_palm": 1.0532909072935581e-05,
+        "thumbs_up": 7.498762442992302e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/c928f243c71b224ffd2853ad0f4812235b10881e329dd2991cd4d4dfbc426cf0.jpg",
+      "group": 9,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.999987006187439,
+        "open_palm": 1.0316526640963275e-05,
+        "thumbs_up": 2.612170419524773e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/695c7b7a1367eff79b11f23b367d85cd55840f1b4860eed186f612ecd8752e38.jpg",
+      "group": 255,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999812841415405,
+        "open_palm": 1.5063372302392963e-05,
+        "thumbs_up": 3.678463599499082e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/bdc910fe18d5dad8595763724b71f805c05788d35c3bc3f4ed466c0b860f1509.jpg",
+      "group": 83,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999991655349731,
+        "open_palm": 5.972490839667444e-07,
+        "thumbs_up": 2.1794949134346098e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/ecd9cd3c1a7e0e454c5ea8860c8c2a1ee7d7733d122b22e659638ba5f8647a02.jpg",
+      "group": 762,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9996582269668579,
+        "open_palm": 0.00026916558272205293,
+        "thumbs_up": 7.257992547238246e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/3a9b6d8efda1372b378fed7474f06c53c56e6ef0ffed76312abaaf9974f1190f.jpg",
+      "group": 561,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999990463256836,
+        "open_palm": 8.891460083759739e-07,
+        "thumbs_up": 1.0908437531043091e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/64d74cf72b66f2471158475989290050aeb44ce7b0a2e83c822c6dc48d664ce1.jpg",
+      "group": 506,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999667406082153,
+        "open_palm": 2.871136530302465e-05,
+        "thumbs_up": 4.523559709923575e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/0dbab1d69556b82154a3f603a8c9d5dc5cce2c2fc98f4b7c6e5df070c8a1187b.jpg",
+      "group": 968,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999964237213135,
+        "open_palm": 1.798068183234136e-06,
+        "thumbs_up": 1.7575521269463934e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/76f4ee8b3de46104ae76111ad147563e62868a05b896582222c69a0263a9e09a.jpg",
+      "group": 15,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999998807907104,
+        "open_palm": 1.0764613023184211e-07,
+        "thumbs_up": 1.970153995500823e-08
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/035c365b59c4e95183089afae5df66c1282841cc46d9c02c6c8112c48bcd138a.jpg",
+      "group": 812,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999996423721313,
+        "open_palm": 3.870759144319891e-07,
+        "thumbs_up": 1.9625323588456922e-08
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/40cd9ec52c6b5afaad1f0cec806fa8ec8ce8807e016b7fa4055e49fdd0625a56.jpg",
+      "group": 62,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999828338623047,
+        "open_palm": 5.84428107686108e-06,
+        "thumbs_up": 1.1266715773672331e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/d5ef85dbc9ef2bc56c5d9343101b5459645fda66709550ebe29f3222a0da0ece.jpg",
+      "group": 393,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999897480010986,
+        "open_palm": 6.173269866849296e-06,
+        "thumbs_up": 4.003408321295865e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/5c90b6af3b4c9f8591fac0d934d67a27bdaf08b4f306a081ccffdfccf44c9a79.jpg",
+      "group": 259,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999940395355225,
+        "open_palm": 4.999163138563745e-06,
+        "thumbs_up": 9.094156894207117e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/1bcc805517ff4f80669052b5417723c8b9cd1c575398c91140e2a0c1cd4bee6d.jpg",
+      "group": 306,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.999990701675415,
+        "open_palm": 8.725663064979017e-06,
+        "thumbs_up": 6.094855393712351e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/66cd6b5a30a83f2efaf66df088061a190d17f652fdb7d87a7fccfbd1add56d8b.jpg",
+      "group": 69,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999867677688599,
+        "open_palm": 9.992263585445471e-06,
+        "thumbs_up": 3.2076136449177284e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/e3611b65d02a3f2de61aac402354a17d14c753e41ec17d6e6e15fc1d6020857e.jpg",
+      "group": 503,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999990463256836,
+        "open_palm": 5.61231615847646e-07,
+        "thumbs_up": 3.7739650338153297e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/ef53637c3afd620a96f55ff2a397635e81bde898f74c76dcfeb24cdf10e113ac.jpg",
+      "group": 214,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999326467514038,
+        "open_palm": 4.9579524784348905e-05,
+        "thumbs_up": 1.7721809854265302e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/110e5ec985503fd9327d4fef5d3baa3e67f7eed02ac234bfc6a28d71069bfb7e.jpg",
+      "group": 176,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9998795986175537,
+        "open_palm": 4.167000952293165e-05,
+        "thumbs_up": 7.871973502915353e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/603e646e74ff4b29d5c231b912e28a6712a3af81fc69cbcc839ed5e093423317.jpg",
+      "group": 70,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999992847442627,
+        "open_palm": 5.639772098220419e-07,
+        "thumbs_up": 1.333132360059608e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/c08be81944fe6bb41a172d357a6250458e976577b8eccd4e11ffb082340c2c12.jpg",
+      "group": 256,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999957084655762,
+        "open_palm": 2.8173842565593077e-06,
+        "thumbs_up": 1.4575570048691588e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/376b538adba71ca2b3b5164267b748497b504a4dfea734abbde0017f72c74d62.jpg",
+      "group": 593,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.999826967716217,
+        "open_palm": 5.167215203982778e-05,
+        "thumbs_up": 0.00012139176396885887
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/ff4cd9b24019964d708bc884f03d71ae76c539572d38b2e84da15016688b98a6.jpg",
+      "group": 796,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999278783798218,
+        "open_palm": 5.3452800784725696e-05,
+        "thumbs_up": 1.8696873667067848e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/3fb7009159182a698778c40016ff8661a6085fd3f13af9b845e098e826cfba6c.jpg",
+      "group": 723,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999949932098389,
+        "open_palm": 2.335291128474637e-06,
+        "thumbs_up": 2.576342239990481e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/ee17b7fc9333ef22c31b81cb42f40c476f99835958b1c218d7c030a92983b46e.jpg",
+      "group": 616,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999052286148071,
+        "open_palm": 8.111452189041302e-05,
+        "thumbs_up": 1.3627874068333767e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/b9fc0567fc2e33363942b459505b3f6e4e72aa98fbe7f796c91c1c172be776c9.jpg",
+      "group": 162,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999997615814209,
+        "open_palm": 2.0551961199544166e-07,
+        "thumbs_up": 2.4605816051348484e-08
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/24de9e70f8b81bf05e5c4c7233a8ef1f1b20f606e0ce9350157dbf3077f1e59f.jpg",
+      "group": 941,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999924898147583,
+        "open_palm": 6.947501333343098e-06,
+        "thumbs_up": 5.995838137096143e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/9b249365b33940c0cef5c5df44efea5dc5503a13aa18b6c27bc7c4f3a786551c.jpg",
+      "group": 601,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999994039535522,
+        "open_palm": 4.5477119670067623e-07,
+        "thumbs_up": 1.170304955167012e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/c40bee6708688babee096dad726fc26c8aff4fa4a0b060893fa97ce3a7fc134d.jpg",
+      "group": 726,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999929666519165,
+        "open_palm": 5.603695171885192e-06,
+        "thumbs_up": 1.4210229437594535e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/5cc35f8d9c66a609bd7dd4aa7953c219905c3d4be70a9848f4b5c8646ce848a4.jpg",
+      "group": 621,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999758005142212,
+        "open_palm": 1.1632783753157128e-05,
+        "thumbs_up": 1.2551137842820026e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/67258004d023c74eb7e1316fe24d0e0cd89ea4d2222b95e1faf57c5a4da8e633.jpg",
+      "group": 842,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999713897705078,
+        "open_palm": 2.7431817215983756e-05,
+        "thumbs_up": 1.1446055623309803e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/6a1a3c49e534e7f83bc0e7ea96a9365e552b414f58c68d049cc4fea021fcbd7a.jpg",
+      "group": 773,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999791383743286,
+        "open_palm": 1.682629226706922e-05,
+        "thumbs_up": 4.041785359731875e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/b047987942f217cd8143b7981c2f9f0e01188a141a8322eb57e6f4411712a356.jpg",
+      "group": 410,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999963045120239,
+        "open_palm": 3.4225492981931893e-06,
+        "thumbs_up": 2.0535452449621516e-07
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/799e266bba6da3ca9c6bad29315dc92ffd9b9152fcf3cec69abd0b7b844a5448.jpg",
+      "group": 81,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999829530715942,
+        "open_palm": 1.3138052963768132e-05,
+        "thumbs_up": 3.984591785410885e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/6faf2875d62cdaf47efe4a69d1a22b67037b9003a602078673114c38c7c413d9.jpg",
+      "group": 800,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999992847442627,
+        "open_palm": 6.043538860467379e-07,
+        "thumbs_up": 9.205314199789427e-08
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/8da3f6fadc74177bf394def46f0f0c2c3eeaa6aa715ab376da45a381d66e3730.jpg",
+      "group": 321,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999998807907104,
+        "open_palm": 7.40567429602379e-08,
+        "thumbs_up": 6.542864916525559e-09
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/997e9b8433b134c3ed48234360b382624d9d48510e469badbf0f5a05822f711a.jpg",
+      "group": 101,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.999854326248169,
+        "open_palm": 0.0001401296176481992,
+        "thumbs_up": 5.443970167107182e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/0e130fb7afaaae6ebe9a05d358f4909fdaa008087341ee177bdde1cdcd638b26.jpg",
+      "group": 211,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999613761901855,
+        "open_palm": 1.8334232663619332e-05,
+        "thumbs_up": 2.020592728513293e-05
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/d45189c4a2f1ec2b71b6b80a9d4baf872f05e6749599b202cc851376a374506a.jpg",
+      "group": 97,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 1.0,
+        "open_palm": 3.6526113689205886e-08,
+        "thumbs_up": 6.026972698691679e-09
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/b8635760a50707d5342358f2ed64f0d1a6acb632a1d5404672d88ad72d6feea0.jpg",
+      "group": 855,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999749660491943,
+        "open_palm": 2.3278566004591994e-05,
+        "thumbs_up": 1.788224153642659e-06
+      }
+    },
+    {
+      "source": "data/ok_hand_crops/val/ok/ccf4076e509c186174975701b470bfd8b5012a57e7f8521c6751c4fa4bf53413.jpg",
+      "group": 856,
+      "actual": "ok",
+      "view": "clean",
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9999974966049194,
+        "open_palm": 2.162580813092063e-06,
+        "thumbs_up": 3.4468564535927726e-07
+      }
+    }
+  ]
+}

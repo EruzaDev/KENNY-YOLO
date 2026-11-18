@@ -1,0 +1,125 @@
+{
+  "task": "classify",
+  "split": "val",
+  "checkpoint_sha256": "437df769f75eb347b1410e2ecf032da4d1680d7ba2907a9d7143fe8595006f52",
+  "capture_group_count": 135,
+  "source_capture_count": 156,
+  "confidence": 0.8,
+  "count": 156,
+  "accuracy": 1.0,
+  "coverage": 1.0,
+  "classification_report": {
+    "ok": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 150
+    },
+    "open_palm": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 3
+    },
+    "thumbs_up": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 3
+    },
+    "unknown": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1-score": 0.75,
+      "support": 156
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 156
+    }
+  },
+  "raw_top1_accuracy": 1.0,
+  "target_macro": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0
+  },
+  "classification_average_precision": {
+    "per_class": {
+      "ok": 1.0,
+      "open_palm": 1.0,
+      "thumbs_up": 1.0
+    },
+    "mean_average_precision": 1.0,
+    "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+  },
+  "detection_map": null,
+  "confusion_matrix": [
+    [
+      150,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      3,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      3,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "labels": [
+    "ok",
+    "open_palm",
+    "thumbs_up",
+    "unknown"
+  ],
+  "latency_ms": {
+    "mean": 81.69550771789055,
+    "p95": 100.99177474967291
+  },
+  "limitations": [
+    "Tiny grouped test sample; no negative gestures or empty scenes.",
+    "Identity/session independence is unverified.",
+    "Unknown represents abstention, not a trained negative class."
+  ],
+  "error_analysis": {
+    "ok": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "open_palm": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "thumbs_up": {
+      "false_negatives": 0,
+      "false_positives": 0
+    },
+    "unknown": {
+      "false_negatives": 0,
+      "false_positives": 0
+    }
+  }
+}

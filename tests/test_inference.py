@@ -29,7 +29,7 @@ class InferenceTests(unittest.TestCase):
             path.write_bytes(b'updated checkpoint fixture')
             self.assertTrue(detector.deployment_status()['restart_required'])
             detector.classes = ['open_palm', 'thumbs_up']
-            self.assertEqual(detector.deployment_status()['missing_classes'], ['closed_fist'])
+            self.assertEqual(detector.deployment_status()['missing_classes'], ['ok'])
             path.unlink()
             self.assertTrue(detector.deployment_status()['restart_required'])
 
@@ -76,7 +76,7 @@ class InferenceTests(unittest.TestCase):
             self.skipTest('Training has not completed; real-model integration is unverified.')
         detector = Detector(MODEL_PATH)
         detector.load()
-        image_path = next(Path('data/processed/val').rglob('*.png'))
+        image_path = next((Path(detector.metadata['config']['data']) / 'val').rglob('*.*'))
         with Image.open(image_path) as image:
             output = detector.predict(image, .8)
         self.assertEqual(output['task'], 'classify')

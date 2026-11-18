@@ -6,7 +6,9 @@ import os
 import shutil
 from pathlib import Path
 
-from app.core.gestures import CLASSES, LEGACY_CLASSES
+from app.core.gestures import LEGACY_CLASSES
+
+CLASSES = ('closed_fist', 'open_palm', 'thumbs_up')  # Historical selection protocol.
 
 
 def preservation_failures(baseline: dict, candidate: dict) -> list[str]:

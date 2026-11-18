@@ -16,5 +16,10 @@ data/photo_backgrounds/
 /yolov8n-cls.pt
 data/webcam_fist/
 /Ultralytics/
+data/ok_gestures/
+data/ok_gestures_inherited/
+data/ok_hand_crops/
+!models/ok_gestures/best.pt
+!models/ok_camera/best.pt
 !models/photo_backgrounds/best.pt
 !models/webcam_fist/best.pt

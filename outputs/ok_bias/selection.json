@@ -1,0 +1,12 @@
+{
+  "selection_split": "val",
+  "test_used": false,
+  "selected_checkpoint": "models/ok_camera/best.pt",
+  "baseline": "437df769f75eb347b1410e2ecf032da4d1680d7ba2907a9d7143fe8595006f52",
+  "selected": "f1d2cc5a6b4de2de2c864ee21de0368b3ec370f9bca69ff43ce6903d61632889",
+  "clean_correct": 128,
+  "photo_correct_before": 20,
+  "photo_correct_after": 30,
+  "false_ok_before": 2,
+  "false_ok_after": 0
+}

@@ -10,7 +10,7 @@ import cv2
 import numpy as np
 from PIL import Image, ImageOps
 
-CLASSES = ('open_palm', 'thumbs_up')  # Ultralytics alphabetic folder order.
+CLASSES = ('ok', 'open_palm', 'thumbs_up')  # Ultralytics alphabetic folder order.
 EXTENSIONS = {'.jpg', '.jpeg', '.png', '.webp', '.bmp'}
 _PIL_OPEN = Image.open  # Keep the standard decoder before optional Ultralytics monkey patches.
 
@@ -58,7 +58,10 @@ def audit(raw: Path) -> dict:
 
 
 def prepare(raw: Path, destination: Path, report_path: Path, seed: int = 42,
-            distance: int = 8, sessions: dict | None = None) -> dict:
+            distance: int = 8, sessions: dict | None = None,
+            inherit_splits: Path | None = None) -> dict:
+    if inherit_splits is not None and report_path.resolve() == inherit_splits.resolve():
+        raise ValueError('Choose a separate report path to preserve the inherited split manifest.')
     report = audit(raw)
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(report, indent=2))
@@ -100,7 +103,24 @@ def prepare(raw: Path, destination: Path, report_path: Path, seed: int = 42,
                for s, ratio in [('train', .70), ('val', .15), ('test', .15)]}
     counts = {s: Counter() for s in targets}
     assignment = []
+    inherited = {}
+    if inherit_splits is not None:
+        previous = json.loads(inherit_splits.read_text())
+        inherited = {r['sha256']: r['split'] for r in previous['manifest']}
+        if not inherited.keys() <= unique.keys():
+            raise ValueError('Inherited captures are missing from the current dataset.')
+    pending = []
     for group in ordered:
+        fixed = {inherited[r['sha256']] for r in group if r['sha256'] in inherited}
+        if len(fixed) > 1:
+            raise ValueError('A similarity group spans conflicting inherited splits.')
+        if fixed:
+            split = fixed.pop()
+            counts[split].update(r['label'] for r in group)
+            assignment.extend(dict(r, split=split, group=root(records.index(r))) for r in group)
+        else:
+            pending.append(group)
+    for group in pending:
         gc = Counter(r['label'] for r in group)
         def cost(split):
             return sum(((counts[split][c] + gc[c] - targets[split][c]) ** 2
@@ -118,10 +138,12 @@ def prepare(raw: Path, destination: Path, report_path: Path, seed: int = 42,
             ImageOps.exif_transpose(image).convert('RGB').save(out)
         record['processed'] = str(out)
     report.update(seed=seed, near_duplicate_distance=distance, near_duplicate_pairs=pairs,
+                  inherited_split_manifest=str(inherit_splits) if inherit_splits else None,
+                  inherited_capture_count=len(inherited),
                   group_count=len(groups), splits={s: dict(c) for s, c in counts.items()},
                   manifest=assignment, session_mapping_supplied=bool(sessions),
                   limitations=['Perceptual grouping is heuristic; unknown person/session identity leakage cannot be ruled out.',
-                               'Only white-background target gestures; no negatives or annotated boxes.',
+                               'Target gesture images only; no negatives or annotated boxes.',
                                'Image-level labels require manual semantic review.'])
     report_path.write_text(json.dumps(report, indent=2))
     (destination / 'manifest.json').write_text(json.dumps(report, indent=2))
@@ -136,9 +158,10 @@ def main():
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--near-distance', type=int, default=8)
     parser.add_argument('--sessions', type=Path, help='JSON: relative filename -> person/session ID')
+    parser.add_argument('--inherit-splits', type=Path, help='Preserve earlier capture splits when extending a trained dataset')
     args = parser.parse_args()
     result = prepare(args.raw, args.output, args.report, args.seed, args.near_distance,
-                     json.loads(args.sessions.read_text()) if args.sessions else None)
+                     json.loads(args.sessions.read_text()) if args.sessions else None, args.inherit_splits)
     print(json.dumps({k: result[k] for k in ['counts', 'unique_counts', 'group_count', 'splits']}, indent=2))
 
 

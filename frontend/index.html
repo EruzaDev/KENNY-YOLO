@@ -47,7 +47,7 @@
           <div id="upload-actions" hidden><label class="primary file-label" tabindex="0" role="button">Choose image<input id="upload" type="file" accept="image/jpeg,image/png" hidden></label><button id="reset">Reset</button><small>JPEG / PNG · max 5 MB</small></div>
           <span id="timing">— ms · — FPS</span>
         </div>
-        <details class="capture-details"><summary>Collect a labeled example <span>OPTIONAL ↗</span></summary><div id="example-actions" class="example-capture"><label for="example-label">Actual gesture<select id="example-label"><option value="">Choose a gesture</option><option value="closed_fist">Closed Fist</option><option value="thumbs_up">Thumbs Up</option><option value="open_palm">Open Palm</option></select></label><button id="save-example" disabled>Download labeled frame</button><small>Saves the latest classified crop, or the current frame if none was classified. Nothing is uploaded or trained automatically.</small></div></details>
+        <details class="capture-details"><summary>Collect a labeled example <span>OPTIONAL ↗</span></summary><div id="example-actions" class="example-capture"><label for="example-label">Actual gesture<select id="example-label"><option value="">Choose a gesture</option><option value="ok">OK</option><option value="thumbs_up">Thumbs Up</option><option value="open_palm">Open Palm</option></select></label><button id="save-example" disabled>Download labeled frame</button><small>Saves the latest classified crop, or the current frame if none was classified. Nothing is uploaded or trained automatically.</small></div></details>
         <p id="error" role="alert"></p>
       </section>
 
@@ -67,7 +67,7 @@
           <div class="slider-setting"><label for="confidence">Confidence threshold <output id="confidence-value">80%</output></label><input id="confidence" type="range" min="50" max="99" value="80"></div>
           <div class="slider-setting"><label for="smoothing">Stabilization <output id="smoothing-value">3 frames</output></label><input id="smoothing" type="range" min="1" max="12" value="3"></div>
           <div class="slider-setting"><label for="frequency">Camera frequency <output id="frequency-value">5 FPS</output></label><input id="frequency" type="range" min="1" max="10" value="5"></div>
-          <details class="advanced-settings"><summary>Advanced settings</summary><label class="check-label"><input type="checkbox" id="thumb-guard"> Experimental thumb consistency check</label><p class="muted">May reject conflicting fist/thumb predictions. Camera validation is pending. Settings apply to the next frame; IoU is not applicable to classification.</p></details>
+          <details class="advanced-settings"><summary>Advanced settings</summary><label class="check-label"><input type="checkbox" id="thumb-guard"> Experimental thumb consistency check</label><p class="muted">May reject Thumbs Up when the thumb appears folded. Camera validation is pending. Settings apply to the next frame; IoU is not applicable to classification.</p></details>
         </section>
       </aside>
     </div>
@@ -76,7 +76,7 @@
       <div class="guide-intro"><p class="eyebrow">THE GESTURE LANGUAGE</p><h2>Three gestures.<br>One clear message.</h2></div>
       <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">✋</span><div><h3>Open Palm</h3><p>STOP ROBOT</p></div><span class="gesture-number">01</span></div>
       <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">👍</span><div><h3>Thumbs Up</h3><p>DONE / RESUME</p></div><span class="gesture-number">02</span></div>
-      <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">✊</span><div><h3>Closed Fist</h3><p>RETURN TO BASE</p></div><span class="gesture-number">03</span></div>
+      <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">👌</span><div><h3>OK</h3><p>RETURN TO BASE</p></div><span class="gesture-number">03</span></div>
     </section>
 
     <section id="results" class="results-section" aria-label="Current model results">
@@ -85,18 +85,18 @@
       <div id="results-content" hidden>
         <div class="result-metrics">
           <article class="panel metric-card"><p class="eyebrow">TRAINING COMPLETED</p><strong id="result-epochs">—</strong><p id="result-training-count">—</p></article>
-          <article class="panel metric-card"><p class="eyebrow">EXPANDED VALIDATION</p><strong id="result-validation">—</strong><p>Accepted correctly at 80% confidence</p></article>
-          <article class="panel metric-card"><p class="eyebrow">EXISTING TEST REGRESSION</p><strong id="result-regression">—</strong><p>Previously inspected dataset—not a fresh test</p></article>
-          <article class="panel metric-card"><p class="eyebrow">UPLOADED TRAINING FRAMES</p><strong id="result-training-fit">—</strong><p>Training fit only—not camera accuracy</p></article>
+          <article class="panel metric-card"><p class="eyebrow">GROUPED VALIDATION</p><strong id="result-validation">—</strong><p>Accepted correctly at 80% confidence</p></article>
+          <article class="panel metric-card"><p class="eyebrow">RESERVED TEST SPLIT</p><strong id="result-regression">—</strong><p>Dataset evaluation—not live camera accuracy</p></article>
+          <article class="panel metric-card"><p class="eyebrow">TRAINING FIT</p><strong id="result-training-fit">—</strong><p>Training fit only—not camera accuracy</p></article>
         </div>
         <p id="result-summary" class="results-note"></p>
         <div class="result-tables">
           <section class="panel result-table"><h3>Dataset distribution</h3><p>Actual files before training-only class balancing.</p><div class="table-scroll"><table><thead><tr><th scope="col">Gesture</th><th scope="col">Train</th><th scope="col">Validation</th><th scope="col">Test</th></tr></thead><tbody id="dataset-results"></tbody></table></div></section>
-          <section class="panel result-table"><h3>Per-gesture regression results</h3><p>Existing test images · threshold 0.80.</p><div class="table-scroll"><table><thead><tr><th scope="col">Gesture</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th><th scope="col">Files</th></tr></thead><tbody id="class-results"></tbody></table></div></section>
+          <section class="panel result-table"><h3>Per-gesture test results</h3><p>Reserved test images · threshold 0.80.</p><div class="table-scroll"><table><thead><tr><th scope="col">Gesture</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th><th scope="col">Files</th></tr></thead><tbody id="class-results"></tbody></table></div></section>
         </div>
         <div class="result-plots">
           <figure class="panel"><figcaption>Actual training curves <small>Loss and top-1 accuracy by epoch</small></figcaption><a id="curves-link" target="_blank" rel="noopener"><img id="result-curves" alt="Training and validation loss and classification accuracy curves" loading="lazy"></a></figure>
-          <figure class="panel"><figcaption>Expanded validation confusion matrix <small>Includes abstentions as unknown</small></figcaption><a id="confusion-link" target="_blank" rel="noopener"><img id="result-confusion" alt="Confusion matrix of the current model's expanded validation predictions" loading="lazy"></a></figure>
+          <figure class="panel"><figcaption>Validation confusion matrix <small>Includes abstentions as unknown</small></figcaption><a id="confusion-link" target="_blank" rel="noopener"><img id="result-confusion" alt="Confusion matrix of the current model's validation predictions" loading="lazy"></a></figure>
         </div>
         <details class="panel results-examples"><summary>View hand-focused training examples</summary><img id="result-crops" alt="Synthetic hand-focused training crops of all three gestures, on white and photographic backgrounds" loading="lazy"></details>
         <div class="results-limitations"><h3>What these numbers do—and don’t—mean</h3><ul id="result-limitations"></ul></div>
@@ -110,6 +110,6 @@
     </section>
     <footer><a href="/" class="footer-brand">kenny<span> / VISION LAB</span></a><span>Made for curiosity. Grounded in evidence.</span><span class="footer-local"><span class="status-dot"></span> RUNNING LOCALLY</span></footer>
   </main>
-  <script type="module" src="/static/js/app.js?v=9"></script>
+  <script type="module" src="/static/js/app.js?v=12"></script>
 </body>
 </html>

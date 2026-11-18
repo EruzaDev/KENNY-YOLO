@@ -65,7 +65,7 @@ test('unavailable hand detector fails closed without creating a prediction', asy
   assert.equal(gate.detector,null);
 });
 
-const {thumbEvidence} = await moduleFrom('frontend/js/hand_gate.js');
+const {thumbEvidence, okPinchEvidence, checkOkEvidence} = await moduleFrom('frontend/js/hand_gate.js');
 function foldedHand(extendedThumb) {
   const points=Array.from({length:21},()=>({x:0,y:0,z:0}));
   for (const [j,x] of [-.04,-.015,.015,.04].entries()) {
@@ -102,6 +102,28 @@ test('camera thumb check stays optional and sends evidence only when enabled',as
   }
 });
 
+test('separated fingertips veto an OK score without assigning another class', () => {
+  const points = foldedHand(true);
+  assert.equal(okPinchEvidence(points), 'separate');
+  assert.equal(okPinchEvidence(points.map(p=>({x:-p.x*10,y:p.y*10,z:p.z*10}))), 'separate');
+  points[4] = {...points[8]};
+  assert.equal(okPinchEvidence(points), 'pinched');
+  assert.equal(okPinchEvidence(undefined), 'unknown');
+  assert.equal(okPinchEvidence(Array(21).fill({x:0,y:0,z:0})), 'unknown');
+  const ambiguous = Array.from({length:21},()=>({x:0,y:0,z:0}));
+  ambiguous[9]={x:0,y:.1,z:0}; ambiguous[4]={x:-.1,y:.1,z:0}; ambiguous[8]={x:.1,y:.1,z:0};
+  assert.equal(okPinchEvidence(ambiguous), 'unknown'); // Distance alone must not veto OK.
+  const result = {predictions:[{class_name:'ok',confidence:.999}], scores:{ok:.999}, stable_gesture:'ok'};
+  const rejected = checkOkEvidence(result, 'separate');
+  assert.deepEqual(rejected.predictions, []);
+  assert.equal(rejected.stable_gesture, null);
+  assert.deepEqual(rejected.scores, result.scores);
+  assert.equal(checkOkEvidence(result, 'pinched'), result);
+  assert.equal(checkOkEvidence(result, 'unknown'), result);
+  const palm = {predictions:[{class_name:'open_palm'}]};
+  assert.equal(checkOkEvidence(palm, 'separate'), palm);
+});
+
 test('saved camera example matches the classified request and clears on stop',async()=>{
   const originalNavigator=Object.getOwnPropertyDescriptor(globalThis,'navigator');
   const originalWebSocket=globalThis.WebSocket, originalLocation=globalThis.location;
@@ -118,7 +140,7 @@ test('saved camera example matches the classified request and clears on stop',as
     let shown;
     const camera=new Camera({videoWidth:640,videoHeight:480,play:async()=>{}},
       ()=>({confidence:.8,smoothing:3,frequency:5}),result=>{shown=result;},()=>{},()=>{},
-      {load:async()=>{},crop:async()=>({image:{toDataURL:()=> 'data:image/jpeg;base64,ZXhhY3Q='},
+      {load:async()=>{},filterResult:checkOkEvidence,crop:async()=>({image:{toDataURL:()=> 'data:image/jpeg;base64,ZXhhY3Q='},
         box:{x:40,y:50,width:100,height:120}})});
     await camera.start();
     await camera.send();
@@ -132,6 +154,12 @@ test('saved camera example matches the classified request and clears on stop',as
     assert.equal(shown.source_height,480);
     assert.equal(camera.socket.messages[0].hand_box,undefined);
     assert.equal(camera.lastFrame.session,camera.sessionId);
+    camera.pendingFrame = {...camera.lastFrame, okEvidence:'separate'};
+    camera.socket.onmessage({data:JSON.stringify({predictions:[{class_name:'ok',confidence:.999}],
+      scores:{ok:.999},stable_gesture:'ok'})});
+    assert.deepEqual(shown.predictions, []);
+    assert.equal(shown.stable_gesture, null);
+    assert.equal(camera.lastFrame.result, shown);
     camera.stop();
     assert.equal(camera.lastFrame,null);
     assert.equal(camera.pendingFrame,null);

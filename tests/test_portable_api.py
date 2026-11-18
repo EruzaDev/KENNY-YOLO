@@ -19,7 +19,8 @@ class PortableApiTests(unittest.IsolatedAsyncioTestCase):
         from app.services.detector import Detector
         cls.detector = Detector(MODEL_PATH)
         cls.detector.load()
-        cls.image = next(Path('data/processed/val/open_palm').glob('*.png')).read_bytes()
+        cls.data_root = Path(cls.detector.metadata['config']['data'])
+        cls.image = next((cls.data_root / 'val/open_palm').glob('*')).read_bytes()
 
     async def asyncSetUp(self):
         import httpx
@@ -80,7 +81,7 @@ class PortableApiTests(unittest.IsolatedAsyncioTestCase):
         from app.core.gestures import GESTURE_FUNCTIONS, CLASSES
         self.assertEqual(tuple(self.detector.classes), CLASSES)
         for label, function in GESTURE_FUNCTIONS.items():
-            path = next((Path('data/three_class/val') / label).glob('*.png'))
+            path = next((self.data_root / 'val' / label).glob('*'))
             response = await self.client.post('/api/predict', files={'file':(path.name, path.read_bytes(), 'image/png')})
             self.assertEqual(response.status_code, 200)
             prediction = response.json()['predictions'][0]
@@ -89,8 +90,8 @@ class PortableApiTests(unittest.IsolatedAsyncioTestCase):
             self.assertGreaterEqual(prediction['confidence'], .8)
 
     async def test_actual_pair_contradiction_abstains(self):
-        for label, hint in [('closed_fist', 'thumb_extended'), ('thumbs_up', 'thumb_folded')]:
-            path = next((Path('data/three_class/val') / label).glob('*.png'))
+        for label, hint in [('thumbs_up', 'thumb_folded')]:
+            path = next((self.data_root / 'val' / label).glob('*'))
             response = await self.client.post('/api/predict?pose_hint=' + hint,
                 files={'file':(path.name, path.read_bytes(), 'image/png')})
             self.assertEqual(response.status_code, 200)
@@ -139,9 +140,9 @@ class PortableApiTests(unittest.IsolatedAsyncioTestCase):
             self.assertIsNone(reset['stable_gesture'])
             self.assertEqual(reset['message'], 'No gesture detected')
             from app.core.gestures import GESTURE_FUNCTIONS
-            for label in ['closed_fist', 'thumbs_up']:
+            for label in ['ok', 'thumbs_up']:
                 await asyncio.sleep(.09)
-                path = next((Path('data/three_class/val') / label).glob('*.png'))
+                path = next((self.data_root / 'val' / label).glob('*'))
                 await incoming.put({'type':'websocket.receive', 'text':json.dumps(
                     {'image':base64.b64encode(path.read_bytes()).decode(), 'confidence':.8, 'smoothing':1})})
                 frame = json.loads((await asyncio.wait_for(outgoing.get(), 20))['text'])

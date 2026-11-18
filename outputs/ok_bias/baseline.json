@@ -1,0 +1,892 @@
+{
+  "checkpoint_sha256": "437df769f75eb347b1410e2ecf032da4d1680d7ba2907a9d7143fe8595006f52",
+  "kind": "derived validation diagnostic, not new camera evidence",
+  "summary": {
+    "original": {
+      "count": 36,
+      "accepted_correct": 8,
+      "predictions": {
+        "thumbs_up": 5,
+        "unknown": 16,
+        "open_palm": 3,
+        "ok": 12
+      }
+    },
+    "hand_crop": {
+      "count": 36,
+      "accepted_correct": 18,
+      "predictions": {
+        "thumbs_up": 5,
+        "unknown": 13,
+        "open_palm": 13,
+        "ok": 5
+      }
+    }
+  },
+  "predictions": [
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "original",
+      "background": 0,
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 2.111704452545382e-05,
+        "open_palm": 4.860457920585759e-07,
+        "thumbs_up": 0.9999784231185913
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "original",
+      "background": 1,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.2543484568595886,
+        "open_palm": 2.6249323127558455e-05,
+        "thumbs_up": 0.7456252574920654
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "original",
+      "background": 2,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.33751046657562256,
+        "open_palm": 1.777456418494694e-05,
+        "thumbs_up": 0.6624717116355896
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "original",
+      "background": 3,
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.06524180620908737,
+        "open_palm": 2.414866139588412e-05,
+        "thumbs_up": 0.934734046459198
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "original",
+      "background": 4,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.42795059084892273,
+        "open_palm": 9.876129297481384e-06,
+        "thumbs_up": 0.5720394849777222
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "original",
+      "background": 5,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.6508251428604126,
+        "open_palm": 3.887622006004676e-05,
+        "thumbs_up": 0.34913602471351624
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "hand_crop",
+      "background": 0,
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 2.111704452545382e-05,
+        "open_palm": 4.860457920585759e-07,
+        "thumbs_up": 0.9999784231185913
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "hand_crop",
+      "background": 1,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.2543484568595886,
+        "open_palm": 2.6249323127558455e-05,
+        "thumbs_up": 0.7456252574920654
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "hand_crop",
+      "background": 2,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.33751046657562256,
+        "open_palm": 1.777456418494694e-05,
+        "thumbs_up": 0.6624717116355896
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "hand_crop",
+      "background": 3,
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.06524180620908737,
+        "open_palm": 2.414866139588412e-05,
+        "thumbs_up": 0.934734046459198
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "hand_crop",
+      "background": 4,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.42795059084892273,
+        "open_palm": 9.876129297481384e-06,
+        "thumbs_up": 0.5720394849777222
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/62c077ec1724559a110244ed7d44216a9f587697c501cc0622093f8769050f81.png",
+      "view": "hand_crop",
+      "background": 5,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.6508251428604126,
+        "open_palm": 3.887622006004676e-05,
+        "thumbs_up": 0.34913602471351624
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "original",
+      "background": 0,
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 2.68339499598369e-05,
+        "open_palm": 8.416731702709512e-07,
+        "thumbs_up": 0.9999723434448242
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "original",
+      "background": 1,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.3052044212818146,
+        "open_palm": 3.265225313953124e-05,
+        "thumbs_up": 0.6947629451751709
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "original",
+      "background": 2,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.3708089590072632,
+        "open_palm": 3.147899769828655e-05,
+        "thumbs_up": 0.6291595697402954
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "original",
+      "background": 3,
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.07062139362096786,
+        "open_palm": 2.8115180612076074e-05,
+        "thumbs_up": 0.9293504357337952
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "original",
+      "background": 4,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.507835328578949,
+        "open_palm": 1.254216749657644e-05,
+        "thumbs_up": 0.4921520948410034
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "original",
+      "background": 5,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.7204634547233582,
+        "open_palm": 5.519802652997896e-05,
+        "thumbs_up": 0.2794813811779022
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "hand_crop",
+      "background": 0,
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 2.68339499598369e-05,
+        "open_palm": 8.416731702709512e-07,
+        "thumbs_up": 0.9999723434448242
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "hand_crop",
+      "background": 1,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.3052044212818146,
+        "open_palm": 3.265225313953124e-05,
+        "thumbs_up": 0.6947629451751709
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "hand_crop",
+      "background": 2,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.3708089590072632,
+        "open_palm": 3.147899769828655e-05,
+        "thumbs_up": 0.6291595697402954
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "hand_crop",
+      "background": 3,
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 0.07062139362096786,
+        "open_palm": 2.8115180612076074e-05,
+        "thumbs_up": 0.9293504357337952
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "hand_crop",
+      "background": 4,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.507835328578949,
+        "open_palm": 1.254216749657644e-05,
+        "thumbs_up": 0.4921520948410034
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/446721af2d18ab3d498d8b007d4aea078de71c07686659a6c218db99d15fd53f.png",
+      "view": "hand_crop",
+      "background": 5,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.7204634547233582,
+        "open_palm": 5.519802652997896e-05,
+        "thumbs_up": 0.2794813811779022
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "original",
+      "background": 0,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0006845664465799928,
+        "open_palm": 0.9992061257362366,
+        "thumbs_up": 0.00010931617725873366
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "original",
+      "background": 1,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9685386419296265,
+        "open_palm": 0.03109033592045307,
+        "thumbs_up": 0.00037111417623236775
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "original",
+      "background": 2,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.8996644616127014,
+        "open_palm": 0.0996909812092781,
+        "thumbs_up": 0.0006445515318773687
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "original",
+      "background": 3,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.6253290772438049,
+        "open_palm": 0.37215930223464966,
+        "thumbs_up": 0.002511625876650214
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "original",
+      "background": 4,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9806426167488098,
+        "open_palm": 0.01928620971739292,
+        "thumbs_up": 7.125030970200896e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "original",
+      "background": 5,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9805702567100525,
+        "open_palm": 0.01908397488296032,
+        "thumbs_up": 0.0003457340644672513
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "hand_crop",
+      "background": 0,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0006845664465799928,
+        "open_palm": 0.9992061257362366,
+        "thumbs_up": 0.00010931617725873366
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "hand_crop",
+      "background": 1,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9685386419296265,
+        "open_palm": 0.03109033592045307,
+        "thumbs_up": 0.00037111417623236775
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "hand_crop",
+      "background": 2,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.8996644616127014,
+        "open_palm": 0.0996909812092781,
+        "thumbs_up": 0.0006445515318773687
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "hand_crop",
+      "background": 3,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.6253290772438049,
+        "open_palm": 0.37215930223464966,
+        "thumbs_up": 0.002511625876650214
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "hand_crop",
+      "background": 4,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9806426167488098,
+        "open_palm": 0.01928620971739292,
+        "thumbs_up": 7.125030970200896e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/9f2d335bed34b4da5377c3f56d0863ea7c0ae8a2f55b5aad36747a54962c2fc7.png",
+      "view": "hand_crop",
+      "background": 5,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9805702567100525,
+        "open_palm": 0.01908397488296032,
+        "thumbs_up": 0.0003457340644672513
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "original",
+      "background": 0,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0018838824471458793,
+        "open_palm": 0.9975166320800781,
+        "thumbs_up": 0.0005996034014970064
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "original",
+      "background": 1,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9733803868293762,
+        "open_palm": 0.02607744373381138,
+        "thumbs_up": 0.0005421669920906425
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "original",
+      "background": 2,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.8835040926933289,
+        "open_palm": 0.11542851477861404,
+        "thumbs_up": 0.0010674343211576343
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "original",
+      "background": 3,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.7947129607200623,
+        "open_palm": 0.20169614255428314,
+        "thumbs_up": 0.0035908592399209738
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "original",
+      "background": 4,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9902809858322144,
+        "open_palm": 0.009642569348216057,
+        "thumbs_up": 7.63550924602896e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "original",
+      "background": 5,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9858356714248657,
+        "open_palm": 0.013859963044524193,
+        "thumbs_up": 0.00030440185219049454
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "hand_crop",
+      "background": 0,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 4.8728725232649595e-05,
+        "open_palm": 0.9999468326568604,
+        "thumbs_up": 4.4004409573972225e-06
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "hand_crop",
+      "background": 1,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.024962611496448517,
+        "open_palm": 0.9749273061752319,
+        "thumbs_up": 0.00011007052671629936
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "hand_crop",
+      "background": 2,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.016008930280804634,
+        "open_palm": 0.983956515789032,
+        "thumbs_up": 3.46508422808256e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "hand_crop",
+      "background": 3,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.004942356143146753,
+        "open_palm": 0.9950394034385681,
+        "thumbs_up": 1.826428524509538e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "hand_crop",
+      "background": 4,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.022380724549293518,
+        "open_palm": 0.9776062965393066,
+        "thumbs_up": 1.2983968190383166e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/af2389f6432c37878d4bb640813c12d4361c4409ff2b7619b37c919c250a2416.png",
+      "view": "hand_crop",
+      "background": 5,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.08794675767421722,
+        "open_palm": 0.9119798541069031,
+        "thumbs_up": 7.341715536313131e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "original",
+      "background": 0,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0008119018166325986,
+        "open_palm": 0.9988744854927063,
+        "thumbs_up": 0.00031369904172606766
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "original",
+      "background": 1,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9073121547698975,
+        "open_palm": 0.09231483191251755,
+        "thumbs_up": 0.0003730224852915853
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "original",
+      "background": 2,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.7485559582710266,
+        "open_palm": 0.2511465549468994,
+        "thumbs_up": 0.00029738363809883595
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "original",
+      "background": 3,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.7734567523002625,
+        "open_palm": 0.22593200206756592,
+        "thumbs_up": 0.0006112325936555862
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "original",
+      "background": 4,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.9702094197273254,
+        "open_palm": 0.029728638008236885,
+        "thumbs_up": 6.196278263814747e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "original",
+      "background": 5,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.8538938760757446,
+        "open_palm": 0.145913764834404,
+        "thumbs_up": 0.00019243473070673645
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "hand_crop",
+      "background": 0,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.00019048494868911803,
+        "open_palm": 0.9997908473014832,
+        "thumbs_up": 1.870014239102602e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "hand_crop",
+      "background": 1,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.002454204950481653,
+        "open_palm": 0.9975312352180481,
+        "thumbs_up": 1.4583566553483251e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "hand_crop",
+      "background": 2,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0023510106839239597,
+        "open_palm": 0.9976276755332947,
+        "thumbs_up": 2.13271032407647e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "hand_crop",
+      "background": 3,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.002416189294308424,
+        "open_palm": 0.9975678324699402,
+        "thumbs_up": 1.5938052456476726e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "hand_crop",
+      "background": 4,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0042794207111001015,
+        "open_palm": 0.9957090616226196,
+        "thumbs_up": 1.1484691640362144e-05
+      }
+    },
+    {
+      "label": "open_palm",
+      "source": "data/ok_gestures_inherited/val/open_palm/ddac96a9596669a5f1aecf7993e5abfb1bb2d3be08f56cbe27512b1fab5cdb62.png",
+      "view": "hand_crop",
+      "background": 5,
+      "predicted": "open_palm",
+      "scores": {
+        "ok": 0.0016696893144398928,
+        "open_palm": 0.9983211159706116,
+        "thumbs_up": 9.158535249298438e-06
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "original",
+      "background": 0,
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 5.9658246755134314e-05,
+        "open_palm": 3.2906580145208864e-06,
+        "thumbs_up": 0.9999370574951172
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "original",
+      "background": 1,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.5081290602684021,
+        "open_palm": 3.8309823139570653e-05,
+        "thumbs_up": 0.4918327033519745
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "original",
+      "background": 2,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.23667114973068237,
+        "open_palm": 3.857299088849686e-05,
+        "thumbs_up": 0.7632902264595032
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "original",
+      "background": 3,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.32056954503059387,
+        "open_palm": 0.0007765249465592206,
+        "thumbs_up": 0.6786539554595947
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "original",
+      "background": 4,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.6586065292358398,
+        "open_palm": 3.187355832778849e-05,
+        "thumbs_up": 0.3413616120815277
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "original",
+      "background": 5,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.8245165944099426,
+        "open_palm": 0.00011970313062192872,
+        "thumbs_up": 0.1753637045621872
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "hand_crop",
+      "background": 0,
+      "predicted": "thumbs_up",
+      "scores": {
+        "ok": 5.9658246755134314e-05,
+        "open_palm": 3.2906580145208864e-06,
+        "thumbs_up": 0.9999370574951172
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "hand_crop",
+      "background": 1,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.5081290602684021,
+        "open_palm": 3.8309823139570653e-05,
+        "thumbs_up": 0.4918327033519745
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "hand_crop",
+      "background": 2,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.23667114973068237,
+        "open_palm": 3.857299088849686e-05,
+        "thumbs_up": 0.7632902264595032
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "hand_crop",
+      "background": 3,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.32056954503059387,
+        "open_palm": 0.0007765249465592206,
+        "thumbs_up": 0.6786539554595947
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "hand_crop",
+      "background": 4,
+      "predicted": "unknown",
+      "scores": {
+        "ok": 0.6586065292358398,
+        "open_palm": 3.187355832778849e-05,
+        "thumbs_up": 0.3413616120815277
+      }
+    },
+    {
+      "label": "thumbs_up",
+      "source": "data/ok_gestures_inherited/val/thumbs_up/7d698e5864dc1e227ba8b766b9f5c3f93e6e8858f0338b6da52bedd5632b4335.png",
+      "view": "hand_crop",
+      "background": 5,
+      "predicted": "ok",
+      "scores": {
+        "ok": 0.8245165944099426,
+        "open_palm": 0.00011970313062192872,
+        "thumbs_up": 0.1753637045621872
+      }
+    }
+  ]
+}

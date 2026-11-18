@@ -1,3 +1,111 @@
+# Camera robustness update — current deployment
+
+The default checkpoint is now `models/ok_camera/best.pt` with its paired
+`metadata.json`. Supported gestures remain **OK, Open Palm, and Thumbs Up**.
+Run `./run.sh --port 8001`, then hard-refresh http://127.0.0.1:8001 with Ctrl+F5.
+
+The prior OK checkpoint favored OK on some derived room-background views of
+other gestures. Its perfect white-background results did not establish camera
+accuracy. The replacement trains on landmark crops made with the browser's
+hand-landmarker model and 25% padding. Isolated hands receive varied photo
+backgrounds during training, and inverse-frequency sampling balances the three
+classes. Checkpoint selection uses macro recall so the large OK class cannot
+hide minority-class failures. No gesture labels are manufactured from landmarks.
+
+A separate browser rejection check suppresses an OK score only when 3D landmarks
+clearly show all four fingers folded with an extended thumb and separated tips.
+It does not assign an alternative class. Distance-only and open-hand vetoes were
+rejected after validation showed false vetoes on oblique OK poses. The retained
+rule rejected none of the 122 localized OK validation captures; this does not
+establish camera performance. Missing or ambiguous evidence leaves the classifier
+decision unchanged. The check applies to both camera and uploaded images.
+
+The run completed 10 epochs. It retained 128/128 accepted-correct localized
+validation crops at threshold 0.80. On 30 derived photo-background validation
+views of six legacy captures, acceptance improved from 20/30 to 30/30 and false
+OK predictions fell from 2 to 0. These are correlated diagnostics using supplied
+background photos, not 30 new people or camera trials. The reserved localized
+test split scored 132/132 (127 OK, 2 Open Palm, 3 Thumbs Up). Previously inspected
+legacy test images remain regression evidence.
+
+The localized train/validation/test counts are 608/128/132. The localizer excluded
+167 OK source images; the complete exclusion list and original capture splits
+are preserved in `data/ok_hand_crops/manifest.json`. Only 17 unique Open Palm and
+18 unique Thumbs Up source images exist. Identity/session independence and the
+reported live camera failure are unverified until actual labeled failing crops
+are checked. **Do not interpret these dataset scores as camera accuracy.**
+
+Evidence: `outputs/ok_bias/selection.json`, `outputs/ok_bias/browser_crop_baseline.json`,
+`outputs/ok_bias/browser_crop_candidate.json`, and `outputs/ok_camera/results.json`.
+To report a remaining mistake, use “Collect a labeled example”, choose the actual
+gesture, download the exact classified crop, and attach the JPEG.
+
+Offline preparation requires the optional `requirements-training.txt` dependencies
+and `.runtime/hand_landmarker.task` (the same model URL referenced in
+`frontend/js/hand_gate.js`). Python MediaPipe 1.2.3 produced these crops; the
+browser uses Tasks Vision 0.10.21. Runtime versions and model hashes are recorded.
+Reproduce in fresh output directories with `python -m training.prepare_hand_crops`
+and `python -m training.train --config configs/ok_camera_crops.yaml --output-dir models/ok_crops_candidate`.
+
+---
+
+## Earlier OK release (superseded)
+
+The following describes the previous full-image model and older experiments.
+
+# Kenny Gesture Lab — OK gesture update
+
+The current gesture set is **OK 👌**, **Open Palm ✋**, and **Thumbs Up 👍**.
+Closed Fist has been removed from the active classes and interface. OK inherits the
+existing display-only **RETURN TO BASE** meaning; no robot commands are sent.
+
+The replacement checkpoint and provenance are stored together in
+`models/ok_gestures/best.pt` and `models/ok_gestures/metadata.json`.
+The app uses this checkpoint by default. Restart any existing server and refresh
+the browser after retraining. A `GESTURE_MODEL` environment override takes priority.
+
+Run locally with `./run.sh --port 8001`, then open http://127.0.0.1:8001.
+
+To reproduce the update from the supplied source folders:
+
+```bash
+# Choose fresh output/run directories if these already exist.
+.venv-runtime/bin/python -m training.prepare_dataset --output data/ok_gestures_inherited --report outputs/ok_gestures/dataset_report_inherited.json --inherit-splits outputs/dataset_report.json
+OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 .venv-runtime/bin/python -m training.train --config configs/ok_gestures.yaml --output-dir models/ok_gestures
+.venv-runtime/bin/python -m training.evaluate --model models/ok_gestures/best.pt --data data/ok_gestures_inherited --split val --output outputs/ok_gestures/validation
+.venv-runtime/bin/python -m training.evaluate --model models/ok_gestures/best.pt --data data/ok_gestures_inherited --split test --output outputs/ok_gestures/test
+.venv-runtime/bin/python -m training.publish_ok_results
+```
+
+The audit found 3,000 source files: 1,000 unique OK images, 17 unique Open Palm
+images and 18 unique Thumbs Up images. Exact duplicate files are excluded;
+perceptually similar images stay together. Original Open Palm and Thumbs Up
+splits are inherited from `outputs/dataset_report.json`, so earlier training
+captures do not move into validation or test. The resulting train/validation/test
+counts are 724/156/155. Only training samples are balanced by repeating minority
+classes. Original source images are preserved.
+
+The new OK images include room backgrounds while the other gestures have very
+little independent data. Dataset scores cannot establish live-camera accuracy,
+new-person performance, or reliable rejection of unsupported gestures. Closed Fist
+is no longer a model output, but an unsupported fist could receive another label.
+
+Current reports and figures are under `outputs/ok_gestures/` and are shown in the
+app only when their checkpoint hash matches the loaded model.
+
+The completed CPU run stopped after **6 epochs**. At the app threshold of 0.80,
+validation accepted **156/156** correctly and the reserved test split accepted
+**155/155** correctly (150 OK, 2 Open Palm, 3 Thumbs Up). These are supplied-dataset
+results; the five legacy test images were evaluated in previous experiments.
+
+---
+
+## Previous release documentation (historical)
+
+The material below records the former Closed Fist release. Its checkpoint paths,
+class lists, evaluation scores and training commands describe that older release.
+Use the current instructions above for the OK gesture model.
+
 # Kenny Gesture Lab
 
 Local hand-gesture recognition with a camera/upload dashboard, an independent browser hand localizer and a trained YOLOv8 classifier. Gesture functions are display-only; no robot commands are sent.

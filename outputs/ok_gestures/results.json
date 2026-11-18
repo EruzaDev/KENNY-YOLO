@@ -1,0 +1,310 @@
+{
+  "checkpoint_sha256": "437df769f75eb347b1410e2ecf032da4d1680d7ba2907a9d7143fe8595006f52",
+  "checkpoint": "models/ok_gestures/best.pt",
+  "title": "OK, Open Palm and Thumbs Up",
+  "classes": [
+    "ok",
+    "open_palm",
+    "thumbs_up"
+  ],
+  "training": {
+    "epochs": 6,
+    "image_count": 724,
+    "splits": {
+      "train": {
+        "thumbs_up": 12,
+        "open_palm": 12,
+        "ok": 700
+      },
+      "val": {
+        "thumbs_up": 3,
+        "open_palm": 3,
+        "ok": 150
+      },
+      "test": {
+        "open_palm": 2,
+        "thumbs_up": 3,
+        "ok": 150
+      }
+    },
+    "inherited_split_manifest": "outputs/dataset_report.json",
+    "inherited_capture_count": 35
+  },
+  "metrics": {
+    "validation": {
+      "task": "classify",
+      "split": "val",
+      "checkpoint_sha256": "437df769f75eb347b1410e2ecf032da4d1680d7ba2907a9d7143fe8595006f52",
+      "capture_group_count": 135,
+      "source_capture_count": 156,
+      "confidence": 0.8,
+      "count": 156,
+      "accuracy": 1.0,
+      "coverage": 1.0,
+      "classification_report": {
+        "ok": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 150
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "unknown": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1-score": 0.75,
+          "support": 156
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 156
+        }
+      },
+      "raw_top1_accuracy": 1.0,
+      "target_macro": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0
+      },
+      "classification_average_precision": {
+        "per_class": {
+          "ok": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "detection_map": null,
+      "confusion_matrix": [
+        [
+          150,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "labels": [
+        "ok",
+        "open_palm",
+        "thumbs_up",
+        "unknown"
+      ],
+      "latency_ms": {
+        "mean": 81.69550771789055,
+        "p95": 100.99177474967291
+      },
+      "limitations": [
+        "Tiny grouped test sample; no negative gestures or empty scenes.",
+        "Identity/session independence is unverified.",
+        "Unknown represents abstention, not a trained negative class."
+      ],
+      "error_analysis": {
+        "ok": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "open_palm": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "thumbs_up": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "unknown": {
+          "false_negatives": 0,
+          "false_positives": 0
+        }
+      }
+    },
+    "regression": {
+      "task": "classify",
+      "split": "test",
+      "checkpoint_sha256": "437df769f75eb347b1410e2ecf032da4d1680d7ba2907a9d7143fe8595006f52",
+      "capture_group_count": 137,
+      "source_capture_count": 155,
+      "confidence": 0.8,
+      "count": 155,
+      "accuracy": 1.0,
+      "coverage": 1.0,
+      "classification_report": {
+        "ok": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 150
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 2
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "unknown": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1-score": 0.75,
+          "support": 155
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 155
+        }
+      },
+      "raw_top1_accuracy": 1.0,
+      "target_macro": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0
+      },
+      "classification_average_precision": {
+        "per_class": {
+          "ok": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "detection_map": null,
+      "confusion_matrix": [
+        [
+          150,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "labels": [
+        "ok",
+        "open_palm",
+        "thumbs_up",
+        "unknown"
+      ],
+      "latency_ms": {
+        "mean": 82.53760168391314,
+        "p95": 112.96741200076201
+      },
+      "limitations": [
+        "Tiny grouped test sample; no negative gestures or empty scenes.",
+        "Identity/session independence is unverified.",
+        "Unknown represents abstention, not a trained negative class."
+      ],
+      "error_analysis": {
+        "ok": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "open_palm": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "thumbs_up": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "unknown": {
+          "false_negatives": 0,
+          "false_positives": 0
+        }
+      }
+    }
+  },
+  "summary": "Exact duplicates removed; perceptually similar images kept in the same split. Training samples balanced by class. Results describe supplied images, not live camera accuracy.",
+  "assets": {
+    "training-curves": {
+      "path": "outputs/ok_gestures/validation/training_curves.png",
+      "sha256": "f47b0a8528f5462af5f0ff73d13a94c2abba50ca88c7f53b9fe9d24ad5910c7e"
+    },
+    "validation-confusion": {
+      "path": "outputs/ok_gestures/validation/confusion_matrix.png",
+      "sha256": "a0c42ca9fcbe202c83dec51f60c9ac0adb10e095159c7aea8c04b6a43a955b5a"
+    },
+    "test-confusion": {
+      "path": "outputs/ok_gestures/test/confusion_matrix.png",
+      "sha256": "db37e631e5a051aa37290c4e257c0cd8caa2149125c77f32a815868b02a88a30"
+    }
+  },
+  "limitations": [
+    "Perceptual grouping is heuristic; unknown person/session identity leakage cannot be ruled out.",
+    "Target gesture images only; no negatives or annotated boxes.",
+    "Image-level labels require manual semantic review.",
+    "Only 17 unique Open Palm and 18 unique Thumbs Up images; repeated files add no independent evidence.",
+    "OK photos have different backgrounds from the other classes; background shortcuts may affect camera use.",
+    "The test split is reserved for this run but older gesture images have been used in prior experiments.",
+    "Closed Fist is no longer a trained class. Unsupported gestures can still receive a supported label.",
+    "No live camera accuracy or new-person performance has been established."
+  ]
+}
