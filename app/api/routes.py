@@ -45,8 +45,9 @@ def model_info(request: Request):
 @router.post('/predict')
 async def predict(request: Request, file: UploadFile = File(...),
                   confidence: float = Query(.8, ge=0, le=1),
-                  pose_hint: str = Query('unknown', pattern='^(unknown|thumb_folded|thumb_extended)$')):
-    return await handlers.predict(request, file, confidence, pose_hint)
+                  pose_hint: str = Query('unknown', pattern='^(unknown|thumb_folded|thumb_extended)$'),
+                  gesture_hint: str = Query('unknown', pattern='^(unknown|ok|open_palm|like)$')):
+    return await handlers.predict(request, file, confidence, pose_hint, gesture_hint)
 
 
 @router.get('/results')

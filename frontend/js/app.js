@@ -1,6 +1,6 @@
 import {request} from './api.js';
-import {Camera, videoInputs} from './camera.js?v=8';
-import {HandGate, noHandResult} from './hand_gate.js';
+import {Camera, videoInputs} from './camera.js?v=9';
+import {HandGate, noHandResult} from './hand_gate.js?v=2';
 import {projectHandBox} from './hand_overlay.js?v=8';
 const $ = id => document.getElementById(id);
 let ready = false, mode = 'camera', objectURL = null, uploadVersion = 0, pending = null;
@@ -11,6 +11,26 @@ let gestureFunctions = {};
 let gestureLabels = {};
 let loadedCheckpoint = null;
 let handOverlay = null;
+const jointEdges = [[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[5,9],[9,10],[10,11],[11,12],[9,13],[13,14],[14,15],[15,16],[13,17],[17,18],[18,19],[19,20],[0,17]];
+
+function renderJoints(points, width, height) {
+  const canvas = $('joint-overlay');
+  const ctx = canvas.getContext('2d');
+  if (!points || points.length !== 21 || !width || !height) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); canvas.hidden = true; return;
+  }
+  canvas.width = width; canvas.height = height; canvas.hidden = false;
+  ctx.clearRect(0, 0, width, height);
+  ctx.strokeStyle = '#72e0c0'; ctx.lineWidth = Math.max(2, width / 600);
+  for (const [a, b] of jointEdges) {
+    ctx.beginPath(); ctx.moveTo(points[a].x * width, points[a].y * height);
+    ctx.lineTo(points[b].x * width, points[b].y * height); ctx.stroke();
+  }
+  for (const point of points) {
+    ctx.beginPath(); ctx.arc(point.x * width, point.y * height, Math.max(3, width / 180), 0, Math.PI * 2);
+    ctx.fillStyle = '#fff'; ctx.fill(); ctx.strokeStyle = '#153a2e'; ctx.lineWidth = 2; ctx.stroke();
+  }
+}
 
 function renderHandOverlay() {
   const element = $('hand-box');
@@ -34,9 +54,11 @@ function clearResult() {
   $('confidence-bar').style.width = '0%';
   $('overlay').hidden = true; $('timing').textContent = '— ms · — FPS';
   handOverlay = null; renderHandOverlay();
+  renderJoints(null);
 }
 function display(result, fps = null) {
   error('');
+  renderJoints(result.landmarks, result.source_width, result.source_height);
   const name = 'stable_gesture' in result ? result.stable_gesture : result.predictions[0]?.class_name;
   const prediction = name && result.predictions.find(p => p.class_name === name);
   const label = name ? prediction?.display_name || gestureLabels[name] || name.replaceAll('_', ' ') : 'No gesture detected';
@@ -45,13 +67,15 @@ function display(result, fps = null) {
   $('confidence-bar').style.width = prediction ? `${prediction.confidence * 100}%` : '0%';
   const gestureFunction = prediction?.function || gestureFunctions[name];
   $('function').textContent = name && gestureFunction ? `Function: ${gestureFunction} (display only)` : 'Function: —';
-  $('score').textContent = prediction ? `${(prediction.confidence * 100).toFixed(1)}% confidence · hand crop` : result.rejection_reason || 'Waiting for a stable prediction above threshold';
-  handOverlay = prediction && result.hand_box ? {
+  $('score').textContent = result.joint_verified
+    ? `${result.joint_corrected ? 'Joint check corrected the image model' : 'Joint check confirms the image model'} · ${gestureLabels[result.joint_gesture] || result.joint_gesture}; image model favored ${gestureLabels[result.model_top_class] || result.model_top_class} (${(result.model_top_confidence * 100).toFixed(1)}%)`
+    : prediction ? `${(prediction.confidence * 100).toFixed(1)}% confidence · hand crop` : result.rejection_reason || 'Waiting for a stable prediction above threshold';
+  handOverlay = result.hand_box ? {
     box: result.hand_box, width: result.source_width, height: result.source_height,
-    label: `${label} · ${(prediction.confidence * 100).toFixed(1)}% confidence`,
+    label: result.joint_verified ? `${label} · joint checked` : prediction ? `${label} · ${(prediction.confidence * 100).toFixed(1)}% confidence` : 'Hand · checking pose joints',
   } : null;
   renderHandOverlay();
-  $('overlay').hidden = false; $('overlay').textContent = `${label}${name && gestureFunction ? ` · ${gestureFunction}` : ''}${prediction ? ` · ${(prediction.confidence * 100).toFixed(1)}%` : ''}`;
+  $('overlay').hidden = false; $('overlay').textContent = `${label}${name && gestureFunction ? ` · ${gestureFunction}` : ''}${result.joint_verified ? ' · joint checked' : prediction ? ` · ${(prediction.confidence * 100).toFixed(1)}%` : ''}`;
   $('class-scores').textContent = Object.entries(result.scores || {})
     .filter(([,value]) => Number.isFinite(value))
     .map(([label,value]) => `${label.replaceAll('_', ' ')}: ${(value * 100).toFixed(1)}%`).join(' · ');
@@ -154,9 +178,9 @@ async function analyzeUpload() {
     if (version !== uploadVersion) return;
     const form = new FormData(); form.append('file', blob, 'hand.jpg');
     error('Classifying hand…');
-    const result = await request(`predict?confidence=${settings().confidence}&pose_hint=${encodeURIComponent(settings().thumbGuard ? hand.thumbEvidence || 'unknown' : 'unknown')}`, {method: 'POST', body: form, signal: pending.signal});
+    const result = await request(`predict?confidence=${settings().confidence}&pose_hint=${encodeURIComponent(settings().thumbGuard ? hand.thumbEvidence || 'unknown' : 'unknown')}&gesture_hint=${encodeURIComponent(hand.gestureHint || 'unknown')}`, {method: 'POST', body: form, signal: pending.signal});
     if (version === uploadVersion) display({...result, hand_box: hand.box,
-      source_width: bitmap.width, source_height: bitmap.height});
+      landmarks: hand.landmarks, source_width: bitmap.width, source_height: bitmap.height});
   }
   catch (e) { if (e.name !== 'AbortError' && version === uploadVersion) error(e.message); }
   finally { bitmap?.close(); }

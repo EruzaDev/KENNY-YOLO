@@ -13,7 +13,7 @@ from starlette.websockets import WebSocket, WebSocketDisconnect
 from starlette.concurrency import run_in_threadpool
 from app.core.config import MAX_BYTES, METRICS_PATH, ROOT
 from app.core.gestures import GESTURE_FUNCTIONS, GESTURE_LABELS
-from app.services.inference import Stabilizer, check_thumb_evidence
+from app.services.inference import Stabilizer, check_thumb_evidence, check_gesture_evidence
 from app.utils.image_utils import decode_image
 
 logger = logging.getLogger(__name__)
@@ -49,7 +49,8 @@ def model_info(request: Request):
                 metrics_scope='Saved metrics evaluate the classifier on reserved dataset views, not the browser hand-gated pipeline.')
 
 
-async def predict(request: Request, file, confidence: float = .8, pose_hint: str = 'unknown'):
+async def predict(request: Request, file, confidence: float = .8, pose_hint: str = 'unknown',
+                  gesture_hint: str = 'unknown'):
     try:
         if file.content_type not in {'image/jpeg', 'image/png'}:
             raise HTTPException(415, 'Upload a JPEG or PNG image.')
@@ -63,7 +64,7 @@ async def predict(request: Request, file, confidence: float = .8, pose_hint: str
             raise HTTPException(503, detector.error or 'Trained model unavailable.')
         async with request.app.state.inference_gate:
             result = await run_in_threadpool(detector.predict, image, confidence)
-            return check_thumb_evidence(result, pose_hint)
+            return check_gesture_evidence(check_thumb_evidence(result, pose_hint), gesture_hint)
     finally:
         await file.close()
 
@@ -108,6 +109,7 @@ async def webcam(socket: WebSocket):
                 async with socket.app.state.inference_gate:
                     result = await run_in_threadpool(detector.predict, image, confidence)
                 result = check_thumb_evidence(result, payload.get('pose_hint', 'unknown'))
+                result = check_gesture_evidence(result, payload.get('gesture_hint', 'unknown'))
                 await socket.send_json(stabilizer.apply(result, window))
             except (ValueError, KeyError, TypeError, binascii.Error) as exc:
                 await socket.send_json({'error': str(exc)})

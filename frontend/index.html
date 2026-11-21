@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#163d32">
   <title>Kenny · Gesture Studio</title>
-  <link rel="stylesheet" href="/static/css/style.css?v=9">
+  <link rel="stylesheet" href="/static/css/style.css?v=10">
 </head>
 <body>
   <header>
@@ -38,6 +38,7 @@
           <div id="empty"><div class="hand" aria-hidden="true"><svg viewBox="0 0 96 96" fill="none"><path d="M32 55V30a5 5 0 0 1 10 0v19-30a5 5 0 0 1 10 0v29-25a5 5 0 0 1 10 0v28-18a5 5 0 0 1 10 0v30c0 16-9 25-23 25-8 0-14-4-19-11L18 59a5 5 0 0 1 8-6l10 11" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p class="eyebrow">READY WHEN YOU ARE</p><h2>Give us a little wave.</h2><p>Start your camera or upload an image.<br>Keep one hand fully in view.</p><span class="privacy-note">◎ Your images stay on this local app</span></div>
           <video id="video" playsinline muted hidden></video>
           <img id="preview" alt="Uploaded image" hidden>
+          <canvas id="joint-overlay" class="joint-overlay" aria-hidden="true" hidden></canvas>
           <div id="overlay" hidden></div>
           <div id="hand-box" class="hand-box" hidden><span id="hand-box-label"></span></div>
           <span class="stage-corner top-left"></span><span class="stage-corner top-right"></span><span class="stage-corner bottom-left"></span><span class="stage-corner bottom-right"></span>
@@ -106,10 +107,10 @@
       <div class="model-intro"><div><p class="eyebrow">03 / UNDER THE HOOD</p><h2>A little transparency<br>behind every prediction.</h2></div><span class="model-mark" aria-hidden="true">◎</span></div>
       <dl><div><dt>Architecture</dt><dd id="architecture">Loading…</dd></div><div><dt>Checkpoint / fingerprint</dt><dd id="checkpoint">Loading…</dd></div><div><dt>Inference device</dt><dd id="device">—</dd></div><div><dt>Existing test regression</dt><dd id="accuracy">Not evaluated</dd></div></dl>
       <p id="model-status" role="status"></p>
-      <p class="model-explanation">A browser hand-presence check finds one hand, then the trained YOLO classifier reads its crop. The box comes from the browser hand localizer. Its percentage is model confidence—not accuracy. Saved results are small-dataset classifier checks, not live camera accuracy.</p>
+          <p class="model-explanation">MediaPipe finds one hand and checks its 21-joint pose against the trained YOLO class. A clear joint pattern can correct the image-model label; uncertain poses leave the model unchanged. The box and joint overlay come from MediaPipe. The percentage is model confidence—not accuracy. Saved results are small-dataset classifier checks, not live camera accuracy.</p>
     </section>
     <footer><a href="/" class="footer-brand">kenny<span> / VISION LAB</span></a><span>Made for curiosity. Grounded in evidence.</span><span class="footer-local"><span class="status-dot"></span> RUNNING LOCALLY</span></footer>
   </main>
-  <script type="module" src="/static/js/app.js?v=10"></script>
+  <script type="module" src="/static/js/app.js?v=12"></script>
 </body>
 </html>

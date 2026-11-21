@@ -44,8 +44,29 @@ export class HandGate {
     this.canvas.height = Math.max(1, Math.round(box.height * scale));
     this.canvas.getContext('2d').drawImage(source, box.x, box.y, box.width, box.height,
       0, 0, this.canvas.width, this.canvas.height);
-    return {image: this.canvas, box, reason: null, thumbEvidence: thumbEvidence(result.worldLandmarks?.[0])};
+    const points = result.landmarks[0];
+    return {image: this.canvas, box, landmarks: points,
+      gestureHint: gestureHint(points, width, height), reason: null,
+      thumbEvidence: thumbEvidence(result.worldLandmarks?.[0])};
   }
+}
+
+// Strong hand-shape cues only. Extended fingers take precedence over an
+// accidental thumb/index pinch, which distinguishes a palm from an OK sign.
+export function gestureHint(points, width, height) {
+  if (!Array.isArray(points) || points.length !== 21 || width <= 0 || height <= 0) return 'unknown';
+  const distance = (a, b) => Math.hypot((a.x - b.x) * width, (a.y - b.y) * height);
+  const wrist = points[0];
+  const fingerRatios = [[8, 6], [12, 10], [16, 14], [20, 18]].map(([tip, pip]) =>
+    distance(points[tip], wrist) / Math.max(distance(points[pip], wrist), 1));
+  const palmWidth = Math.max(distance(points[5], points[17]), 1);
+  const thumbIndexGap = distance(points[4], points[8]) / palmWidth;
+  if (fingerRatios.every(ratio => ratio > 1.28)) return 'open_palm';
+  if (fingerRatios.every(ratio => ratio > 1.2) && thumbIndexGap > .55) return 'open_palm';
+  if (thumbIndexGap < .55 && fingerRatios[0] < 1.3 &&
+      fingerRatios.slice(1).every(ratio => ratio > 1.15)) return 'ok';
+  if (fingerRatios.every(ratio => ratio < 1.0)) return 'like';
+  return 'unknown';
 }
 
 export function handBounds(points, width, height) {

@@ -1,3 +1,4 @@
+import {gestureHint} from './hand_gate.js?v=2';
 const $ = id => document.getElementById(id);
 const video = $('video'), overlay = $('overlay');
 let landmarker, stream, running = false, saved = 0, skipped = 0, lastCapture = 0;
@@ -8,17 +9,7 @@ async function loadDetector() {
   const base = 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21';
   const {FilesetResolver, HandLandmarker} = await import(`${base}/vision_bundle.mjs`);
   const files = await FilesetResolver.forVisionTasks(`${base}/wasm`);
-  landmarker = await HandLandmarker.createFromOptions(files, {baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task',delegate:'CPU'},runningMode:'VIDEO',numHands:1,minHandDetectionConfidence:.6,minHandPresenceConfidence:.6});
-}
-function classify(p) {
-  const d=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
-  const tips=[4,8,12,16,20], bases=[2,5,9,13,17];
-  const extended=tips.map((t,i)=>d(p[t],p[0]) > d(p[bases[i]],p[0])*1.18);
-  const ok=d(p[4],p[8]) < .075 && [12,16,20].filter((t,i)=>d(p[t],p[0])>d(p[[9,13,17][i]],p[0])*1.15).length>=2;
-  if(ok) return 'ok';
-  if(extended[0] && !extended[1] && !extended[2] && !extended[3] && !extended[4]) return 'like';
-  if(extended.slice(1).every(Boolean)) return 'open_palm';
-  return null;
+  landmarker = await HandLandmarker.createFromOptions(files, {baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task',delegate:'CPU'},runningMode:'VIDEO',numHands:1,minHandDetectionConfidence:.5,minHandPresenceConfidence:.5});
 }
 function paint(points, width, height) {
   const ctx=overlay.getContext('2d'); overlay.width=width; overlay.height=height;
@@ -43,12 +34,12 @@ async function persist(points, box, label) {
 }
 async function loop() {
   while(running) {
-    const now=performance.now();
+    const started=performance.now(), now=started;
     if(video.readyState>=2) {
       const result=landmarker.detectForVideo(video,now), points=result.landmarks?.[0];
       if(points) {
-        const box=paint(points,video.videoWidth,video.videoHeight), pose=classify(points), label=$('label').value;
-        $('status').textContent=pose?`Detected ${pose.replace('_',' ')}${pose===label?' · saving…':' · hold '+label.replace('_',' ')}`:'Hand seen · show the selected gesture';
+        const box=paint(points,video.videoWidth,video.videoHeight), pose=gestureHint(points,video.videoWidth,video.videoHeight), label=$('label').value;
+        $('status').textContent=pose!=='unknown'?`Detected ${pose.replace('_',' ')}${pose===label?' · saving…':' · hold '+label.replace('_',' ')}`:'Hand seen · pose unclear; spread fingers and keep the full hand in view';
         if(pose===label && now-lastCapture>=333 && saved<+$('count').value) {
           lastCapture=now;
           try { await persist(points,box,label); saved++; }
@@ -59,7 +50,7 @@ async function loop() {
       } else {overlay.getContext('2d').clearRect(0,0,overlay.width,overlay.height);$('status').textContent='No hand detected · keep one hand in view';skipped++;}
     }
     if(saved>=+$('count').value){running=false;break;}
-    await new Promise(resolve=>setTimeout(resolve,16));
+    await new Promise(resolve=>setTimeout(resolve,Math.max(0,100-(performance.now()-started))));
   }
   $('stop').disabled=true;$('start').disabled=false;
   if(saved>=+$('count').value)$('status').textContent=`Complete · saved ${saved} ${$('label').value.replace('_',' ')} images.`;
@@ -67,7 +58,7 @@ async function loop() {
 $('start').onclick=async()=>{
   try {
     $('start').disabled=true;
-    if(!stream){await loadDetector();stream=await navigator.mediaDevices.getUserMedia({video:{width:{ideal:1280},height:{ideal:720},frameRate:{ideal:30}},audio:false});video.srcObject=stream;await video.play();}
+    if(!stream){await loadDetector();stream=await navigator.mediaDevices.getUserMedia({video:{width:{ideal:640},height:{ideal:480},frameRate:{ideal:15,max:24}},audio:false});video.srcObject=stream;await video.play();}
     saved=0;skipped=0;lastCapture=0;$('bar').style.width='0%';$('saved').textContent='0 saved · 0 skipped';running=true;$('stop').disabled=false;$('status').textContent='Show the selected gesture';loop();
   } catch(e){$('status').textContent=e.message;$('start').disabled=false;}
 };
