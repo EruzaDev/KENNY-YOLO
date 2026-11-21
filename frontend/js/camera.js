@@ -33,7 +33,10 @@ export class Camera {
         if (generation !== this.generation) return;
         clearTimeout(this.timeout);
         try {
-          const result = {...JSON.parse(event.data),
+          const classified = JSON.parse(event.data);
+          const checked = this.handGate.filterResult
+            ? this.handGate.filterResult(classified, this.pendingFrame?.okEvidence) : classified;
+          const result = {...checked,
             hand_box: this.pendingFrame?.hand_box || null,
             landmarks: this.pendingFrame?.landmarks || null,
             source_width: this.pendingFrame?.source_width,
@@ -86,6 +89,7 @@ export class Camera {
           gesture_hint: frame.gestureHint || 'unknown'}
         : {type: 'no_hand', confidence, smoothing, reason: frame.reason};
       this.pendingFrame = {...message, session: this.sessionId, capturedAt: Date.now(),
+        okEvidence: frame.okEvidence || 'unknown',
         hand_box: frame.image ? frame.box : null,
         landmarks: frame.image ? frame.landmarks : null,
         source_width: this.video.videoWidth, source_height: this.video.videoHeight};

@@ -44,11 +44,32 @@ export class HandGate {
     this.canvas.height = Math.max(1, Math.round(box.height * scale));
     this.canvas.getContext('2d').drawImage(source, box.x, box.y, box.width, box.height,
       0, 0, this.canvas.width, this.canvas.height);
-    const points = result.landmarks[0];
-    return {image: this.canvas, box, landmarks: points,
-      gestureHint: gestureHint(points, width, height), reason: null,
-      thumbEvidence: thumbEvidence(result.worldLandmarks?.[0])};
+    return {image: this.canvas, box, reason: null,
+      thumbEvidence: thumbEvidence(result.worldLandmarks?.[0]),
+      okEvidence: okPinchEvidence(result.worldLandmarks?.[0])};
   }
+  filterResult(result, evidence) { return checkOkEvidence(result, evidence); }
+}
+
+// Veto clearly conflicting anatomy; distance alone is unreliable for oblique OK poses.
+export function okPinchEvidence(points) {
+  if (!Array.isArray(points) || points.length !== 21 ||
+      points.some(p => ![p.x,p.y,p.z].every(Number.isFinite))) return 'unknown';
+  const distance = (a,b) => Math.hypot(a.x-b.x,a.y-b.y,a.z-b.z);
+  const palm = Math.max(distance(points[0],points[9]), distance(points[5],points[17]));
+  if (palm < 1e-6) return 'unknown';
+  const ratio = distance(points[4],points[8]) / palm;
+  if (ratio < .35) return 'pinched';
+  // All four fingers folded with an extended thumb clearly contradicts an OK ring.
+  // An open-hand veto was rejected because oblique OK poses produced false vetoes.
+  return ratio > .7 && thumbEvidence(points) === 'thumb_extended' ? 'separate' : 'unknown';
+}
+
+export function checkOkEvidence(result, evidence) {
+  if (evidence !== 'separate' || !result.predictions?.some(p => p.class_name === 'ok')) return result;
+  return {...result, predictions: [], stable_gesture: null, message: 'No gesture detected',
+    rejected_predictions: result.predictions,
+    rejection_reason: 'OK score conflicts with a clear thumbs-up pose. Hold the pose clearly.'};
 }
 
 // Strong hand-shape cues only. Extended fingers take precedence over an

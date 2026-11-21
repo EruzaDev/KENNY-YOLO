@@ -1,0 +1,322 @@
+{
+  "checkpoint_sha256": "f1d2cc5a6b4de2de2c864ee21de0368b3ec370f9bca69ff43ce6903d61632889",
+  "checkpoint": "models/ok_camera/best.pt",
+  "title": "OK, Open Palm and Thumbs Up",
+  "classes": [
+    "ok",
+    "open_palm",
+    "thumbs_up"
+  ],
+  "training": {
+    "epochs": 10,
+    "image_count": 608,
+    "splits": {
+      "train": {
+        "thumbs_up": 12,
+        "open_palm": 12,
+        "ok": 584
+      },
+      "val": {
+        "thumbs_up": 3,
+        "open_palm": 3,
+        "ok": 122
+      },
+      "test": {
+        "open_palm": 2,
+        "thumbs_up": 3,
+        "ok": 127
+      }
+    },
+    "inherited_split_manifest": "outputs/dataset_report.json",
+    "inherited_capture_count": 35
+  },
+  "metrics": {
+    "validation": {
+      "task": "classify",
+      "split": "val",
+      "checkpoint_sha256": "f1d2cc5a6b4de2de2c864ee21de0368b3ec370f9bca69ff43ce6903d61632889",
+      "capture_group_count": 111,
+      "source_capture_count": 128,
+      "confidence": 0.8,
+      "count": 128,
+      "accuracy": 1.0,
+      "coverage": 1.0,
+      "classification_report": {
+        "ok": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 122
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "unknown": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1-score": 0.75,
+          "support": 128
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 128
+        }
+      },
+      "raw_top1_accuracy": 1.0,
+      "target_macro": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0
+      },
+      "classification_average_precision": {
+        "per_class": {
+          "ok": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "detection_map": null,
+      "confusion_matrix": [
+        [
+          122,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "labels": [
+        "ok",
+        "open_palm",
+        "thumbs_up",
+        "unknown"
+      ],
+      "latency_ms": {
+        "mean": 61.60279160160087,
+        "p95": 192.7767502995261
+      },
+      "limitations": [
+        "Tiny grouped test sample; no negative gestures or empty scenes.",
+        "Identity/session independence is unverified.",
+        "Unknown represents abstention, not a trained negative class."
+      ],
+      "error_analysis": {
+        "ok": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "open_palm": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "thumbs_up": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "unknown": {
+          "false_negatives": 0,
+          "false_positives": 0
+        }
+      },
+      "overfitting_review": {
+        "last_10_epochs_diverge": false,
+        "interpretation": "Review curves and validation errors; this heuristic cannot establish absence of overfitting."
+      }
+    },
+    "regression": {
+      "task": "classify",
+      "split": "test",
+      "checkpoint_sha256": "f1d2cc5a6b4de2de2c864ee21de0368b3ec370f9bca69ff43ce6903d61632889",
+      "capture_group_count": 115,
+      "source_capture_count": 132,
+      "confidence": 0.8,
+      "count": 132,
+      "accuracy": 1.0,
+      "coverage": 1.0,
+      "classification_report": {
+        "ok": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 127
+        },
+        "open_palm": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 2
+        },
+        "thumbs_up": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 3
+        },
+        "unknown": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1-score": 0.75,
+          "support": 132
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 132
+        }
+      },
+      "raw_top1_accuracy": 1.0,
+      "target_macro": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0
+      },
+      "classification_average_precision": {
+        "per_class": {
+          "ok": 1.0,
+          "open_palm": 1.0,
+          "thumbs_up": 1.0
+        },
+        "mean_average_precision": 1.0,
+        "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+      },
+      "detection_map": null,
+      "confusion_matrix": [
+        [
+          127,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "labels": [
+        "ok",
+        "open_palm",
+        "thumbs_up",
+        "unknown"
+      ],
+      "latency_ms": {
+        "mean": 32.48287572724814,
+        "p95": 40.326378999543515
+      },
+      "limitations": [
+        "Tiny grouped test sample; no negative gestures or empty scenes.",
+        "Identity/session independence is unverified.",
+        "Unknown represents abstention, not a trained negative class."
+      ],
+      "error_analysis": {
+        "ok": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "open_palm": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "thumbs_up": {
+          "false_negatives": 0,
+          "false_positives": 0
+        },
+        "unknown": {
+          "false_negatives": 0,
+          "false_positives": 0
+        }
+      },
+      "overfitting_review": {
+        "last_10_epochs_diverge": false,
+        "interpretation": "Review curves and validation errors; this heuristic cannot establish absence of overfitting."
+      }
+    }
+  },
+  "summary": "Landmark-crop training and shared photo backgrounds corrected the observed background shortcut in validation diagnostics (20/30 to 30/30). The reported live camera error still requires retesting on the actual user frames. Browser-style landmark crops with varied training backgrounds. Validation fitness weights each gesture equally. Exact duplicates removed; perceptually similar images kept in the same split. Training samples balanced by class. Results describe supplied images, not live camera accuracy.",
+  "assets": {
+    "training-curves": {
+      "path": "outputs/ok_camera/validation/training_curves.png",
+      "sha256": "79c098e3f722e44a56f23186f391c0316fdaffd5f5e00d8243b98a19e072613b"
+    },
+    "validation-confusion": {
+      "path": "outputs/ok_camera/validation/confusion_matrix.png",
+      "sha256": "aee18f8818aba57308fa401062ba1fae7bf017b97b28a764627e67808593b264"
+    },
+    "test-confusion": {
+      "path": "outputs/ok_camera/test/confusion_matrix.png",
+      "sha256": "4b47df22525aea06d7ef1e2cc2fc263a32fb909d8cbfe911dae50a42d5794f84"
+    }
+  },
+  "limitations": [
+    "Perceptual grouping is heuristic; unknown person/session identity leakage cannot be ruled out.",
+    "Target gesture images only; no negatives or annotated boxes.",
+    "Image-level labels require manual semantic review.",
+    "Localization failures are excluded and reported, never replaced by whole-frame inputs.",
+    "Only 17 unique Open Palm and 18 unique Thumbs Up images; repeated files add no independent evidence.",
+    "OK photos have different backgrounds from the other classes; background shortcuts may affect camera use.",
+    "The test split is reserved for this run but older gesture images have been used in prior experiments.",
+    "Closed Fist is no longer a trained class. Unsupported gestures can still receive a supported label.",
+    "No live camera accuracy or new-person performance has been established.",
+    "167 source images failed the single-hand localizer and were excluded.",
+    "The reported camera misclassification still requires verification on the exact user-provided failing crops.",
+    "The browser OK fingertip check is a separate rejection guard; classifier metrics do not measure that guard."
+  ]
+}

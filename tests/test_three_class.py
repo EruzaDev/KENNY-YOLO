@@ -9,7 +9,8 @@ from pathlib import Path
 from types import SimpleNamespace
 from PIL import Image
 
-from app.core.gestures import CLASSES, GESTURE_FUNCTIONS
+from app.core.gestures import CLASSES as CURRENT_CLASSES, GESTURE_FUNCTIONS
+from training.prepare_three_class import CLASSES
 from training.metrics import classification_average_precision
 from training.prepare_dataset import fingerprint
 from training.select_three_class import preservation_failures
@@ -17,9 +18,9 @@ from training.select_three_class import preservation_failures
 
 class ThreeClassTests(unittest.TestCase):
     def test_display_only_mapping(self):
-        self.assertEqual(CLASSES, ('closed_fist', 'open_palm', 'thumbs_up'))
+        self.assertEqual(CURRENT_CLASSES, ('ok', 'open_palm', 'thumbs_up'))
         self.assertEqual(GESTURE_FUNCTIONS, {'open_palm':'STOP ROBOT', 'thumbs_up':'DONE / RESUME',
-                                            'closed_fist':'RETURN TO BASE'})
+                                            'ok':'RETURN TO BASE'})
 
     def test_three_class_data_and_inherited_splits(self):
         path=Path('data/three_class/manifest.json')
@@ -77,6 +78,24 @@ class ThreeClassTests(unittest.TestCase):
         torch.testing.assert_close(new.weight[1:],old.weight)
         torch.testing.assert_close(new.bias[1:],old.bias)
         torch.testing.assert_close(new.weight[0],new_fist)
+
+    @unittest.skipUnless(importlib.util.find_spec('torch'), 'PyTorch unavailable')
+    def test_same_size_replacement_preserves_only_matching_class_rows(self):
+        import torch
+        from training.transforms import transfer_class_rows
+        old = torch.nn.Linear(2, 3)
+        new = torch.nn.Linear(2, 3)
+        with torch.no_grad():
+            old.weight.fill_(7.)
+            old.bias.fill_(9.)
+            new.load_state_dict(old.state_dict())
+        previous = SimpleNamespace(model=[SimpleNamespace(linear=old)], names=dict(enumerate(CLASSES)))
+        target = SimpleNamespace(model=[SimpleNamespace(linear=new)])
+        copied = transfer_class_rows(target, previous, dict(enumerate(CURRENT_CLASSES)))
+        self.assertEqual(copied, ['open_palm', 'thumbs_up'])
+        torch.testing.assert_close(new.weight[1:], old.weight[1:])
+        torch.testing.assert_close(new.bias[1:], old.bias[1:])
+        self.assertFalse(torch.equal(new.weight[0], old.weight[0]))
 
     @unittest.skipUnless(importlib.util.find_spec('torch'), 'PyTorch unavailable')
     def test_training_only_class_balancing(self):

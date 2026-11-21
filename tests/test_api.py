@@ -67,7 +67,7 @@ class ApiTests(unittest.TestCase):
         detector = Detector(MODEL_PATH); detector.load()
         from app.main import app
         app.state.detector = detector
-        path = next(Path('data/processed/val').rglob('*.png'))
+        path = next((Path(detector.metadata['config']['data']) / 'val').rglob('*.*'))
         response = self.client.post('/api/predict', files={'file': (path.name, path.read_bytes(), 'image/png')})
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()['task'], 'classify')

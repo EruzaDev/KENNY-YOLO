@@ -1,0 +1,295 @@
+{
+  "task": "classify",
+  "architecture": "yolov8n-cls",
+  "source": "/home/ayskopi/KENNY-YOLO/outputs/training/gesture_ok_camera_crops/weights/best.pt",
+  "transferred_class_rows": [
+    "open_palm",
+    "thumbs_up"
+  ],
+  "class_balancing": "inverse-frequency sampling, 384 draws per epoch; macro recall validation fitness",
+  "initial_checkpoint_sha256": "bf1534ee8b2e48ddd03b1c9f005ebabe0e00f7f78640595fd903023e7d1ea3a4",
+  "augmentation_profile": "balanced_camera_crops",
+  "checkpoint_sha256": "f1d2cc5a6b4de2de2c864ee21de0368b3ec370f9bca69ff43ce6903d61632889",
+  "dataset_manifest_sha256": "5258e00bea40222ac4be0bad2abb3badf0807e5f34d0984fd2eb2f0da36678e6",
+  "classes": {
+    "0": "ok",
+    "1": "open_palm",
+    "2": "thumbs_up"
+  },
+  "config": {
+    "task": "classify",
+    "mode": "train",
+    "model": "/home/ayskopi/KENNY-YOLO/models/photo_backgrounds/best.pt",
+    "data": "/home/ayskopi/KENNY-YOLO/data/ok_hand_crops",
+    "epochs": 40,
+    "time": null,
+    "patience": 8,
+    "batch": 16,
+    "imgsz": 320,
+    "save": true,
+    "save_period": -1,
+    "cache": false,
+    "device": "cpu",
+    "workers": 0,
+    "project": "/home/ayskopi/KENNY-YOLO/outputs/training",
+    "name": "gesture_ok_camera_crops",
+    "exist_ok": false,
+    "pretrained": true,
+    "cls_remap": true,
+    "optimizer": "AdamW",
+    "verbose": true,
+    "seed": 42,
+    "deterministic": true,
+    "single_cls": false,
+    "rect": false,
+    "cos_lr": true,
+    "close_mosaic": 0,
+    "resume": false,
+    "amp": false,
+    "fraction": 1.0,
+    "profile": false,
+    "freeze": 9,
+    "multi_scale": 0.0,
+    "compile": false,
+    "channels_last": null,
+    "overlap_mask": true,
+    "mask_ratio": 4,
+    "dropout": 0.25,
+    "val": true,
+    "split": "val",
+    "save_json": false,
+    "conf": null,
+    "iou": 0.7,
+    "max_det": 300,
+    "quantize": null,
+    "dnn": false,
+    "plots": true,
+    "nms": null,
+    "source": null,
+    "vid_stride": 1,
+    "stream_buffer": false,
+    "visualize": false,
+    "augment": false,
+    "agnostic_nms": false,
+    "classes": null,
+    "retina_masks": false,
+    "embed": null,
+    "show": false,
+    "save_frames": false,
+    "save_txt": false,
+    "save_conf": false,
+    "save_crop": false,
+    "show_labels": true,
+    "show_conf": true,
+    "show_boxes": true,
+    "line_width": null,
+    "format": "torchscript",
+    "optimize": false,
+    "dynamic": false,
+    "simplify": true,
+    "opset": null,
+    "workspace": null,
+    "lr0": 0.001,
+    "lrf": 0.01,
+    "momentum": 0.937,
+    "weight_decay": 0.005,
+    "warmup_epochs": 2.0,
+    "warmup_momentum": 0.8,
+    "warmup_bias_lr": 0.0001,
+    "distill_model": null,
+    "dis": 6.0,
+    "box": 7.5,
+    "cls": 0.5,
+    "cls_pw": 0.0,
+    "dfl": 1.5,
+    "pose": 12.0,
+    "kobj": 1.0,
+    "rle": 1.0,
+    "angle": 1.0,
+    "dlog": 1.0,
+    "dgrad": 0.5,
+    "dlam": 1.0,
+    "nbs": 64,
+    "hsv_h": 0.015,
+    "hsv_s": 0.7,
+    "hsv_v": 0.4,
+    "degrees": 0.0,
+    "translate": 0.1,
+    "scale": 0.5,
+    "shear": 0.0,
+    "perspective": 0.0,
+    "flipud": 0.0,
+    "fliplr": 0.5,
+    "bgr": 0.0,
+    "mosaic": 1.0,
+    "mixup": 0.0,
+    "cutmix": 0.0,
+    "copy_paste": 0.0,
+    "copy_paste_mode": "flip",
+    "auto_augment": null,
+    "erasing": 0.0,
+    "cfg": null,
+    "tracker": "tracktrack.yaml",
+    "save_dir": "/home/ayskopi/KENNY-YOLO/outputs/training/gesture_ok_camera_crops"
+  },
+  "transforms": "full-frame letterbox",
+  "torch_version": "2.5.1+cpu",
+  "ultralytics_version": "8.4.189",
+  "background_photos": [
+    {
+      "path": "assets/images/backgrounds/IMG_20261114_183553_437.jpg",
+      "sha256": "321a634dc51ab4051b4f3a84ec318dc736be9dc02932cbfc85ebc820cd1b4a6e"
+    },
+    {
+      "path": "assets/images/backgrounds/IMG_20261114_183600_102.jpg",
+      "sha256": "9d8bad157ee22b65853307046a1e097fe8cda1c04658fd8cb910e38e2dcc2c51"
+    },
+    {
+      "path": "assets/images/backgrounds/IMG_20261114_183607_053.jpg",
+      "sha256": "824fca87fb8f9dc1a489ce2043d4c4fc5ea12e36481d1bed5044ecae4ef31d30"
+    },
+    {
+      "path": "assets/images/backgrounds/IMG_20261114_183611_438.jpg",
+      "sha256": "bbed811ff579f40e3bc13d89063d39264875de0efb619351bfd24807da26f33c"
+    },
+    {
+      "path": "assets/images/backgrounds/IMG_20261114_183617_645.jpg",
+      "sha256": "2a3f4e2de52cd2f4f4167577c210b7cde8725359a40e453cdc4aad8da7b6f6cc"
+    }
+  ],
+  "camera_failure_status": "Awaiting exact failing user crops / live camera retest",
+  "validation_selection": "Preserve clean crop validation; improve derived photo-background acceptance and reduce false OK predictions",
+  "results_report_path": "outputs/ok_camera/results.json",
+  "test_metrics_path": "outputs/ok_camera/test/metrics.json",
+  "validation_summary": {
+    "task": "classify",
+    "split": "val",
+    "checkpoint_sha256": "f1d2cc5a6b4de2de2c864ee21de0368b3ec370f9bca69ff43ce6903d61632889",
+    "capture_group_count": 111,
+    "source_capture_count": 128,
+    "confidence": 0.8,
+    "count": 128,
+    "accuracy": 1.0,
+    "coverage": 1.0,
+    "classification_report": {
+      "ok": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 122
+      },
+      "open_palm": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3
+      },
+      "thumbs_up": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3
+      },
+      "unknown": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1-score": 0.75,
+        "support": 128
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 128
+      }
+    },
+    "raw_top1_accuracy": 1.0,
+    "target_macro": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0
+    },
+    "classification_average_precision": {
+      "per_class": {
+        "ok": 1.0,
+        "open_palm": 1.0,
+        "thumbs_up": 1.0
+      },
+      "mean_average_precision": 1.0,
+      "kind": "one-vs-rest classification AP; detection mAP@IoU is not applicable"
+    },
+    "detection_map": null,
+    "confusion_matrix": [
+      [
+        122,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "labels": [
+      "ok",
+      "open_palm",
+      "thumbs_up",
+      "unknown"
+    ],
+    "latency_ms": {
+      "mean": 61.60279160160087,
+      "p95": 192.7767502995261
+    },
+    "limitations": [
+      "Tiny grouped test sample; no negative gestures or empty scenes.",
+      "Identity/session independence is unverified.",
+      "Unknown represents abstention, not a trained negative class."
+    ],
+    "error_analysis": {
+      "ok": {
+        "false_negatives": 0,
+        "false_positives": 0
+      },
+      "open_palm": {
+        "false_negatives": 0,
+        "false_positives": 0
+      },
+      "thumbs_up": {
+        "false_negatives": 0,
+        "false_positives": 0
+      },
+      "unknown": {
+        "false_negatives": 0,
+        "false_positives": 0
+      }
+    },
+    "overfitting_review": {
+      "last_10_epochs_diverge": false,
+      "interpretation": "Review curves and validation errors; this heuristic cannot establish absence of overfitting."
+    }
+  },
+  "numpy_version": "2.2.6",
+  "opencv_version": "5.1.0"
+}

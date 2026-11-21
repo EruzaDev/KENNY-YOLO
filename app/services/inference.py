@@ -26,15 +26,14 @@ class Stabilizer:
 
 
 def check_thumb_evidence(result: dict, pose_hint: str = 'unknown') -> dict:
-    """Veto a fist/thumb contradiction; do not replace the model's predicted class."""
+    """Veto a folded-thumb Thumbs Up prediction without relabeling it."""
     if pose_hint not in {'unknown', 'thumb_folded', 'thumb_extended'}:
         raise ValueError('Invalid thumb-position evidence.')
     predictions = result['predictions']
     if not predictions:
         return result
     gesture = predictions[0]['class_name']
-    conflict = ((gesture == 'thumbs_up' and pose_hint == 'thumb_folded')
-                or (gesture == 'closed_fist' and pose_hint == 'thumb_extended'))
+    conflict = gesture == 'thumbs_up' and pose_hint == 'thumb_folded'
     if not conflict:
         return result
     return dict(result, predictions=[], message='No gesture detected',

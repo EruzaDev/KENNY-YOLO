@@ -1,6 +1,6 @@
 import {request} from './api.js';
-import {Camera, videoInputs} from './camera.js?v=9';
-import {HandGate, noHandResult} from './hand_gate.js?v=2';
+import {Camera, videoInputs} from './camera.js?v=12';
+import {HandGate, noHandResult} from './hand_gate.js?v=12';
 import {projectHandBox} from './hand_overlay.js?v=8';
 const $ = id => document.getElementById(id);
 let ready = false, mode = 'camera', objectURL = null, uploadVersion = 0, pending = null;
@@ -63,7 +63,7 @@ function display(result, fps = null) {
   const prediction = name && result.predictions.find(p => p.class_name === name);
   const label = name ? prediction?.display_name || gestureLabels[name] || name.replaceAll('_', ' ') : 'No gesture detected';
   $('gesture').textContent = label;
-  $('prediction-icon').textContent = ({open_palm: '✋', thumbs_up: '👍', closed_fist: '✊', ok: '👌', like: '👍'})[name] || '↗';
+  $('prediction-icon').textContent = ({open_palm: '✋', thumbs_up: '👍', ok: '👌'})[name] || '↗';
   $('confidence-bar').style.width = prediction ? `${prediction.confidence * 100}%` : '0%';
   const gestureFunction = prediction?.function || gestureFunctions[name];
   $('function').textContent = name && gestureFunction ? `Function: ${gestureFunction} (display only)` : 'Function: —';
@@ -178,9 +178,9 @@ async function analyzeUpload() {
     if (version !== uploadVersion) return;
     const form = new FormData(); form.append('file', blob, 'hand.jpg');
     error('Classifying hand…');
-    const result = await request(`predict?confidence=${settings().confidence}&pose_hint=${encodeURIComponent(settings().thumbGuard ? hand.thumbEvidence || 'unknown' : 'unknown')}&gesture_hint=${encodeURIComponent(hand.gestureHint || 'unknown')}`, {method: 'POST', body: form, signal: pending.signal});
-    if (version === uploadVersion) display({...result, hand_box: hand.box,
-      landmarks: hand.landmarks, source_width: bitmap.width, source_height: bitmap.height});
+    const result = await request(`predict?confidence=${settings().confidence}&pose_hint=${encodeURIComponent(settings().thumbGuard ? hand.thumbEvidence || 'unknown' : 'unknown')}`, {method: 'POST', body: form, signal: pending.signal});
+    if (version === uploadVersion) display({...handGate.filterResult(result, hand.okEvidence), hand_box: hand.box,
+      source_width: bitmap.width, source_height: bitmap.height});
   }
   catch (e) { if (e.name !== 'AbortError' && version === uploadVersion) error(e.message); }
   finally { bitmap?.close(); }
@@ -208,7 +208,7 @@ try {
   $('checkpoint').textContent = `${model.checkpoint} · ${(model.checkpoint_sha256 || '').slice(0, 12)}`;
   $('device').textContent = model.device;
   const warnings = [];
-  if (model.missing_classes?.includes('closed_fist')) warnings.push('The running model cannot recognize Closed Fist. Stop the old server and restart with the current three-class checkpoint.');
+  if (model.missing_classes?.includes('ok')) warnings.push('The running model cannot recognize OK. Stop the old server and restart with the current three-class checkpoint.');
   if (model.restart_required) warnings.push('Model files changed after this server loaded. Stop and restart the server to load the current weights.');
   $('model-status').textContent = !model.ready ? 'No trained model is loaded.' : warnings.length ? warnings.join(' ') : `Loaded gestures: ${(model.classes || []).map(name => name.replaceAll('_', ' ')).join(', ')}.`;
   if (warnings.length) { $('notice').textContent = warnings.join(' '); $('connection').textContent = '○ Model restart needed'; }
@@ -227,11 +227,11 @@ async function loadResults() {
     const correct = report => Math.round(report.accuracy * report.count);
     $('results-status').textContent = `${results.title} · checkpoint ${results.checkpoint_sha256.slice(0, 12)} · confidence threshold 80%`;
     $('result-epochs').textContent = `${training.epochs} epochs`;
-    $('result-training-count').textContent = `${training.image_count} training files · ${training.background_photos} background photos`;
+    $('result-training-count').textContent = `${training.image_count} training files before class balancing`;
     $('result-validation').textContent = `${correct(metrics.validation)} / ${metrics.validation.count}`;
     $('result-regression').textContent = `${correct(metrics.regression)} / ${metrics.regression.count}`;
-    $('result-training-fit').textContent = `${fit.accepted_correct} / ${fit.count}`;
-    $('result-summary').textContent = `Original validation views: ${results.original_validation.correct}/${results.original_validation.count}. Expanded validation: ${(metrics.validation.accuracy * 100).toFixed(1)}% accepted correctly; ${(metrics.validation.raw_top1_accuracy * 100).toFixed(1)}% raw top-1. Webcam training: ${training.webcam_frames} crops from ${training.webcam_sessions} sessions, kept in training only.`;
+    $('result-training-fit').textContent = fit ? `${fit.accepted_correct} / ${fit.count}` : 'Not measured';
+    $('result-summary').textContent = results.summary || `Original validation views: ${results.original_validation.correct}/${results.original_validation.count}. Expanded validation: ${(metrics.validation.accuracy * 100).toFixed(1)}% accepted correctly; ${(metrics.validation.raw_top1_accuracy * 100).toFixed(1)}% raw top-1. Webcam training: ${training.webcam_frames} crops from ${training.webcam_sessions} sessions, kept in training only.`;
     $('checkpoint').textContent = `${results.checkpoint} · ${results.checkpoint_sha256.slice(0, 12)}`;
     const addRow = (id, values) => {
       const row = document.createElement('tr');
@@ -244,7 +244,7 @@ async function loadResults() {
       $(id).append(row);
     };
     $('dataset-results').replaceChildren(); $('class-results').replaceChildren();
-    for (const label of model.classes || ['closed_fist', 'open_palm', 'thumbs_up']) {
+    for (const label of results.classes || ['ok', 'open_palm', 'thumbs_up']) {
       const name = gestureLabels[label] || label.replaceAll('_', ' ');
       addRow('dataset-results', [name, ...['train', 'val', 'test'].map(split => training.splits[split][label])]);
       const scores = metrics.regression.classification_report[label];
@@ -255,6 +255,7 @@ async function loadResults() {
       ['result-confusion', 'confusion-link', 'validation-confusion'],
       ['result-crops', null, 'training-crops'],
     ]) {
+      if (!results.assets[asset]) { $(image).closest('details, figure').hidden = true; continue; }
       $(image).src = `${results.assets[asset]}?checkpoint=${results.checkpoint_sha256.slice(0, 12)}`;
       if (link) $(link).href = $(image).src;
     }
@@ -268,7 +269,7 @@ loadResults();
 
 $('save-example').onclick = async () => {
   const label = $('example-label').value;
-  if (!['closed_fist','thumbs_up','open_palm','ok','like'].includes(label)) {
+  if (!['ok','thumbs_up','open_palm'].includes(label)) {
     error('Choose the actual gesture before saving an example.'); return;
   }
   const video = $('video');

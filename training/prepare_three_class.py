@@ -7,7 +7,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from PIL import Image, ImageOps
-from app.core.gestures import CLASSES
+CLASSES = ('closed_fist', 'open_palm', 'thumbs_up')  # Historical dataset schema.
 from training.prepare_dataset import fingerprint
 
 

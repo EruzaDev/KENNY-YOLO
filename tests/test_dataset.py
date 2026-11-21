@@ -9,14 +9,20 @@ from training.prepare_dataset import CLASSES, audit, fingerprint, prepare
 
 class DatasetTests(unittest.TestCase):
     def test_class_mapping(self):
-        self.assertEqual(CLASSES, ('open_palm', 'thumbs_up'))
+        self.assertEqual(CLASSES, ('ok', 'open_palm', 'thumbs_up'))
 
     def test_saved_dataset_integrity_and_leakage(self):
-        manifest = Path('data/processed/manifest.json')
+        manifest = Path('data/ok_gestures_inherited/manifest.json')
         if not manifest.exists():
             self.skipTest('Prepare supplied dataset first.')
         report = json.loads(manifest.read_text())
         records = report['manifest']
+        if report.get('inherited_split_manifest'):
+            previous = json.loads(Path(report['inherited_split_manifest']).read_text())
+            previous_splits = {r['sha256']: r['split'] for r in previous['manifest']}
+            current_splits = {r['sha256']: r['split'] for r in records}
+            self.assertTrue(previous_splits)
+            self.assertTrue(all(current_splits[sha] == split for sha, split in previous_splits.items()))
         self.assertEqual(len(records), len({r['sha256'] for r in records}))
         groups = {}
         for record in records:

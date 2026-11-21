@@ -21,17 +21,19 @@ def main():
     import ultralytics
     from ultralytics import YOLO
     from training.transforms import GestureTrainer, BackgroundGestureTrainer, BalancedBackgroundGestureTrainer, ResolutionBalancedTrainer, StableBackbonePalmTrainer, FistThumbTrainer, PhotoBackgroundTrainer
+    from training.camera_crops import CameraCropTrainer
 
     config = yaml.safe_load(args.config.read_text())
     profile = config.pop('augmentation_profile', 'standard')
-    if profile not in {'standard', 'background', 'background_balanced', 'background_balanced_resolution', 'background_balanced_stable_backbone', 'background_balanced_fist_thumb', 'background_balanced_photos'}:
+    if profile not in {'standard', 'background', 'background_balanced', 'background_balanced_resolution', 'background_balanced_stable_backbone', 'background_balanced_fist_thumb', 'background_balanced_photos', 'balanced_camera_crops'}:
         raise ValueError('Unknown augmentation profile.')
     trainer = {'standard':GestureTrainer, 'background':BackgroundGestureTrainer,
                'background_balanced':BalancedBackgroundGestureTrainer,
                'background_balanced_resolution':ResolutionBalancedTrainer,
                'background_balanced_stable_backbone':StableBackbonePalmTrainer,
                 'background_balanced_fist_thumb':FistThumbTrainer,
-                'background_balanced_photos':PhotoBackgroundTrainer}[profile]
+                'background_balanced_photos':PhotoBackgroundTrainer,
+                'balanced_camera_crops':CameraCropTrainer}[profile]
     # Resolve against this checkout, independently of pretrained checkpoint settings.
     config['project'] = str(Path(config['project']).resolve())
     config['data'] = str(Path(config['data']).resolve())
@@ -71,7 +73,9 @@ def main():
     manifest = Path(actual_config['data']) / 'manifest.json'
     metadata = dict(task='classify', architecture=architecture, source=str(best),
                     transferred_class_rows=getattr(model.trainer, 'transferred_classes', []),
-                    class_balancing='training-only oversampling to equal class counts' if profile.startswith('background_balanced') else None,
+                    class_balancing=('inverse-frequency sampling, 384 draws per epoch; macro recall validation fitness'
+                                     if profile == 'balanced_camera_crops' else
+                                     'training-only oversampling to equal class counts' if profile.startswith('background_balanced') else None),
                     initial_checkpoint_sha256=initial_hash, augmentation_profile=profile,
                     checkpoint_sha256=hashlib.sha256(best.read_bytes()).hexdigest(),
                     dataset_manifest_sha256=hashlib.sha256(manifest.read_bytes()).hexdigest(),
