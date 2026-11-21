@@ -85,9 +85,20 @@ The browser gate and the classifier are separate models: correcting the classifi
 ### Clone the repository
 
 ```powershell
-git clone https://github.com/johnpatrick1518/KENNY-YOLO.git
+git clone https://github.com/EruzaDev/KENNY-YOLO.git
 cd KENNY-YOLO
 ```
+
+### Configure your Git author identity
+
+Git commit authorship is determined by the name and email recorded in each commit. Set these once on your machine, replacing the email with an address verified on your GitHub account:
+
+```bash
+git config --global user.name "Your GitHub username"
+git config --global user.email "your-verified-email@example.com"
+```
+
+This sets the commit author identity; GitHub authentication for pushing is configured separately. Commits already created keep their recorded identity unless they are amended and pushed again.
 
 The current deployment files are:
 
