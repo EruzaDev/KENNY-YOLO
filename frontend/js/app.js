@@ -269,38 +269,34 @@ loadResults();
 
 $('save-example').onclick = async () => {
   const label = $('example-label').value;
+  const count = Math.min(20, Math.max(1, Number.parseInt($('example-count').value, 10) || 1));
+  $('example-count').value = String(count);
   if (!['ok','thumbs_up','open_palm'].includes(label)) {
     error('Choose the actual gesture before saving an example.'); return;
   }
   const video = $('video');
   if (!camera.stream || !video.videoWidth || !video.videoHeight) return;
-  // Match the saved example to the actual frame/decision most recently displayed.
-  const classified = camera.lastFrame;
-  if (classified?.image) {
-    const link = document.createElement('a');
-    link.download = `${label}__session_${classified.session}__${classified.capturedAt}__hand.jpg`;
-    link.href = `data:image/jpeg;base64,${classified.image}`;
-    link.click();
-    error('Saved the latest classified crop with your chosen label. Attach this JPEG when reporting a wrong prediction.');
-    return;
-  }
   const generation = camera.generation, session = camera.sessionId;
-  const snapshot = document.createElement('canvas');
-  snapshot.width = video.videoWidth; snapshot.height = video.videoHeight;
-  snapshot.getContext('2d').drawImage(video,0,0,snapshot.width,snapshot.height);
   $('save-example').disabled = true;
   try {
-    // Separate drawing buffer prevents capture from overwriting an in-flight camera crop.
     const captureGate = new HandGate();
     captureGate.detector = handGate.detector;
-    const hand = await captureGate.crop(snapshot);
-    if (generation !== camera.generation || !camera.stream) return;
-    const canvas = hand.image || snapshot;
-    const link = document.createElement('a');
-    link.download = `${label}__session_${session}__${Date.now()}__${hand.image ? 'hand' : 'full'}.jpg`;
-    link.href = canvas.toDataURL('image/jpeg',.95);
-    link.click();
-    error('Example downloaded locally. Keep the session ID with the image when sharing it for retraining.');
+    let saved = 0;
+    for (let index = 0; index < count; index++) {
+      if (index) await new Promise(resolve => setTimeout(resolve, 350));
+      if (generation !== camera.generation || !camera.stream) break;
+      const snapshot = document.createElement('canvas');
+      snapshot.width = video.videoWidth; snapshot.height = video.videoHeight;
+      snapshot.getContext('2d').drawImage(video, 0, 0, snapshot.width, snapshot.height);
+      const hand = await captureGate.crop(snapshot);
+      if (generation !== camera.generation || !camera.stream) break;
+      const canvas = hand.image || snapshot;
+      const link = document.createElement('a');
+      link.download = `${label}__session_${session}__${Date.now()}_${String(index + 1).padStart(2, '0')}__${hand.image ? 'hand' : 'full'}.jpg`;
+      link.href = canvas.toDataURL('image/jpeg', .95);
+      link.click(); saved++;
+    }
+    error(saved ? `Downloaded ${saved} of ${count} requested picture${count === 1 ? '' : 's'} locally.` : 'Camera stopped before any pictures were captured.');
   } catch (e) { error(e.message); }
   finally { $('save-example').disabled = !camera.stream; }
 };
