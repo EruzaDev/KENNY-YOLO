@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MODEL_PATH = Path(os.getenv('GESTURE_MODEL', str(ROOT / 'models/gesture_captures/best.pt')))
+MODEL_PATH = Path(os.getenv('GESTURE_MODEL', str(ROOT / 'models/gesture_captures_v2/best.pt')))
 DEVICE = os.getenv('GESTURE_DEVICE', 'cpu')
 MAX_BYTES = 5 * 1024 * 1024
 MAX_PIXELS = 16_000_000
