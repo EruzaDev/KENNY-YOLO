@@ -41,8 +41,8 @@ def model_info(request: Request):
                 task='classify', classes=detector.classes, checkpoint=detector.path.name,
                 device=detector.device, confidence=.8, metrics=metrics, error=detector.error,
                 validation_metrics=detector.metadata.get('validation_summary'),
-                gesture_functions={name: GESTURE_FUNCTIONS[name] for name in detector.classes},
-                gesture_labels={name: GESTURE_LABELS[name] for name in detector.classes},
+                gesture_functions={name: GESTURE_FUNCTIONS.get(name, '') for name in detector.classes},
+                gesture_labels={name: GESTURE_LABELS.get(name, name.replace('_', ' ').title()) for name in detector.classes},
                 robot_controls_enabled=False,
                 limitations='Browser hand-presence check + YOLO classification of one hand crop. '
                             'No negative training examples; real-scene accuracy is unverified.',

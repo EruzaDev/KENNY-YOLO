@@ -24,13 +24,14 @@ Local hand-gesture recognition with a camera/upload dashboard, an independent br
 ## Features
 
 - Live webcam recognition and JPEG/PNG image uploads.
-- Three supported gestures: **Closed Fist**, **Open Palm** and **Thumbs Up**.
+- Three supported gestures: **OK Sign**, **Open Palm** and **Like (thumbs up)**.
 - Camera selection, device refresh and switching between the integrated webcam and browser-accessible external cameras.
 - Support for the **Orbbec Astra RGB/color camera** when exposed as a standard browser camera.
 - A hand bounding box, gesture label and confidence displayed directly on the input image.
 - Adjustable confidence threshold, prediction stabilization and camera request frequency.
 - Independent hand-presence checks before gesture classification; no whole-frame fallback when the hand localizer is unavailable.
 - Downloadable, human-labeled camera examples for investigating mistakes.
+- A MediaPipe dataset creator at `/dataset-creator` for OK, open-palm and thumbs-up captures, saved with hand boxes and 21-joint JSON annotations.
 - A Results section with checkpoint-matched metrics, training curves, confusion matrix and dataset counts.
 - Organized background/webcam source images, including a hash-verified relocation catalog.
 - FastAPI backend, an optional local Starlette runner and a buildless HTML/CSS/JavaScript frontend.
@@ -91,8 +92,8 @@ cd KENNY-YOLO
 The current deployment files are:
 
 ```text
-models/webcam_fist/best.pt
-models/webcam_fist/metadata.json
+models/gesture_captures/best.pt
+models/gesture_captures/metadata.json
 ```
 
 Keep them together. The app verifies the checkpoint's SHA-256 against its paired metadata and refuses mismatched weights. Only load trusted checkpoint files.
@@ -129,7 +130,7 @@ For closer reproduction, install the tested Ultralytics version after the requir
 .\.venv\Scripts\python.exe -m pip install ultralytics==8.4.154
 ```
 
-The requirements are not a complete environment lock. Consult `models/webcam_fist/metadata.json` for recorded runtime versions, and rerun the tests after installing a different dependency set.
+The requirements are not a complete environment lock. Consult `models/gesture_captures/metadata.json` for the default model's recorded runtime versions, and rerun the checks after installing a different dependency set.
 
 ## Run the app
 
@@ -139,7 +140,7 @@ On this Windows machine:
 .\run.ps1
 ```
 
-Open **http://127.0.0.1:8001**. Refresh with **Ctrl+F5** after frontend updates. The default checkpoint is now `models/webcam_fist/best.pt`.
+Open **http://127.0.0.1:8000**. Refresh with **Ctrl+F5** after frontend updates. The default checkpoint is `models/gesture_captures/best.pt`.
 
 Or run:
 
@@ -168,7 +169,7 @@ On systems using Bash, `./run.sh --port 8001` selects an available project Pytho
 
 | Variable | Default | Purpose |
 | --- | --- | --- |
-| `GESTURE_MODEL` | `models/webcam_fist/best.pt` under the project root | Select a trusted classification checkpoint with matching metadata. |
+| `GESTURE_MODEL` | `models/gesture_captures/best.pt` under the project root | Select a trusted classification checkpoint with matching metadata. |
 | `GESTURE_DEVICE` | `cpu` | Select inference hardware; a CUDA device requires a compatible installation. |
 | `OMP_NUM_THREADS` | Set to 4 by the Windows launcher if unset | Limit CPU thread usage. |
 | `MKL_NUM_THREADS` | Set to 4 by the Windows launcher if unset | Limit MKL CPU threads. |
@@ -176,7 +177,7 @@ On systems using Bash, `./run.sh --port 8001` selects an available project Pytho
 Example:
 
 ```powershell
-$env:GESTURE_MODEL = 'models/webcam_fist/best.pt'
+$env:GESTURE_MODEL = 'models/gesture_captures/best.pt'
 $env:GESTURE_DEVICE = 'cpu'
 py -3.11 -m uvicorn app.main:app --host 127.0.0.1 --port 8001
 ```
@@ -249,6 +250,22 @@ Detection mAP at IoU thresholds is not applicable: this checkpoint does not pred
 ![Hand-focused training examples](outputs/webcam_fist/crop_preview.jpg)
 
 ## Camera and upload controls
+
+### Create a gesture dataset
+
+Open `http://127.0.0.1:8000/dataset-creator`, choose **OK sign**, **Open palm** or **Like (thumbs up)**, set the desired capture count, then press **Start camera**. Allow camera access and hold the selected gesture in view. MediaPipe saves matching clean JPEGs at up to three per second under `data/dataset_creator/<gesture>/`; each image has a matching JSON file containing the normalized bounding box and all 21 normalized landmarks. The live preview shows joint connections and the box. Stop ends capture early. The browser MediaPipe model assets need internet access the first time.
+
+### Train the captured gestures
+
+The default model in `models/gesture_captures/` was trained from the captured OK, Open Palm and Like images. To prepare new captures and retrain, run:
+
+```bash
+python -m training.prepare_gesture_capture_dataset
+python -m training.train --config configs/gesture_captures.yaml --output-dir models/gesture_captures
+python -m training.evaluate_gesture_captures
+```
+
+Preparation crops the hand using the saved MediaPipe box and splits each capture session chronologically (70% train, 15% validation, 15% test) to keep adjacent frames together. The current test result is 447/451 correct (99.1%) on later frames from those same capture sessions. It does not establish performance on new people, cameras, rooms or lighting. Restart the app after replacing the checkpoint so it loads the new default model.
 
 1. Select **Live camera**.
 2. Click **Refresh cameras** and allow browser camera access.

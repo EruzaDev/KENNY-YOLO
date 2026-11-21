@@ -1,9 +1,35 @@
 """FastAPI validation and routing over the shared inference handlers."""
-from fastapi import APIRouter, File, Query, Request, UploadFile, WebSocket
+from fastapi import APIRouter, File, Form, Query, Request, UploadFile, WebSocket, HTTPException
+import json
+import time
+from app.core.config import ROOT
 from app.api import handlers
 from app.services import results
 
 router = APIRouter()
+
+
+@router.post('/dataset/capture')
+async def dataset_capture(image: UploadFile = File(...), label: str = Form(...),
+                          annotation: str = Form(...)):
+    """Persist one locally captured, MediaPipe-annotated dataset frame."""
+    if label not in {'ok', 'open_palm', 'like'}:
+        raise HTTPException(400, 'Unsupported dataset label')
+    data = await image.read()
+    if not data or len(data) > 5 * 1024 * 1024:
+        raise HTTPException(400, 'Image must be between 1 byte and 5 MB')
+    try:
+        details = json.loads(annotation)
+    except (ValueError, TypeError):
+        raise HTTPException(400, 'Invalid annotation JSON')
+    if not isinstance(details, dict) or len(details.get('landmarks', [])) != 21:
+        raise HTTPException(400, 'Expected 21 hand landmarks')
+    folder = ROOT / 'data' / 'dataset_creator' / label
+    folder.mkdir(parents=True, exist_ok=True)
+    stem = f'{label}_{time.time_ns()}'
+    (folder / f'{stem}.jpg').write_bytes(data)
+    (folder / f'{stem}.json').write_text(json.dumps(details, separators=(',', ':')))
+    return {'saved': True, 'label': label, 'filename': f'{stem}.jpg'}
 
 
 @router.get('/health')

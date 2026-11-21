@@ -41,7 +41,7 @@ function display(result, fps = null) {
   const prediction = name && result.predictions.find(p => p.class_name === name);
   const label = name ? prediction?.display_name || gestureLabels[name] || name.replaceAll('_', ' ') : 'No gesture detected';
   $('gesture').textContent = label;
-  $('prediction-icon').textContent = ({open_palm: '✋', thumbs_up: '👍', closed_fist: '✊'})[name] || '↗';
+  $('prediction-icon').textContent = ({open_palm: '✋', thumbs_up: '👍', closed_fist: '✊', ok: '👌', like: '👍'})[name] || '↗';
   $('confidence-bar').style.width = prediction ? `${prediction.confidence * 100}%` : '0%';
   const gestureFunction = prediction?.function || gestureFunctions[name];
   $('function').textContent = name && gestureFunction ? `Function: ${gestureFunction} (display only)` : 'Function: —';
@@ -220,7 +220,7 @@ async function loadResults() {
       $(id).append(row);
     };
     $('dataset-results').replaceChildren(); $('class-results').replaceChildren();
-    for (const label of ['closed_fist', 'open_palm', 'thumbs_up']) {
+    for (const label of model.classes || ['closed_fist', 'open_palm', 'thumbs_up']) {
       const name = gestureLabels[label] || label.replaceAll('_', ' ');
       addRow('dataset-results', [name, ...['train', 'val', 'test'].map(split => training.splits[split][label])]);
       const scores = metrics.regression.classification_report[label];
@@ -244,7 +244,7 @@ loadResults();
 
 $('save-example').onclick = async () => {
   const label = $('example-label').value;
-  if (!['closed_fist','thumbs_up','open_palm'].includes(label)) {
+  if (!['closed_fist','thumbs_up','open_palm','ok','like'].includes(label)) {
     error('Choose the actual gesture before saving an example.'); return;
   }
   const video = $('video');

@@ -18,3 +18,7 @@ data/webcam_fist/
 /Ultralytics/
 !models/photo_backgrounds/best.pt
 !models/webcam_fist/best.pt
+!models/gesture_captures/best.pt
+data/dataset_creator/
+data/gesture_captures/
+/yolo11n-cls.pt
