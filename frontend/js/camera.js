@@ -38,6 +38,7 @@ export class Camera {
             ? this.handGate.filterResult(classified, this.pendingFrame?.okEvidence) : classified;
           const result = {...checked,
             hand_box: this.pendingFrame?.hand_box || null,
+            landmarks: this.pendingFrame?.landmarks || null,
             source_width: this.pendingFrame?.source_width,
             source_height: this.pendingFrame?.source_height};
           if (result.error) throw new Error(result.error);
@@ -83,11 +84,14 @@ export class Camera {
       if (generation !== this.generation || this.socket?.readyState !== WebSocket.OPEN) return;
       const {confidence, smoothing, thumbGuard} = this.settings();
       const message = frame.image
-        ? {image: frame.image.toDataURL('image/jpeg', .9).split(',')[1], confidence, smoothing, pose_hint: thumbGuard ? frame.thumbEvidence || 'unknown' : 'unknown'}
+        ? {image: frame.image.toDataURL('image/jpeg', .9).split(',')[1], confidence, smoothing,
+          pose_hint: thumbGuard ? frame.thumbEvidence || 'unknown' : 'unknown',
+          gesture_hint: frame.gestureHint || 'unknown'}
         : {type: 'no_hand', confidence, smoothing, reason: frame.reason};
       this.pendingFrame = {...message, session: this.sessionId, capturedAt: Date.now(),
         okEvidence: frame.okEvidence || 'unknown',
         hand_box: frame.image ? frame.box : null,
+        landmarks: frame.image ? frame.landmarks : null,
         source_width: this.video.videoWidth, source_height: this.video.videoHeight};
       this.socket.send(JSON.stringify(message));
       this.timeout = setTimeout(() => { this.onError('Inference timed out. Check the backend.'); this.stop(); }, 30000);

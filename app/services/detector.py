@@ -6,7 +6,7 @@ import time
 from pathlib import Path
 
 from PIL import Image, ImageOps
-from app.core.gestures import CLASSES, LEGACY_CLASSES, GESTURE_FUNCTIONS, GESTURE_LABELS
+from app.core.gestures import CLASSES, LEGACY_CLASSES, CAPTURE_CLASSES, GESTURE_FUNCTIONS, GESTURE_LABELS
 
 
 
@@ -33,7 +33,7 @@ class Detector:
         from ultralytics import YOLO
         model = YOLO(str(self.path))
         names = [model.names[k] for k in sorted(model.names)]
-        if model.task != 'classify' or tuple(names) not in {CLASSES, LEGACY_CLASSES}:
+        if model.task != 'classify' or tuple(names) not in {CLASSES, LEGACY_CLASSES, CAPTURE_CLASSES}:
             raise ValueError('Checkpoint has an unsupported gesture class mapping.')
         declared = metadata['classes']
         declared_names = [declared[str(i)] if str(i) in declared else declared[i] for i in range(len(declared))]
@@ -52,10 +52,11 @@ class Detector:
             disk_hash = hashlib.sha256(self.path.read_bytes()).hexdigest()
         except OSError:
             pass
+        expected = CAPTURE_CLASSES if tuple(self.classes) == CAPTURE_CLASSES else CLASSES
         return dict(checkpoint_sha256=loaded_hash,
                     checkpoint_on_disk_sha256=disk_hash,
                     restart_required=bool(self.model is not None and loaded_hash != disk_hash),
-                    missing_classes=[name for name in CLASSES if name not in self.classes])
+                    missing_classes=[name for name in expected if name not in self.classes])
 
     def predict(self, image: Image.Image, confidence: float = .8) -> dict:
         if not 0 <= confidence <= 1:
@@ -81,7 +82,7 @@ class Detector:
             result = self.model.predict(tensor, device=self.device, imgsz=self.image_size, verbose=False)[0]
         scores = {name: float(result.probs.data[i].item()) for i, name in enumerate(self.classes)}
         name = max(scores, key=scores.get)
-        predictions = ([dict(class_name=name, display_name=GESTURE_LABELS[name], function=GESTURE_FUNCTIONS[name], confidence=scores[name], bbox=None)]
+        predictions = ([dict(class_name=name, display_name=GESTURE_LABELS.get(name, name.replace('_', ' ').title()), function=GESTURE_FUNCTIONS.get(name, ''), confidence=scores[name], bbox=None)]
                        if scores[name] >= confidence else [])
         return dict(task='classify', predictions=predictions, scores=scores,
                     message=name if predictions else 'No gesture detected',

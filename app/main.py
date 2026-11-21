@@ -19,3 +19,8 @@ app.mount('/static', StaticFiles(directory=ROOT / 'frontend'), name='static')
 @app.get('/', include_in_schema=False)
 def index():
     return FileResponse(ROOT / 'frontend/index.html')
+
+
+@app.get('/dataset-creator', include_in_schema=False)
+def dataset_creator():
+    return FileResponse(ROOT / 'frontend/dataset-creator.html')

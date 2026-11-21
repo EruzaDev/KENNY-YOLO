@@ -1,5 +1,6 @@
 """Per-connection stabilization with immediate abstention on weak evidence."""
 from collections import deque
+from app.core.gestures import CAPTURE_CLASSES, GESTURE_FUNCTIONS, GESTURE_LABELS
 
 
 class Stabilizer:
@@ -37,3 +38,23 @@ def check_thumb_evidence(result: dict, pose_hint: str = 'unknown') -> dict:
         return result
     return dict(result, predictions=[], message='No gesture detected',
                 rejection_reason='Thumb position conflicts with the gesture score. Hold the pose clearly.')
+
+
+def check_gesture_evidence(result: dict, gesture_hint: str = 'unknown') -> dict:
+    """Use a clear 21-joint pose to confirm or correct the image-model label."""
+    if gesture_hint not in {'unknown', *CAPTURE_CLASSES}:
+        raise ValueError('Invalid MediaPipe gesture evidence.')
+    if gesture_hint == 'unknown' or not result.get('scores'):
+        return result
+    predicted = max(result['scores'], key=result['scores'].get)
+    if predicted not in CAPTURE_CLASSES:
+        return result
+    confidence = result['scores'].get(gesture_hint, 0.0)
+    prediction = dict(class_name=gesture_hint,
+                      display_name=GESTURE_LABELS.get(gesture_hint, gesture_hint),
+                      function=GESTURE_FUNCTIONS.get(gesture_hint, ''),
+                      confidence=confidence, bbox=None)
+    return dict(result, predictions=[prediction], joint_verified=True,
+                joint_corrected=predicted != gesture_hint,
+                joint_gesture=gesture_hint, model_top_class=predicted,
+                model_top_confidence=result['scores'][predicted])

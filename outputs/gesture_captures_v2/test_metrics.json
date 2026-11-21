@@ -1,0 +1,56 @@
+{
+  "task": "classify",
+  "split": "test",
+  "checkpoint_sha256": "d2274838e8ccc21363fb75baa7e8673952f1d29ee1a1411b786824a9f45df9c5",
+  "confidence": 0,
+  "count": 452,
+  "accuracy": 0.9889380530973452,
+  "raw_top1_accuracy": 0.9889380530973452,
+  "coverage": 1.0,
+  "classification_report": {
+    "like": {
+      "precision": 0.9933774834437086,
+      "recall": 0.9933774834437086,
+      "f1-score": 0.9933774834437086,
+      "support": 151
+    },
+    "ok": {
+      "precision": 0.9933333333333333,
+      "recall": 0.9867549668874173,
+      "f1-score": 0.9900332225913622,
+      "support": 151
+    },
+    "open_palm": {
+      "precision": 0.9801324503311258,
+      "recall": 0.9866666666666667,
+      "f1-score": 0.983388704318937,
+      "support": 150
+    }
+  },
+  "confusion_matrix": [
+    [
+      150,
+      0,
+      1
+    ],
+    [
+      0,
+      149,
+      2
+    ],
+    [
+      1,
+      1,
+      148
+    ]
+  ],
+  "labels": [
+    "like",
+    "ok",
+    "open_palm"
+  ],
+  "limitations": [
+    "Chronological test frames come from the same single-person gesture capture sessions as training.",
+    "This does not measure accuracy on new people, cameras, rooms, or lighting."
+  ]
+}
