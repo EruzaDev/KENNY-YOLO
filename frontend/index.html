@@ -48,7 +48,7 @@
           <div id="upload-actions" hidden><label class="primary file-label" tabindex="0" role="button">Choose image<input id="upload" type="file" accept="image/jpeg,image/png" hidden></label><button id="reset">Reset</button><small>JPEG / PNG · max 5 MB</small></div>
           <span id="timing">— ms · — FPS</span>
         </div>
-        <details class="capture-details"><summary>Collect a labeled example <span>OPTIONAL ↗</span></summary><div id="example-actions" class="example-capture"><label for="example-label">Actual gesture<select id="example-label"><option value="">Choose a gesture</option><option value="ok">OK</option><option value="thumbs_up">Thumbs Up</option><option value="open_palm">Open Palm</option></select></label><button id="save-example" disabled>Download labeled frame</button><small>Saves the latest classified crop, or the current frame if none was classified. Nothing is uploaded or trained automatically.</small></div></details>
+        <details class="capture-details"><summary>Collect labeled examples <span>OPTIONAL ↗</span></summary><div id="example-actions" class="example-capture"><label for="example-label">Actual gesture<select id="example-label"><option value="">Choose a gesture</option><option value="ok">OK</option><option value="thumbs_up">Thumbs Up</option><option value="open_palm">Open Palm</option></select></label><label for="example-count">Pictures<input id="example-count" type="number" min="1" max="20" value="1"></label><button id="save-example" disabled>Download pictures</button><small>Captures the selected number of hand crops from the live camera. Nothing is uploaded or trained automatically.</small></div></details>
         <p id="error" role="alert"></p>
       </section>
 
@@ -111,6 +111,6 @@
     </section>
     <footer><a href="/" class="footer-brand">kenny<span> / VISION LAB</span></a><span>Made for curiosity. Grounded in evidence.</span><span class="footer-local"><span class="status-dot"></span> RUNNING LOCALLY</span></footer>
   </main>
-  <script type="module" src="/static/js/app.js?v=12"></script>
+  <script type="module" src="/static/js/app.js?v=13"></script>
 </body>
 </html>
