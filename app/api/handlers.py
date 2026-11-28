@@ -43,7 +43,14 @@ def model_info(request: Request):
                 validation_metrics=detector.metadata.get('validation_summary'),
                 gesture_functions={name: GESTURE_FUNCTIONS.get(name, '') for name in detector.classes},
                 gesture_labels={name: GESTURE_LABELS.get(name, name.replace('_', ' ').title()) for name in detector.classes},
-                robot_controls_enabled=False,
+                robot_controls_enabled=getattr(request.app.state, 'servo', None) is not None,
+                servo={
+                    'connected': getattr(request.app.state, 'servo', None) is not None,
+                    'port': request.app.state.servo.port if getattr(request.app.state, 'servo', None) is not None else None,
+                    'angle': request.app.state.servo.current_angle if getattr(request.app.state, 'servo', None) is not None else None,
+                    'last_command': request.app.state.servo.last_command if getattr(request.app.state, 'servo', None) is not None else None,
+                    'last_ack': request.app.state.servo.last_ack if getattr(request.app.state, 'servo', None) is not None else None,
+                },
                 limitations='Browser hand-presence check + YOLO classification of one hand crop. '
                             'No negative training examples; real-scene accuracy is unverified.',
                 metrics_scope='Saved metrics evaluate the classifier on reserved dataset views, not the browser hand-gated pipeline.')
@@ -96,9 +103,18 @@ async def webcam(socket: WebSocket):
                 last = time.monotonic()
                 if payload.get('type') == 'no_hand':
                     stabilizer.reset()
+                    servo = getattr(socket.app.state, 'servo', None)
                     await socket.send_json(dict(task='classify', predictions=[], scores={},
                         stable_gesture=None, message='No gesture detected',
-                        rejection_reason=payload.get('reason', 'No hand detected'), latency_ms=0))
+                        rejection_reason=payload.get('reason', 'No hand detected'), latency_ms=0,
+                        servo={
+                            'connected': servo is not None,
+                            'port': servo.port if servo is not None else None,
+                            'angle': servo.current_angle if servo is not None else None,
+                            'command_sent': None,
+                            'last_command': servo.last_command if servo is not None else None,
+                            'last_ack': servo.last_ack if servo is not None else None,
+                        }))
                     continue
                 data = base64.b64decode(payload['image'], validate=True)
                 image = await run_in_threadpool(decode_image, data)
@@ -110,7 +126,25 @@ async def webcam(socket: WebSocket):
                     result = await run_in_threadpool(detector.predict, image, confidence)
                 result = check_thumb_evidence(result, payload.get('pose_hint', 'unknown'))
                 result = check_gesture_evidence(result, payload.get('gesture_hint', 'unknown'))
-                await socket.send_json(stabilizer.apply(result, window))
+                stabilized = stabilizer.apply(result, window)
+                servo = getattr(socket.app.state, 'servo', None)
+                mapper = getattr(socket.app.state, 'servo_mapper', None)
+                command_sent = None
+                if servo is not None and mapper is not None:
+                    angle = mapper.target_angle(stabilized.get('stable_gesture'))
+                    if angle is not None:
+                        changed = await run_in_threadpool(servo.set_angle, angle)
+                        if changed:
+                            command_sent = str(angle)
+                stabilized['servo'] = {
+                    'connected': servo is not None,
+                    'port': servo.port if servo is not None else None,
+                    'angle': servo.current_angle if servo is not None else None,
+                    'command_sent': command_sent,
+                    'last_command': servo.last_command if servo is not None else None,
+                    'last_ack': servo.last_ack if servo is not None else None,
+                }
+                await socket.send_json(stabilized)
             except (ValueError, KeyError, TypeError, binascii.Error) as exc:
                 await socket.send_json({'error': str(exc)})
     except (WebSocketDisconnect, asyncio.TimeoutError):

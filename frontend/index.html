@@ -61,7 +61,11 @@
           <div class="confidence-track" role="presentation"><div id="confidence-bar"></div></div>
           <p id="function">Function: —</p>
           <p id="class-scores" class="muted" aria-label="Classifier scores"></p>
-          <div class="prediction-footnote">Display only. No robot commands are sent.</div>
+          <div class="prediction-footnote" id="arduino-panel">
+            <div id="arduino-status">Arduino: checking connection…</div>
+            <div id="arduino-last" style="font-family: monospace; margin-top: 4px;">Last TX: —</div>
+            <pre id="arduino-log" style="font-family: monospace; font-size: 0.78rem; margin: 6px 0 0; max-height: 90px; overflow-y: auto; white-space: pre-wrap; opacity: 0.9;"></pre>
+          </div>
         </section>
         <section class="panel settings">
           <div class="card-heading"><h2>Fine-tune your session</h2><span aria-hidden="true">☷</span></div>
@@ -75,9 +79,9 @@
 
     <section class="gesture-guide" aria-label="Supported gestures">
       <div class="guide-intro"><p class="eyebrow">THE GESTURE LANGUAGE</p><h2>Three gestures.<br>One clear message.</h2></div>
-      <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">✋</span><div><h3>Open Palm</h3><p>STOP ROBOT</p></div><span class="gesture-number">01</span></div>
-      <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">👍</span><div><h3>Thumbs Up</h3><p>DONE / RESUME</p></div><span class="gesture-number">02</span></div>
-      <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">👌</span><div><h3>OK</h3><p>RETURN TO BASE</p></div><span class="gesture-number">03</span></div>
+      <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">✋</span><div><h3>Open Palm</h3><p>OPEN SERVO (60°)</p></div><span class="gesture-number">01</span></div>
+      <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">👍</span><div><h3>Like / Thumbs Up</h3><p>CLOSE SERVO (0°)</p></div><span class="gesture-number">02</span></div>
+      <div class="gesture-card"><span class="gesture-emoji" aria-hidden="true">👌</span><div><h3>OK</h3><p>HOLD POSITION</p></div><span class="gesture-number">03</span></div>
     </section>
 
     <section id="results" class="results-section" aria-label="Current model results">
@@ -111,6 +115,6 @@
     </section>
     <footer><a href="/" class="footer-brand">kenny<span> / VISION LAB</span></a><span>Made for curiosity. Grounded in evidence.</span><span class="footer-local"><span class="status-dot"></span> RUNNING LOCALLY</span></footer>
   </main>
-  <script type="module" src="/static/js/app.js?v=13"></script>
+  <script type="module" src="/static/js/app.js?v=14"></script>
 </body>
 </html>

@@ -46,10 +46,32 @@ if (globalThis.ResizeObserver) new ResizeObserver(renderHandOverlay).observe($('
 else window.addEventListener('resize', renderHandOverlay);
 $('preview').addEventListener('load', renderHandOverlay);
 
+const arduinoHistory = [];
+function updateArduino(servo) {
+  if (!servo || !$('arduino-status')) return;
+  if (servo.connected) {
+    const angle = servo.angle != null ? `${servo.angle}°` : '—';
+    $('arduino-status').textContent = `Arduino connected (${servo.port || 'serial'}) · Servo: ${angle}`;
+    const tx = servo.last_command != null ? `"${servo.last_command}\\n"` : '—';
+    const rx = servo.last_ack ? ` → RX: "${servo.last_ack}"` : '';
+    $('arduino-last').textContent = `Last TX: ${tx}${rx}`;
+    if (servo.command_sent != null) {
+      const now = new Date().toLocaleTimeString();
+      const ack = servo.last_ack ? ` → RX "${servo.last_ack}"` : '';
+      arduinoHistory.unshift(`${now}  TX "${servo.command_sent}\\n"${ack}`);
+      if (arduinoHistory.length > 6) arduinoHistory.pop();
+      $('arduino-log').textContent = arduinoHistory.join('\n');
+    }
+  } else {
+    $('arduino-status').textContent = 'Arduino: not connected';
+    $('arduino-last').textContent = 'Last TX: —';
+  }
+}
+
 function clearResult() {
   $('gesture').textContent = 'No gesture detected'; $('score').textContent = 'Waiting for an image';
   $('class-scores').textContent = '';
-  $('function').textContent = 'Function: —';
+  $('function').textContent = 'Action: —';
   $('prediction-icon').textContent = '↗';
   $('confidence-bar').style.width = '0%';
   $('overlay').hidden = true; $('timing').textContent = '— ms · — FPS';
@@ -63,10 +85,11 @@ function display(result, fps = null) {
   const prediction = name && result.predictions.find(p => p.class_name === name);
   const label = name ? prediction?.display_name || gestureLabels[name] || name.replaceAll('_', ' ') : 'No gesture detected';
   $('gesture').textContent = label;
-  $('prediction-icon').textContent = ({open_palm: '✋', thumbs_up: '👍', ok: '👌'})[name] || '↗';
+  $('prediction-icon').textContent = ({open_palm: '✋', like: '👍', thumbs_up: '👍', ok: '👌'})[name] || '↗';
   $('confidence-bar').style.width = prediction ? `${prediction.confidence * 100}%` : '0%';
   const gestureFunction = prediction?.function || gestureFunctions[name];
-  $('function').textContent = name && gestureFunction ? `Function: ${gestureFunction} (display only)` : 'Function: —';
+  $('function').textContent = name && gestureFunction ? `Action: ${gestureFunction}` : 'Action: —';
+  updateArduino(result.servo);
   $('score').textContent = result.joint_verified
     ? `${result.joint_corrected ? 'Joint check corrected the image model' : 'Joint check confirms the image model'} · ${gestureLabels[result.joint_gesture] || result.joint_gesture}; image model favored ${gestureLabels[result.model_top_class] || result.model_top_class} (${(result.model_top_confidence * 100).toFixed(1)}%)`
     : prediction ? `${(prediction.confidence * 100).toFixed(1)}% confidence · hand crop` : result.rejection_reason || 'Waiting for a stable prediction above threshold';
@@ -202,6 +225,7 @@ try {
   loadedCheckpoint = model.checkpoint_sha256;
   gestureFunctions = model.gesture_functions || {};
   gestureLabels = model.gesture_labels || {};
+  updateArduino(model.servo);
   $('connection').textContent = ready ? '● Model ready' : '○ Model unavailable';
   $('notice').textContent = ready ? model.limitations : model.error || 'Train the model before running recognition.';
   $('architecture').textContent = model.architecture || 'YOLOv8n-cls (planned)';
